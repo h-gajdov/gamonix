@@ -1,4 +1,5 @@
 import pygame
+import random 
 from colors import *
 from triangle import *
 from options import *
@@ -10,6 +11,11 @@ pygame.display.set_caption("Gamonix")
 
 initialize_board_array()
 tris = initialize_triangles_array()
+
+def roll_dice():
+    dice1 = random.randint(1, 6)
+    dice2 = random.randint(1, 6)
+    return (dice1, dice2)
 
 def draw_off_pieces(count, taken_y, color, mult = 1):
     while count > 0:
@@ -23,12 +29,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        # if event.type == pygame.KEYDOWN:
-        #     if event.key == pygame.K_UP and number_of_dark_pieces_off < 15: number_of_dark_pieces_off+=1
-        #     elif event.key == pygame.K_DOWN and number_of_dark_pieces_off > 0: number_of_dark_pieces_off-=1
 
-        #     if event.key == pygame.K_w and number_of_light_pieces_off < 15: number_of_light_pieces_off+=1
-        #     elif event.key == pygame.K_s and number_of_light_pieces_off > 0: number_of_light_pieces_off-=1
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_d: print(roll_dice())
 
     screen.fill(BOARD_BACKGROUND)
     
