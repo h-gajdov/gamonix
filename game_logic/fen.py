@@ -9,7 +9,9 @@ def convert_fen_to_board(fen):
         mult = -1 if entry[-1] == 'B' else 1
         board[position] = mult * number
 
-    return board
+    light_off = int(info[26])
+    dark_off = int(info[27])
+    return board, light_off, dark_off
     
 def convert_state_to_fen():
     pass
