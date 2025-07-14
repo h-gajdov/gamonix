@@ -2,7 +2,7 @@ import pygame
 import math
 from options import *
 from colors import *
-from game_logic.board import *
+from game_logic.board import get_board
 
 def initialize_triangles_array():
     tris = []
@@ -24,6 +24,7 @@ def initialize_triangles_array():
         tris.append(tri)
         
     for idx, tri in enumerate(tris):
+        board = get_board()
         n = math.fabs(board[idx])
         tri.pieceColor = LIGHT_PIECE if board[idx] > 0 else DARK_PIECE
         tri.numberOfPieces = n
