@@ -15,7 +15,7 @@ initialize_board_array()
 layer.intialize_layers()
 tris = initialize_triangles_array()
 prev_selected_tri = None
-can_move_to = None
+can_move_to_tris = []
 off_pieces = get_off_pieces()
 
 dice1_text = pygame.font.Font(None, 36)
@@ -56,14 +56,20 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             clicked_tri = get_clicked_triangle(event.pos)
             if clicked_tri: 
-                if clicked_tri == can_move_to:
-                    can_move_to.numberOfPieces += 1
-                    prev_selected_tri.numberOfPieces -= 1
-                    prev_selected_tri = can_move_to = None
+                if clicked_tri in can_move_to_tris:
+                    pass
+                    # can_move_to.numberOfPieces += 1
+                    # prev_selected_tri.numberOfPieces -= 1
+                    # prev_selected_tri = can_move_to = None
                 else:
                     prev_selected_tri = clicked_tri
-                    idx = 2 + tris.index(prev_selected_tri)
-                    can_move_to = tris[idx] if idx < 24 else None
+                    idx1 = dice_values[0] + tris.index(prev_selected_tri)
+                    idx2 = dice_values[1] + tris.index(prev_selected_tri)
+                    idx3 = dice_values[0] + dice_values[1] + tris.index(prev_selected_tri)
+                    can_move_to_tris.clear()
+                    if idx1 < 24: can_move_to_tris.append(tris[idx1])
+                    if idx2 < 24: can_move_to_tris.append(tris[idx2])
+                    if idx3 < 24: can_move_to_tris.append(tris[idx3])
         
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
@@ -107,7 +113,7 @@ while running:
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
     
     if prev_selected_tri: prev_selected_tri.select()
-    if can_move_to: can_move_to.highlight()
+    for tri in can_move_to_tris: tri.highlight()
     
     layer.Layer.draw_layers(screen)
     pygame.display.flip()
