@@ -18,6 +18,11 @@ prev_selected_tri = None
 can_move_to = None
 off_pieces = get_off_pieces()
 
+dice1_text = pygame.font.Font(None, 36)
+dice2_text = pygame.font.Font(None, 36)
+
+dice_values = (1, 1)
+
 def roll_dice():
     dice1 = random.randint(1, 6)
     dice2 = random.randint(1, 6)
@@ -42,7 +47,7 @@ while running:
             running = False
 
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_d: print(roll_dice())
+            if event.key == pygame.K_d: dice_values = roll_dice()
             elif event.key == pygame.K_w and off_pieces['light'] < 15: off_pieces['light'] += 1
             elif event.key == pygame.K_s and off_pieces['light'] > 0: off_pieces['light'] -= 1
             elif event.key == pygame.K_UP and off_pieces['dark'] < 15: off_pieces['dark'] += 1
@@ -51,9 +56,14 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             clicked_tri = get_clicked_triangle(event.pos)
             if clicked_tri: 
-                prev_selected_tri = clicked_tri
-                idx = 2 + tris.index(prev_selected_tri)
-                can_move_to = tris[idx] if idx < 24 else None
+                if clicked_tri == can_move_to:
+                    can_move_to.numberOfPieces += 1
+                    prev_selected_tri.numberOfPieces -= 1
+                    prev_selected_tri = can_move_to = None
+                else:
+                    prev_selected_tri = clicked_tri
+                    idx = 2 + tris.index(prev_selected_tri)
+                    can_move_to = tris[idx] if idx < 24 else None
         
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
@@ -82,7 +92,20 @@ while running:
     taken_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT + (OFF_SECTION_HEIGHT - TAKEN_PIECE_HEIGHT + 1) - BOARD_HEIGHT
     draw_off_pieces(off_pieces['light'], BOARD_HEIGHT, LIGHT_PIECE) #Light pieces
     draw_off_pieces(off_pieces['dark'], taken_y, DARK_PIECE, -1) #Dark pieces
+    
+    #Draw dice UI
+    dice_size = 56
+    tmp_width = SCREEN_WIDTH - 2 * BOARD_WIDTH 
+    box1 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 - dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
+    box2 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 + dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
 
+    text_surface_1 = dice1_text.render(str(dice_values[0]), False, BLACK)
+    text_surface_2 = dice1_text.render(str(dice_values[1]), True, BLACK) 
+    text_rect_1 = text_surface_1.get_rect(center=box1.center)
+    text_rect_2 = text_surface_2.get_rect(center=box2.center)
+    layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
+    layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
+    
     if prev_selected_tri: prev_selected_tri.select()
     if can_move_to: can_move_to.highlight()
     
