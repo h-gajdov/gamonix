@@ -11,11 +11,17 @@ pygame.display.set_caption("Gamonix")
 
 initialize_board_array()
 tris = initialize_triangles_array()
+prev_selected_tri = None
 
 def roll_dice():
     dice1 = random.randint(1, 6)
     dice2 = random.randint(1, 6)
     return (dice1, dice2)
+
+def get_clicked_triangle(click_pos):
+    for tri in tris:
+        if tri.rect.collidepoint(click_pos): return tri
+    return None
 
 def draw_off_pieces(count, taken_y, color, mult = 1):
     while count > 0:
@@ -32,6 +38,11 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d: print(roll_dice())
+            
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            clicked_tri = get_clicked_triangle(event.pos)
+            if clicked_tri: 
+                prev_selected_tri = clicked_tri
 
     screen.fill(BOARD_BACKGROUND)
     
@@ -59,6 +70,8 @@ while running:
     draw_off_pieces(off_pieces['light'], BOARD_HEIGHT, LIGHT_PIECE) #Light pieces
     draw_off_pieces(off_pieces['dark'], taken_y, DARK_PIECE, -1) #Dark pieces
 
+    if prev_selected_tri: prev_selected_tri.select(screen)
+    
     pygame.display.flip()
 
 pygame.quit()

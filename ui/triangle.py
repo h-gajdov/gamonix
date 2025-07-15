@@ -41,6 +41,7 @@ class Triangle:
         self.isUpsideDown = isUpsideDown
         self.numberOfPieces = numberOfPieces
         self.pieceColor = pieceColor
+        self.selected = False
             
     def draw(self, screen):
         p1 = (self.x - self.width / 2, self.y)
@@ -48,7 +49,7 @@ class Triangle:
         
         tmp = self.height if not self.isUpsideDown else SCREEN_HEIGHT - self.height
         p3 = (self.x, tmp)
-        pygame.draw.polygon(screen, self.color, [p1, p2, p3])
+        self.rect = pygame.draw.polygon(screen, self.color, [p1, p2, p3])
         
         count = 0
         pieceX = self.x
@@ -59,3 +60,12 @@ class Triangle:
             pygame.draw.circle(screen, (0, 0, 0), (pieceX, pieceY), PIECE_RADIUS, width=1) #Border
             pieceY += mult * 2 * PIECE_RADIUS
             count += 1
+            
+    def select(self, screen):
+        pieceX = self.x
+        mult = -1 if self.isUpsideDown else 1
+        pieceY = self.y + mult * PIECE_RADIUS + (self.numberOfPieces - 1) * mult * 2 * PIECE_RADIUS
+        
+        transparent_surface = pygame.Surface((pieceX, pieceY), pygame.SRCALPHA)
+        pygame.draw.circle(transparent_surface, (0, 255, 0, 128), (PIECE_RADIUS, PIECE_RADIUS), PIECE_RADIUS)
+        screen.blit(transparent_surface, (pieceX - PIECE_RADIUS, pieceY - PIECE_RADIUS))
