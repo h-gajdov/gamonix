@@ -2,6 +2,7 @@ import pygame
 import math
 from options import *
 from colors import *
+from shapes import *
 from game_logic.board import get_board
 
 def initialize_triangles_array():
@@ -42,30 +43,32 @@ class Triangle:
         self.numberOfPieces = numberOfPieces
         self.pieceColor = pieceColor
         self.selected = False
+        self._highlighted = False
             
-    def draw(self, screen):
+    def draw(self, screen, transparent_surface):
         p1 = (self.x - self.width / 2, self.y)
         p2 = (self.x + self.width / 2, self.y)
         
         tmp = self.height if not self.isUpsideDown else SCREEN_HEIGHT - self.height
         p3 = (self.x, tmp)
-        self.rect = pygame.draw.polygon(screen, self.color, [p1, p2, p3])
+        if self._highlighted: draw_transparent_polygon(transparent_surface, (0, 255, 0, 128), [p1, p2, p3])
+        self.rect = draw_polygon(screen, self.color, [p1, p2, p3])
         
         count = 0
         pieceX = self.x
         mult = -1 if self.isUpsideDown else 1
         pieceY = self.y + mult * PIECE_RADIUS
         while count < self.numberOfPieces:
-            pygame.draw.circle(screen, self.pieceColor, (pieceX, pieceY), PIECE_RADIUS)
-            pygame.draw.circle(screen, (0, 0, 0), (pieceX, pieceY), PIECE_RADIUS, width=1) #Border
+            draw_circle(screen, self.pieceColor, pieceX, pieceY, PIECE_RADIUS, 1)
             pieceY += mult * 2 * PIECE_RADIUS
             count += 1
             
-    def select(self, screen):
+    def select(self, transparent_surface):
         pieceX = self.x
         mult = -1 if self.isUpsideDown else 1
         pieceY = self.y + mult * PIECE_RADIUS + (self.numberOfPieces - 1) * mult * 2 * PIECE_RADIUS
         
-        transparent_surface = pygame.Surface((pieceX, pieceY), pygame.SRCALPHA)
-        pygame.draw.circle(transparent_surface, (0, 255, 0, 128), (PIECE_RADIUS, PIECE_RADIUS), PIECE_RADIUS)
-        screen.blit(transparent_surface, (pieceX - PIECE_RADIUS, pieceY - PIECE_RADIUS))
+        draw_transparent_circle(transparent_surface, (0, 255, 0, 128), pieceX, pieceY, PIECE_RADIUS)        
+        
+    def highlight(self):
+        self._highlighted = True

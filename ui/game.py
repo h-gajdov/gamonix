@@ -7,11 +7,13 @@ from game_logic.board import initialize_board_array, get_off_pieces
 
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+transparent_surface = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
 pygame.display.set_caption("Gamonix")
 
 initialize_board_array()
 tris = initialize_triangles_array()
 prev_selected_tri = None
+can_move_to = None
 
 def roll_dice():
     dice1 = random.randint(1, 6)
@@ -43,11 +45,14 @@ while running:
             clicked_tri = get_clicked_triangle(event.pos)
             if clicked_tri: 
                 prev_selected_tri = clicked_tri
+                idx = 2 + tris.index(prev_selected_tri)
+                can_move_to = tris[idx] if idx < 24 else None
 
     screen.fill(BOARD_BACKGROUND)
+    transparent_surface.fill((0, 0, 0, 0))
     
     #Triangles
-    for tri in tris: tri.draw(screen)
+    for tri in tris: tri.draw(screen, transparent_surface)
     
     #Borders
     pygame.draw.rect(screen, BOARD_BORDER, (0, 0, SCREEN_WIDTH, BOARD_HEIGHT))
@@ -70,8 +75,11 @@ while running:
     draw_off_pieces(off_pieces['light'], BOARD_HEIGHT, LIGHT_PIECE) #Light pieces
     draw_off_pieces(off_pieces['dark'], taken_y, DARK_PIECE, -1) #Dark pieces
 
-    if prev_selected_tri: prev_selected_tri.select(screen)
-    
+    if prev_selected_tri:
+        prev_selected_tri.select(transparent_surface)
+        can_move_to.highlight()
+        
+    screen.blit(transparent_surface, (0, 0)) 
     pygame.display.flip()
 
 pygame.quit()
