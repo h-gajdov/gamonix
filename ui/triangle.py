@@ -1,9 +1,10 @@
-import pygame
 import math
+import layer
 from options import *
 from colors import *
 from shapes import *
 from game_logic.board import get_board
+# from game import background_board_layer, game_board_layer, pieces_layer
 
 def initialize_triangles_array():
     tris = []
@@ -43,32 +44,35 @@ class Triangle:
         self.numberOfPieces = numberOfPieces
         self.pieceColor = pieceColor
         self.selected = False
-        self._highlighted = False
             
-    def draw(self, screen, transparent_surface):
+    def draw(self):
         p1 = (self.x - self.width / 2, self.y)
         p2 = (self.x + self.width / 2, self.y)
         
         tmp = self.height if not self.isUpsideDown else SCREEN_HEIGHT - self.height
         p3 = (self.x, tmp)
-        if self._highlighted: draw_transparent_polygon(transparent_surface, (0, 255, 0, 128), [p1, p2, p3])
-        self.rect = draw_polygon(screen, self.color, [p1, p2, p3])
+        self.rect = draw_polygon(layer.game_board_layer, self.color, [p1, p2, p3])
         
         count = 0
         pieceX = self.x
         mult = -1 if self.isUpsideDown else 1
         pieceY = self.y + mult * PIECE_RADIUS
         while count < self.numberOfPieces:
-            draw_circle(screen, self.pieceColor, pieceX, pieceY, PIECE_RADIUS, 1)
+            draw_circle(layer.pieces_layer, self.pieceColor, pieceX, pieceY, PIECE_RADIUS, 1)
             pieceY += mult * 2 * PIECE_RADIUS
             count += 1
             
-    def select(self, transparent_surface):
+    def select(self):
         pieceX = self.x
         mult = -1 if self.isUpsideDown else 1
         pieceY = self.y + mult * PIECE_RADIUS + (self.numberOfPieces - 1) * mult * 2 * PIECE_RADIUS
         
-        draw_transparent_circle(transparent_surface, (0, 255, 0, 128), pieceX, pieceY, PIECE_RADIUS)        
+        draw_transparent_circle(layer.highlight_pieces_layer, (0, 255, 0, 128), pieceX, pieceY, PIECE_RADIUS)        
         
     def highlight(self):
-        self._highlighted = True
+        p1 = (self.x - self.width / 2, self.y)
+        p2 = (self.x + self.width / 2, self.y)
+        
+        tmp = self.height if not self.isUpsideDown else SCREEN_HEIGHT - self.height
+        p3 = (self.x, tmp)
+        draw_transparent_polygon(layer.triangle_highlight_layer, (0, 255, 0, 128), [p1, p2, p3])

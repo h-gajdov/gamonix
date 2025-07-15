@@ -4,6 +4,7 @@ from colors import *
 from triangle import *
 from options import *
 from game_logic.board import initialize_board_array, get_off_pieces
+import layer
 
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -11,9 +12,11 @@ transparent_surface = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCAL
 pygame.display.set_caption("Gamonix")
 
 initialize_board_array()
+layer.intialize_layers()
 tris = initialize_triangles_array()
 prev_selected_tri = None
 can_move_to = None
+off_pieces = get_off_pieces()
 
 def roll_dice():
     dice1 = random.randint(1, 6)
@@ -25,11 +28,11 @@ def get_clicked_triangle(click_pos):
         if tri.rect.collidepoint(click_pos): return tri
     return None
 
-def draw_off_pieces(count, taken_y, color, mult = 1):
+def draw_off_pieces(count, y, color, mult = 1):
     while count > 0:
-        pygame.draw.rect(screen, color, (SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH, taken_y, OFF_SECTION_WIDTH, TAKEN_PIECE_HEIGHT), border_radius=2)
-        pygame.draw.rect(screen, BLACK, (SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH, taken_y, OFF_SECTION_WIDTH, TAKEN_PIECE_HEIGHT), width=1, border_radius=2) #Border
-        taken_y += mult * TAKEN_PIECE_HEIGHT
+        x = SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH
+        draw_rect(layer.background_board_layer, color, x, y, TAKEN_PIECE_WIDTH, TAKEN_PIECE_HEIGHT, 1, 2)
+        y += mult * TAKEN_PIECE_HEIGHT
         count -= 1
 
 running = True
@@ -40,46 +43,50 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d: print(roll_dice())
-            
+            elif event.key == pygame.K_w and off_pieces['light'] < 15: off_pieces['light'] += 1
+            elif event.key == pygame.K_s and off_pieces['light'] > 0: off_pieces['light'] -= 1
+            elif event.key == pygame.K_UP and off_pieces['dark'] < 15: off_pieces['dark'] += 1
+            elif event.key == pygame.K_DOWN and off_pieces['dark'] > 0: off_pieces['dark'] -= 1
+                
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             clicked_tri = get_clicked_triangle(event.pos)
             if clicked_tri: 
                 prev_selected_tri = clicked_tri
                 idx = 2 + tris.index(prev_selected_tri)
                 can_move_to = tris[idx] if idx < 24 else None
-
-    screen.fill(BOARD_BACKGROUND)
-    transparent_surface.fill((0, 0, 0, 0))
+        
+    layer.Layer.clear_layers()
+    layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
     
     #Triangles
-    for tri in tris: tri.draw(screen, transparent_surface)
+    for tri in tris: tri.draw()
     
     #Borders
-    pygame.draw.rect(screen, BOARD_BORDER, (0, 0, SCREEN_WIDTH, BOARD_HEIGHT))
-    pygame.draw.rect(screen, BOARD_BORDER, (0, SCREEN_HEIGHT - BOARD_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.draw.rect(screen, BOARD_BORDER, (0, 0, BOARD_WIDTH, SCREEN_HEIGHT))
-    pygame.draw.rect(screen, BOARD_BORDER, (SCREEN_WIDTH - BOARD_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+    draw_rect(layer.background_board_layer, BOARD_BORDER, 0, 0, SCREEN_WIDTH, BOARD_HEIGHT)
+    draw_rect(layer.background_board_layer, BOARD_BORDER, 0, SCREEN_HEIGHT - BOARD_HEIGHT, SCREEN_WIDTH, BOARD_HEIGHT)
+    draw_rect(layer.background_board_layer, BOARD_BORDER, 0, 0, BOARD_WIDTH, SCREEN_HEIGHT)
+    draw_rect(layer.background_board_layer, BOARD_BORDER, SCREEN_WIDTH - BOARD_WIDTH, 0, BOARD_WIDTH, SCREEN_HEIGHT)
     
     #Middle Border
-    pygame.draw.rect(screen, BOARD_BORDER, (SCREEN_WIDTH / 2 - BOARD_WIDTH / 2, 0, BOARD_WIDTH, SCREEN_HEIGHT))
+    draw_rect(layer.background_board_layer, BOARD_BORDER, SCREEN_WIDTH / 2 - BOARD_WIDTH / 2, 0, BOARD_WIDTH, SCREEN_HEIGHT)
     
     #Off sections
-    pygame.draw.rect(screen, OFF_SECTION, (BOARD_HEIGHT, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT))
-    pygame.draw.rect(screen, OFF_SECTION, (BOARD_HEIGHT, SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT - BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT))
-    pygame.draw.rect(screen, OFF_SECTION, (SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT))
-    pygame.draw.rect(screen, OFF_SECTION, (SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH, SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT - BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT))
+    down_off_section_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT - BOARD_HEIGHT
+    right_off_section_x = SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH
+    draw_rect(layer.background_board_layer, OFF_SECTION, BOARD_HEIGHT, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
+    draw_rect(layer.background_board_layer, OFF_SECTION, BOARD_HEIGHT, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
+    draw_rect(layer.background_board_layer, OFF_SECTION, right_off_section_x, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
+    draw_rect(layer.background_board_layer, OFF_SECTION, right_off_section_x, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
     
     #Off pieces
-    off_pieces = get_off_pieces()
     taken_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT + (OFF_SECTION_HEIGHT - TAKEN_PIECE_HEIGHT + 1) - BOARD_HEIGHT
     draw_off_pieces(off_pieces['light'], BOARD_HEIGHT, LIGHT_PIECE) #Light pieces
     draw_off_pieces(off_pieces['dark'], taken_y, DARK_PIECE, -1) #Dark pieces
 
-    if prev_selected_tri:
-        prev_selected_tri.select(transparent_surface)
-        can_move_to.highlight()
-        
-    screen.blit(transparent_surface, (0, 0)) 
+    if prev_selected_tri: prev_selected_tri.select()
+    if can_move_to: can_move_to.highlight()
+    
+    layer.Layer.draw_layers(screen)
     pygame.display.flip()
 
 pygame.quit()
