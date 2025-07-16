@@ -3,7 +3,7 @@ import random
 from colors import *
 from triangle import *
 from options import *
-from game_logic.board import initialize_board_array, get_off_pieces
+from game_logic.board import initialize_board_array, get_off_pieces, get_available_moves_for_position
 import layer
 
 pygame.init()
@@ -57,19 +57,16 @@ while running:
             clicked_tri = get_clicked_triangle(event.pos)
             if clicked_tri: 
                 if clicked_tri in can_move_to_tris:
-                    pass
-                    # can_move_to.numberOfPieces += 1
-                    # prev_selected_tri.numberOfPieces -= 1
-                    # prev_selected_tri = can_move_to = None
-                else:
-                    prev_selected_tri = clicked_tri
-                    idx1 = dice_values[0] + tris.index(prev_selected_tri)
-                    idx2 = dice_values[1] + tris.index(prev_selected_tri)
-                    idx3 = dice_values[0] + dice_values[1] + tris.index(prev_selected_tri)
+                    clicked_tri.numberOfPieces += 1
+                    prev_selected_tri.numberOfPieces -= 1
+                    prev_selected_tri = None
                     can_move_to_tris.clear()
-                    if idx1 < 24: can_move_to_tris.append(tris[idx1])
-                    if idx2 < 24: can_move_to_tris.append(tris[idx2])
-                    if idx3 < 24: can_move_to_tris.append(tris[idx3])
+                else:
+                    can_move_to_tris.clear()
+                    prev_selected_tri = clicked_tri
+                    current_position = tris.index(clicked_tri)
+                    available_moves = get_available_moves_for_position(current_position, dice_values)
+                    can_move_to_tris.extend([tris[move] for move in available_moves])
         
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
