@@ -21,13 +21,14 @@ def set_off_pieces(light, dark):
     number_of_light_pieces_off = light
     number_of_dark_pieces_off = dark
     
-def get_available_moves_for_position(position: int, dice_values: tuple):
+def get_available_moves_for_position(position: int, dice_values: tuple, is_white_on_turn: bool):
     indices = []
+    turn_multiplier = 1 if is_white_on_turn else -1
     if dice_values[0] == dice_values[1]:
-        indices.extend([mult * dice_values[0] + position for mult in range(1, 5)])
+        indices.extend([turn_multiplier * mult * dice_values[0] + position for mult in range(1, 5)])
     else:
-        idx1 = dice_values[0] + position
-        idx2 = dice_values[1] + position
-        idx3 = dice_values[0] + dice_values[1] + position
+        idx1 = turn_multiplier * dice_values[0] + position
+        idx2 = turn_multiplier * dice_values[1] + position
+        idx3 = turn_multiplier * (dice_values[0] + dice_values[1]) + position
         indices = [idx1, idx2, idx3]
     return [idx for idx in indices if idx < 24]

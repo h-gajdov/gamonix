@@ -22,6 +22,7 @@ dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
 
 dice_values = (1, 1)
+is_white_on_turn = False
 
 def roll_dice():
     dice1 = random.randint(1, 6)
@@ -57,6 +58,7 @@ while running:
             clicked_tri = get_clicked_triangle(event.pos)
             if clicked_tri: 
                 if clicked_tri in can_move_to_tris:
+                    is_white_on_turn = not is_white_on_turn
                     clicked_tri.numberOfPieces += 1
                     prev_selected_tri.numberOfPieces -= 1
                     prev_selected_tri = None
@@ -65,7 +67,7 @@ while running:
                     can_move_to_tris.clear()
                     prev_selected_tri = clicked_tri
                     current_position = tris.index(clicked_tri)
-                    available_moves = get_available_moves_for_position(current_position, dice_values)
+                    available_moves = get_available_moves_for_position(current_position, dice_values, is_white_on_turn)
                     can_move_to_tris.extend([tris[move] for move in available_moves])
         
     layer.Layer.clear_layers()
