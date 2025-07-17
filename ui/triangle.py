@@ -78,7 +78,7 @@ class Triangle:
         draw_transparent_polygon(layer.triangle_highlight_layer, (0, 255, 0, 128), [p1, p2, p3])
         
     def check_color(self, is_light_on_turn):
-        if self.numberOfPieces == 0: return True
+        if self.numberOfPieces <= 1: return True
         if is_light_on_turn and self.piece_color == DARK_PIECE: return False
         if not is_light_on_turn and self.piece_color == LIGHT_PIECE: return False
         return True

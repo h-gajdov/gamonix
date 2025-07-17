@@ -3,7 +3,7 @@ import random
 from colors import *
 from triangle import *
 from options import *
-from game_logic.board import initialize_board_array, get_off_pieces, get_available_moves_for_position
+from game_logic.board import *
 import layer
 
 pygame.init()
@@ -53,10 +53,10 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d: dice_values, dice_sum = roll_dice()
-            elif event.key == pygame.K_w and off_pieces['light'] < 15: off_pieces['light'] += 1
-            elif event.key == pygame.K_s and off_pieces['light'] > 0: off_pieces['light'] -= 1
-            elif event.key == pygame.K_UP and off_pieces['dark'] < 15: off_pieces['dark'] += 1
-            elif event.key == pygame.K_DOWN and off_pieces['dark'] > 0: off_pieces['dark'] -= 1
+            elif event.key == pygame.K_w: number_of_taken_light_pieces += 1
+            elif event.key == pygame.K_s: number_of_taken_light_pieces -= 1
+            elif event.key == pygame.K_UP: number_of_taken_dark_pieces += 1
+            elif event.key == pygame.K_DOWN: number_of_taken_dark_pieces -= 1
                 
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             clicked_tri = get_clicked_triangle(event.pos)
@@ -121,6 +121,16 @@ while running:
     tmp_width = SCREEN_WIDTH - 2 * BOARD_WIDTH 
     box1 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 - dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
     box2 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 + dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
+
+    #Draw taken pieces
+    number_of_taken_pieces = number_of_taken_dark_pieces + number_of_taken_light_pieces
+    y_coord = SCREEN_HEIGHT / 2 - (number_of_taken_pieces - 1) * PIECE_RADIUS
+    for taken_piece in range(number_of_taken_dark_pieces):
+        draw_circle(layer.game_board_layer, DARK_PIECE, SCREEN_WIDTH / 2,  y_coord, PIECE_RADIUS, 1)
+        y_coord += 2 * PIECE_RADIUS
+    for taken_piece in range(number_of_taken_light_pieces):
+        draw_circle(layer.game_board_layer, LIGHT_PIECE, SCREEN_WIDTH / 2,  y_coord, PIECE_RADIUS, 1)
+        y_coord += 2 * PIECE_RADIUS
 
     text_surface_1 = dice1_text.render(str(dice_values[0]), False, BLACK)
     text_surface_2 = dice1_text.render(str(dice_values[1]), True, BLACK) 

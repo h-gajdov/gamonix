@@ -3,12 +3,14 @@ board = [0] * 24
 
 number_of_light_pieces_off = 0
 number_of_dark_pieces_off = 0
+number_of_taken_light_pieces = 0
+number_of_taken_dark_pieces = 0
 
 available_moves = {}
 
 def initialize_board_array():
     global board
-    fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:0'
+    fen = '2W:0:0:0:0:5B:0:3B:1W:0:0:4W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:0'
     board, light, dark = convert_fen_to_board(fen)
     set_off_pieces(light, dark)
         
