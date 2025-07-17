@@ -1,5 +1,6 @@
 import math
 import layer
+from piece import *
 from options import *
 from colors import *
 from shapes import *
@@ -27,9 +28,9 @@ def initialize_triangles_array():
         
     for idx, tri in enumerate(tris):
         board = get_board()
-        n = math.fabs(board[idx])
+        n = int(math.fabs(board[idx]))
         tri.piece_color = LIGHT_PIECE if board[idx] > 0 else DARK_PIECE
-        tri.number_of_pieces = n
+        tri.add_piece(n)
 
     return tris
 
@@ -44,6 +45,8 @@ class Triangle:
         self.number_of_pieces = number_of_pieces
         self.piece_color = piece_color
         self.selected = False
+        self.pieces = [] 
+        self.add_piece(number_of_pieces)
             
     def draw(self):
         p1 = (self.x - self.width / 2, self.y)
@@ -53,22 +56,14 @@ class Triangle:
         p3 = (self.x, tmp)
         self.rect = draw_polygon(layer.game_board_layer, self.color, [p1, p2, p3])
         
-        count = 0
-        pieceX = self.x
-        mult = -1 if self.is_upside_down else 1
-        pieceY = self.y + mult * PIECE_RADIUS
-        while count < self.number_of_pieces:
-            draw_circle(layer.pieces_layer, self.piece_color, pieceX, pieceY, PIECE_RADIUS, 1)
-            pieceY += mult * 2 * PIECE_RADIUS
-            count += 1
+        for piece in self.pieces: piece.draw()
             
     def select(self):
-        pieceX = self.x
-        mult = -1 if self.is_upside_down else 1
-        pieceY = self.y + mult * PIECE_RADIUS + (self.number_of_pieces - 1) * mult * 2 * PIECE_RADIUS
-        
-        draw_transparent_circle(layer.highlight_pieces_layer, (0, 255, 0, 128), pieceX, pieceY, PIECE_RADIUS)        
-        
+        if self.pieces: self.pieces[-1].set_highlight(True)
+    
+    def deselect(self):
+        if self.pieces: self.pieces[-1].set_highlight(False)
+
     def highlight(self):
         p1 = (self.x - self.width / 2, self.y)
         p2 = (self.x + self.width / 2, self.y)
@@ -77,6 +72,47 @@ class Triangle:
         p3 = (self.x, tmp)
         draw_transparent_polygon(layer.triangle_highlight_layer, (0, 255, 0, 128), [p1, p2, p3])
         
+    def add_piece(self, n = 1):
+        self.number_of_pieces += n
+        
+        for _ in range(self.number_of_pieces):
+            piece = Piece(color=self.piece_color)
+            self.pieces.append(piece)
+        
+        self.set_pieces_positions()
+
+    def add_specific_piece(self, piece):
+        self.pieces.append(piece)
+        self.number_of_pieces = len(self.pieces)
+        self.set_pieces_positions()
+
+    def set_pieces_positions(self):
+        mult = -1 if self.is_upside_down else 1
+        pieceX = self.x
+        pieceY = self.y + mult * PIECE_RADIUS
+        for piece in self.pieces:
+            piece.set_position(pieceX, pieceY)
+            pieceY += mult * 2 * PIECE_RADIUS
+
+    def remove_piece(self, n = 1):
+        self.number_of_pieces -= n
+        if self.pieces: last = self.pieces[-1]
+
+        if self.number_of_pieces < 0:
+            self.number_of_pieces = 0
+            self.pieces.clear()
+        else:
+            for _ in range(n): self.pieces.pop()
+
+        return last
+    
+    def remove_specific_piece(self, piece):
+        self.pieces.remove(piece)
+        self.number_of_pieces = len(self.pieces)
+
+    def pop_piece(self):
+        if self.pieces: return self.pieces.pop()
+
     def check_color(self, is_light_on_turn):
         if self.number_of_pieces <= 1: return True
         if is_light_on_turn and self.piece_color == DARK_PIECE: return False
