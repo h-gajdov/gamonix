@@ -68,7 +68,15 @@ while running:
                     if dice_values[0] != dice_values[1]: available_moves = get_available_moves_for_position(transformed_dice_values, is_light_on_turn)
                     else: available_moves.pop()
                     
-                    clicked_tri.numberOfPieces += 1
+                    if clicked_tri.numberOfPieces == 1:
+                        if not is_light_on_turn: 
+                            number_of_taken_light_pieces += 1
+                            clicked_tri.piece_color = DARK_PIECE
+                        else:
+                            number_of_taken_dark_pieces += 1
+                            clicked_tri.piece_color = LIGHT_PIECE 
+                    else: clicked_tri.numberOfPieces += 1
+                    
                     clicked_tri.piece_color = LIGHT_PIECE if is_light_on_turn else DARK_PIECE 
                     prev_selected_tri.numberOfPieces -= 1
                     dice_sum -= math.fabs(current_position - tris.index(prev_selected_tri))
