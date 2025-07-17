@@ -28,13 +28,13 @@ def initialize_triangles_array():
     for idx, tri in enumerate(tris):
         board = get_board()
         n = math.fabs(board[idx])
-        tri.pieceColor = LIGHT_PIECE if board[idx] > 0 else DARK_PIECE
+        tri.piece_color = LIGHT_PIECE if board[idx] > 0 else DARK_PIECE
         tri.numberOfPieces = n
 
     return tris
 
 class Triangle:
-    def __init__(self, x: int, y: int, color: tuple, width: int, height: int, isUpsideDown: bool, numberOfPieces: int, pieceColor = (0, 0, 0)):
+    def __init__(self, x: int, y: int, color: tuple, width: int, height: int, isUpsideDown: bool, numberOfPieces: int, piece_color = (0, 0, 0)):
         self.x = x
         self.y = y
         self.color = color
@@ -42,7 +42,7 @@ class Triangle:
         self.height = height
         self.isUpsideDown = isUpsideDown
         self.numberOfPieces = numberOfPieces
-        self.pieceColor = pieceColor
+        self.piece_color = piece_color
         self.selected = False
             
     def draw(self):
@@ -58,7 +58,7 @@ class Triangle:
         mult = -1 if self.isUpsideDown else 1
         pieceY = self.y + mult * PIECE_RADIUS
         while count < self.numberOfPieces:
-            draw_circle(layer.pieces_layer, self.pieceColor, pieceX, pieceY, PIECE_RADIUS, 1)
+            draw_circle(layer.pieces_layer, self.piece_color, pieceX, pieceY, PIECE_RADIUS, 1)
             pieceY += mult * 2 * PIECE_RADIUS
             count += 1
             
@@ -76,3 +76,9 @@ class Triangle:
         tmp = self.height if not self.isUpsideDown else SCREEN_HEIGHT - self.height
         p3 = (self.x, tmp)
         draw_transparent_polygon(layer.triangle_highlight_layer, (0, 255, 0, 128), [p1, p2, p3])
+        
+    def check_color(self, is_light_on_turn):
+        if self.numberOfPieces == 0: return True
+        if is_light_on_turn and self.piece_color == DARK_PIECE: return False
+        if not is_light_on_turn and self.piece_color == LIGHT_PIECE: return False
+        return True

@@ -22,12 +22,16 @@ dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
 
 dice_values = (1, 1)
-is_white_on_turn = False
+dice_sum = 4
+is_light_on_turn = False
+available_moves = get_available_moves_for_position(dice_values, is_light_on_turn)
 
 def roll_dice():
-    dice1 = random.randint(1, 6)
-    dice2 = random.randint(1, 6)
-    return (dice1, dice2)
+    global available_moves
+    result = (random.randint(1, 6), random.randint(1, 6))
+    d_sum = sum(result) if result[0] != result[1] else 4 * result[0]
+    available_moves = get_available_moves_for_position(result, is_light_on_turn)
+    return result, d_sum
 
 def get_clicked_triangle(click_pos):
     for tri in tris:
@@ -48,7 +52,7 @@ while running:
             running = False
 
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_d: dice_values = roll_dice()
+            if event.key == pygame.K_d: dice_values, dice_sum = roll_dice()
             elif event.key == pygame.K_w and off_pieces['light'] < 15: off_pieces['light'] += 1
             elif event.key == pygame.K_s and off_pieces['light'] > 0: off_pieces['light'] -= 1
             elif event.key == pygame.K_UP and off_pieces['dark'] < 15: off_pieces['dark'] += 1
@@ -57,18 +61,32 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             clicked_tri = get_clicked_triangle(event.pos)
             if clicked_tri: 
-                if clicked_tri in can_move_to_tris:
-                    is_white_on_turn = not is_white_on_turn
+                current_position = tris.index(clicked_tri)
+                if clicked_tri in can_move_to_tris and prev_selected_tri:
+                    delta = current_position - tris.index(prev_selected_tri)
+                    transformed_dice_values = tuple([0 if t == math.fabs(delta) else t for t in list(dice_values)])
+                    if dice_values[0] != dice_values[1]: available_moves = get_available_moves_for_position(transformed_dice_values, is_light_on_turn)
+                    else: available_moves.pop()
+                    
                     clicked_tri.numberOfPieces += 1
+                    clicked_tri.piece_color = LIGHT_PIECE if is_light_on_turn else DARK_PIECE 
                     prev_selected_tri.numberOfPieces -= 1
-                    prev_selected_tri = None
+                    dice_sum -= math.fabs(current_position - tris.index(prev_selected_tri))
+                    if dice_sum <= 0: 
+                        is_light_on_turn = not is_light_on_turn
+                        dice_values, dice_sum = roll_dice()
                     can_move_to_tris.clear()
-                else:
+                    prev_selected_tri = None
+                elif clicked_tri == prev_selected_tri: 
+                    can_move_to_tris.clear()
+                    prev_selected_tri = None
+                elif clicked_tri.numberOfPieces != 0:
                     can_move_to_tris.clear()
                     prev_selected_tri = clicked_tri
-                    current_position = tris.index(clicked_tri)
-                    available_moves = get_available_moves_for_position(current_position, dice_values, is_white_on_turn)
-                    can_move_to_tris.extend([tris[move] for move in available_moves])
+                    for move in available_moves:
+                        if move + current_position < 0 or move + current_position >= 24: continue
+                        if not tris[current_position + move].check_color(is_light_on_turn): continue
+                        can_move_to_tris.append(tris[current_position + move])
         
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
