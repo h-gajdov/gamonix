@@ -84,6 +84,7 @@ class Triangle:
     def add_specific_piece(self, piece):
         self.pieces.append(piece)
         self.number_of_pieces = len(self.pieces)
+        self.piece_color = piece.color
         self.set_pieces_positions()
 
     def set_pieces_positions(self):

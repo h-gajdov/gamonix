@@ -54,10 +54,11 @@ def draw_off_pieces(count, y, color, mult = 1):
         y += mult * TAKEN_PIECE_HEIGHT
         count -= 1
 
-def move_piece_event(source_tri, destination_tri):
+def move_piece_event(source_tri, destination_tri, piece=None, piece_position=None):
     global is_light_on_turn, available_moves, dice_values, dice_sum, number_of_taken_light_pieces, number_of_taken_dark_pieces
     current_position = tris.index(destination_tri)
-    delta = math.fabs(current_position - tris.index(source_tri))
+    if piece_position == None: delta = math.fabs(current_position - tris.index(source_tri))
+    else: delta = math.fabs(current_position - piece_position)
     
     if dice_values[0] != dice_values[1]:
         if len(available_moves) == 3: 
@@ -75,7 +76,9 @@ def move_piece_event(source_tri, destination_tri):
         else:
             number_of_taken_dark_pieces += 1
 
-    source_tri.pieces[-1].move_between_triangles(source_tri, destination_tri)
+    if piece: destination_tri.add_specific_piece(piece)
+    else: source_tri.pieces[-1].move_between_triangles(source_tri, destination_tri)
+    
     if not available_moves:
         is_light_on_turn = not is_light_on_turn
         dice_values, dice_sum = roll_dice()
@@ -93,33 +96,27 @@ while running:
                 
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             clicked_tri = get_clicked_triangle(event.pos)
-            # if not taken_piece: taken_piece = select_taken_piece(event.pos)
-            # print(taken_piece)
-            # if taken_piece:
-            #     can_move_to_tris.clear()
-            #     for move in available_moves:
-            #         idx = move if not is_light_on_turn else 24 - move
-            #         can_move_to_tris.append(tris[idx])
+            if not taken_piece: taken_piece = select_taken_piece(event.pos)
+            if taken_piece:
+                can_move_to_tris.clear()
+                for move in available_moves:
+                    idx = move - 1 if taken_piece.color == LIGHT_PIECE else 24 + move
+                    can_move_to_tris.append(tris[idx])
 
             if clicked_tri: 
                 current_position = tris.index(clicked_tri)
                 if clicked_tri in can_move_to_tris:
-                    # if taken_piece:
-                    #     delta = math.fabs(current_position if not is_light_on_turn else 24 - current_position)
-                    #     transformed_dice_values = tuple([0 if t == delta else t for t in list(dice_values)])
-                    #     if dice_values[0] != dice_values[1]: available_moves = get_available_moves_for_position(transformed_dice_values, is_light_on_turn)
-                    #     else:
-                    #         count = delta // dice_values[0]
-                    #         for _ in range(int(count)): available_moves.pop()
-
-                    #     print('ADD')
-                    #     can_move_to_tris.clear()
-                    #     if is_light_on_turn: number_of_taken_light_pieces -= 1
-                    #     else: number_of_taken_dark_pieces -= 1
-                    #     taken_piece.set_highlight(False)
-                    #     taken_pieces.remove(taken_piece)
-                    #     clicked_tri.add_specific_piece(taken_piece)
-                    #     taken_piece = None
+                    if taken_piece:
+                        if taken_piece.color == LIGHT_PIECE: 
+                            number_of_taken_light_pieces -= 1
+                            piece_position = -1 if taken_piece.color == LIGHT_PIECE else 24 
+                        else:
+                            number_of_taken_dark_pieces -= 1
+                            
+                        move_piece_event(source_tri=None, destination_tri=clicked_tri, piece=taken_piece, piece_position=piece_position)
+                        taken_pieces.remove(taken_piece)
+                        taken_piece.set_highlight(False)
+                        taken_piece=None
                     if prev_selected_tri:
                         move_piece_event(prev_selected_tri, clicked_tri)
                         prev_selected_tri = None            
