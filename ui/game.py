@@ -54,6 +54,33 @@ def draw_off_pieces(count, y, color, mult = 1):
         y += mult * TAKEN_PIECE_HEIGHT
         count -= 1
 
+def move_piece_event(source_tri, destination_tri):
+    global is_light_on_turn, available_moves, dice_values, dice_sum, number_of_taken_light_pieces, number_of_taken_dark_pieces
+    current_position = tris.index(destination_tri)
+    delta = math.fabs(current_position - tris.index(source_tri))
+    
+    if dice_values[0] != dice_values[1]:
+        if len(available_moves) == 3: 
+            move = available_moves.pop()
+            if delta == math.fabs(move): available_moves.clear()
+        available_moves = [move for move in available_moves if math.fabs(move) != delta]
+    else:
+        count = delta // dice_values[0]
+        for _ in range(int(count)): available_moves.pop()
+               
+    if destination_tri.number_of_pieces == 1 and destination_tri.piece_color != source_tri.piece_color:
+        taken_pieces.append(destination_tri.pop_piece())
+        if not is_light_on_turn: 
+            number_of_taken_light_pieces += 1
+        else:
+            number_of_taken_dark_pieces += 1
+
+    source_tri.pieces[-1].move_between_triangles(source_tri, destination_tri)
+    if not available_moves:
+        is_light_on_turn = not is_light_on_turn
+        dice_values, dice_sum = roll_dice()
+    can_move_to_tris.clear()
+
 taken_piece = None
 running = True
 while running:
@@ -94,26 +121,8 @@ while running:
                     #     clicked_tri.add_specific_piece(taken_piece)
                     #     taken_piece = None
                     if prev_selected_tri:
-                        delta = math.fabs(current_position - tris.index(prev_selected_tri))
-                        transformed_dice_values = tuple([0 if t == delta else t for t in list(dice_values)])
-                        if dice_values[0] != dice_values[1]: available_moves = get_available_moves_for_position(transformed_dice_values, is_light_on_turn)
-                        else:
-                            count = delta // dice_values[0]
-                            for _ in range(int(count)): available_moves.pop()
-                        
-                        if clicked_tri.number_of_pieces == 1 and clicked_tri.piece_color != prev_selected_tri.piece_color:
-                            taken_pieces.append(clicked_tri.pop_piece())
-                            if not is_light_on_turn: 
-                                number_of_taken_light_pieces += 1
-                            else:
-                                number_of_taken_dark_pieces += 1
-
-                        prev_selected_tri.pieces[-1].move_between_triangles(prev_selected_tri, clicked_tri)
-                        if not available_moves: 
-                            is_light_on_turn = not is_light_on_turn
-                            dice_values, dice_sum = roll_dice()
-                        can_move_to_tris.clear()
-                        prev_selected_tri = None
+                        move_piece_event(prev_selected_tri, clicked_tri)
+                        prev_selected_tri = None            
                 elif clicked_tri == prev_selected_tri: 
                     can_move_to_tris.clear()
                     prev_selected_tri.deselect()
