@@ -27,6 +27,18 @@ dice_sum = 4
 is_light_on_turn = False
 available_moves = get_available_moves_for_position(dice_values, is_light_on_turn)
 
+def get_number_of_pieces_in_base():
+    light_count = 0
+    dark_count = 0
+    for light_base_index in range(18, 24):
+        if tris[light_base_index].piece_color == LIGHT_PIECE:
+            light_count += len(tris[light_base_index].pieces)
+    for dark_base_index in range(0, 6):
+        if tris[dark_base_index].piece_color == DARK_PIECE:
+            dark_count += len(tris[dark_base_index].pieces)
+    return {'light': light_count, 'dark': dark_count}
+        
+    
 def select_taken_piece(click_pos):
     result = None
     for piece in taken_pieces:
@@ -68,10 +80,11 @@ def move_piece_event(source_tri, destination_tri, piece=None, piece_position=Non
     else:
         count = delta // dice_values[0]
         for _ in range(int(count)): available_moves.pop()
-               
-    if destination_tri.number_of_pieces == 1 and destination_tri.piece_color != source_tri.piece_color:
+    
+    source_color = piece.color if piece else source_tri.piece_color
+    if destination_tri.number_of_pieces == 1 and destination_tri.piece_color != source_color:
         taken_pieces.append(destination_tri.pop_piece())
-        if not is_light_on_turn: 
+        if destination_tri.piece_color == LIGHT_PIECE: 
             number_of_taken_light_pieces += 1
         else:
             number_of_taken_dark_pieces += 1
@@ -187,6 +200,8 @@ while running:
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
     
     for tri in can_move_to_tris: tri.highlight()
+    
+    print(get_number_of_pieces_in_base())
     
     layer.Layer.draw_layers(screen)
     pygame.display.flip()
