@@ -26,6 +26,8 @@ dice_values = (1, 1)
 dice_sum = 4
 is_light_on_turn = False
 available_moves = get_available_moves_for_position(dice_values, is_light_on_turn)
+highlight_dark_off_section = False
+highlight_light_off_section = False
 
 def get_number_of_pieces_in_base():
     light_count = 0
@@ -106,6 +108,8 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d: dice_values, dice_sum = roll_dice()
+            if event.key == pygame.K_z: highlight_light_off_section = not highlight_light_off_section
+            if event.key == pygame.K_x: highlight_dark_off_section = not highlight_dark_off_section
                 
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             clicked_tri = get_clicked_triangle(event.pos)
@@ -172,7 +176,9 @@ while running:
     draw_rect(layer.background_board_layer, OFF_SECTION, BOARD_HEIGHT, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
     draw_rect(layer.background_board_layer, OFF_SECTION, right_off_section_x, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
     draw_rect(layer.background_board_layer, OFF_SECTION, right_off_section_x, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
-    
+    if highlight_dark_off_section: draw_rect(layer.highlight_pieces_layer, (0, 255, 0, 128), right_off_section_x, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
+    if highlight_light_off_section: draw_rect(layer.highlight_pieces_layer, (0, 255, 0, 128), right_off_section_x, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
+
     #Off pieces
     taken_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT + (OFF_SECTION_HEIGHT - TAKEN_PIECE_HEIGHT + 1) - BOARD_HEIGHT
     draw_off_pieces(off_pieces['light'], BOARD_HEIGHT, LIGHT_PIECE) #Light pieces
