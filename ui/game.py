@@ -139,6 +139,8 @@ while running:
                         prev_selected_tri = None            
                 elif clicked_tri == prev_selected_tri: 
                     can_move_to_tris.clear()
+                    highlight_dark_off_section = False
+                    highlight_light_off_section = False
                     prev_selected_tri.deselect()
                     prev_selected_tri = None
                 elif clicked_tri.number_of_pieces != 0:
@@ -146,12 +148,24 @@ while running:
                     elif not is_light_on_turn and number_of_taken_dark_pieces != 0: pass
                     else:
                         can_move_to_tris.clear()
+                        highlight_dark_off_section = False
+                        highlight_light_off_section = False
+                        
                         if prev_selected_tri: prev_selected_tri.deselect()
                         prev_selected_tri = clicked_tri
                         prev_selected_tri.select()
                         for move in available_moves:
-                            if move + current_position < 0 or move + current_position >= 24: continue
+                            if move + current_position < -1 or move + current_position > 24: continue
+
+                            if move + current_position == -1:
+                                highlight_light_off_section = True
+                                continue
+                            elif move + current_position == 24:
+                                highlight_dark_off_section = True
+                                continue
+
                             if not tris[current_position + move].check_color(is_light_on_turn): continue
+
                             can_move_to_tris.append(tris[current_position + move])
         
     layer.Layer.clear_layers()
@@ -207,7 +221,7 @@ while running:
     
     for tri in can_move_to_tris: tri.highlight()
     
-    print(get_number_of_pieces_in_base())
+    # print(get_number_of_pieces_in_base())
     
     layer.Layer.draw_layers(screen)
     pygame.display.flip()
