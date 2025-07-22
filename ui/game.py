@@ -26,6 +26,9 @@ dice_values = (1, 1)
 dice_sum = 4
 is_light_on_turn = False
 available_moves = get_available_moves_for_position(dice_values, is_light_on_turn)
+
+dark_off_seciont_rect = None
+light_off_seciont_rect = None
 highlight_dark_off_section = False
 highlight_light_off_section = False
 
@@ -39,7 +42,6 @@ def get_number_of_pieces_in_base():
         if tris[dark_base_index].piece_color == DARK_PIECE:
             dark_count += len(tris[dark_base_index].pieces)
     return {'light': light_count, 'dark': dark_count}
-        
     
 def select_taken_piece(click_pos):
     result = None
@@ -112,6 +114,19 @@ while running:
             if event.key == pygame.K_x: highlight_dark_off_section = not highlight_dark_off_section
                 
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            if prev_selected_tri and light_off_seciont_rect and light_off_seciont_rect.collidepoint(event.pos):
+                off_pieces['light'] += 1
+                prev_selected_tri.pop_piece()
+                prev_selected_tri = None
+                highlight_light_off_section = False
+                can_move_to_tris.clear()
+            elif dark_off_seciont_rect and dark_off_seciont_rect.collidepoint(event.pos):
+                off_pieces['dark'] += 1
+                prev_selected_tri.pop_piece()
+                prev_selected_tri = None
+                highlight_dark_off_section = False
+                can_move_to_tris.clear()
+
             clicked_tri = get_clicked_triangle(event.pos)
             if not taken_piece: taken_piece = select_taken_piece(event.pos)
             if taken_piece:
@@ -158,10 +173,10 @@ while running:
                             if move + current_position < -1 or move + current_position > 24: continue
 
                             if move + current_position == -1:
-                                highlight_light_off_section = True
+                                highlight_dark_off_section = True
                                 continue
                             elif move + current_position == 24:
-                                highlight_dark_off_section = True
+                                highlight_light_off_section = True
                                 continue
 
                             if not tris[current_position + move].check_color(is_light_on_turn): continue
@@ -190,8 +205,10 @@ while running:
     draw_rect(layer.background_board_layer, OFF_SECTION, BOARD_HEIGHT, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
     draw_rect(layer.background_board_layer, OFF_SECTION, right_off_section_x, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
     draw_rect(layer.background_board_layer, OFF_SECTION, right_off_section_x, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
-    if highlight_dark_off_section: draw_rect(layer.highlight_pieces_layer, (0, 255, 0, 128), right_off_section_x, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
-    if highlight_light_off_section: draw_rect(layer.highlight_pieces_layer, (0, 255, 0, 128), right_off_section_x, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
+    if highlight_light_off_section: 
+        light_off_seciont_rect = draw_rect(layer.highlight_pieces_layer, (0, 255, 0, 128), right_off_section_x, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
+    if highlight_dark_off_section: 
+        dark_off_seciont_rect = draw_rect(layer.highlight_pieces_layer, (0, 255, 0, 128), right_off_section_x, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
 
     #Off pieces
     taken_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT + (OFF_SECTION_HEIGHT - TAKEN_PIECE_HEIGHT + 1) - BOARD_HEIGHT
