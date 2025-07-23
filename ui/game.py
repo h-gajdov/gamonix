@@ -1,10 +1,11 @@
 import pygame
 import random 
+import events
+import layer
 from colors import *
 from triangle import *
 from options import *
 from game_logic.board import *
-import layer
 
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -13,7 +14,10 @@ pygame.display.set_caption("Gamonix")
 
 initialize_board_array()
 layer.intialize_layers()
+
 points = initialize_points_array()
+events.set_points(points)
+
 can_move_to_points = []
 taken_pieces = []
 off_pieces = get_off_pieces()
@@ -44,19 +48,11 @@ def roll_dice():
     available_moves = get_available_moves_for_position(result, is_light_on_turn)
     return result, d_sum
 
-def get_clicked_point(click_pos):
-    for point in points:
-        if point.rect.collidepoint(click_pos): return point
-    return None
-
 running = True
 while running:
     for event in pygame.event.get():    
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            clicked_point = get_clicked_point(event.pos)
-            if clicked_point:
-                clicked_point.set_highlight(not clicked_point.is_highlighted)
-                print(points.index(clicked_point))
+            events.move_pieces(event)
         
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
@@ -78,17 +74,6 @@ while running:
     right_off_section_x = SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH
     draw_rect(layer.background_board_layer, OFF_SECTION, BOARD_HEIGHT, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
     draw_rect(layer.background_board_layer, OFF_SECTION, BOARD_HEIGHT, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
-    # draw_rect(layer.background_board_layer, OFF_SECTION, right_off_section_x, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
-    # draw_rect(layer.background_board_layer, OFF_SECTION, right_off_section_x, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
-    # if highlight_light_off_section: 
-        # light_off_seciont_rect = draw_rect(layer.highlight_pieces_layer, (0, 255, 0, 128), right_off_section_x, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
-    # if highlight_dark_off_section: 
-        # dark_off_seciont_rect = draw_rect(layer.highlight_pieces_layer, (0, 255, 0, 128), right_off_section_x, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
-
-    #Off pieces
-    # taken_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT + (OFF_SECTION_HEIGHT - TAKEN_PIECE_HEIGHT + 1) - BOARD_HEIGHT
-    # draw_off_pieces(off_pieces['light'], BOARD_HEIGHT, LIGHT_PIECE) #Light pieces
-    # draw_off_pieces(off_pieces['dark'], taken_y, DARK_PIECE, -1) #Dark pieces
     
     #Draw dice UI
     dice_size = 56
@@ -110,8 +95,6 @@ while running:
     text_rect_2 = text_surface_2.get_rect(center=box2.center)
     layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
-    
-    for tri in can_move_to_points: tri.highlight()
     
     # print(get_number_of_pieces_in_base())
     

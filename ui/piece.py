@@ -25,11 +25,11 @@ class Piece:
         self.x = x
         self.y = y
 
-    def move_between_triangles(self, source_tri, destination_tri):
-        source_tri.remove_specific_piece(self)
-        destination_tri.add_specific_piece(self)
-        destination_tri.set_pieces_positions()
-        destination_tri.piece_color = self.color
+    def move_between_points(self, source_point, destination_point):
+        source_point.remove_specific_piece(self)
+        destination_point.add_specific_piece(self)
+        # destination_point.set_pieces_positions()
+        # destination_point.piece_color = self.color
         self.is_highlighted = False
 
     def set_highlight(self, value):

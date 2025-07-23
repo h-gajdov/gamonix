@@ -24,3 +24,12 @@ class Point(ABC):
         while n:
             self.pieces.append(Piece(color=piece_color))
             n -= 1
+            
+    def remove_specific_piece(self, piece):
+        self.pieces.remove(piece)
+    
+    def add_specific_piece(self, piece):
+        self.pieces.append(piece)
+        
+    def move_piece_to(self, destination):
+        self.pieces[-1].move_between_points(self, destination)
