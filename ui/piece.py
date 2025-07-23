@@ -10,8 +10,13 @@ class Piece:
         self.color = color
         self.is_highlighted = is_highlighted
         self.rect = None
+        self.is_off = False
     
     def draw(self):
+        if self.is_off:
+            draw_rect(layer.game_board_layer, self.color, self.x, self.y, OFF_PIECE_WIDTH, OFF_PIECE_HEIGHT, 1, 2)
+            return
+        
         self.rect = draw_circle(layer.pieces_layer, self.color, self.x, self.y, PIECE_RADIUS, 1)
         if self.is_highlighted:
             draw_transparent_circle(layer.highlight_pieces_layer, GREEN_HIGHLIGHT, self.x, self.y, PIECE_RADIUS)

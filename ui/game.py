@@ -53,7 +53,10 @@ running = True
 while running:
     for event in pygame.event.get():    
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            pass
+            clicked_point = get_clicked_point(event.pos)
+            if clicked_point:
+                clicked_point.set_highlight(not clicked_point.is_highlighted)
+                print(points.index(clicked_point))
         
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
@@ -83,7 +86,7 @@ while running:
         # dark_off_seciont_rect = draw_rect(layer.highlight_pieces_layer, (0, 255, 0, 128), right_off_section_x, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
 
     #Off pieces
-    taken_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT + (OFF_SECTION_HEIGHT - TAKEN_PIECE_HEIGHT + 1) - BOARD_HEIGHT
+    # taken_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT + (OFF_SECTION_HEIGHT - TAKEN_PIECE_HEIGHT + 1) - BOARD_HEIGHT
     # draw_off_pieces(off_pieces['light'], BOARD_HEIGHT, LIGHT_PIECE) #Light pieces
     # draw_off_pieces(off_pieces['dark'], taken_y, DARK_PIECE, -1) #Dark pieces
     
