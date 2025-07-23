@@ -21,7 +21,6 @@ def initialize_points_array():
     down_off_section_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT - BOARD_HEIGHT
     right_off_section_x = SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH
     points.append(OffSection(right_off_section_x, down_off_section_y, OFF_SECTION, True)) # Dark off section
-    points[0].add_piece(2, DARK_PIECE)
     
     def set_tris_array(is_dark, is_upside_down, y, iteration):
         for x in iteration:
@@ -35,12 +34,9 @@ def initialize_points_array():
     set_tris_array(False, True, BOARD_HEIGHT, range(1, 14))
 
     points.append(OffSection(right_off_section_x, BOARD_HEIGHT, OFF_SECTION, False)) #Light off section
-    points[-1].add_piece(2, LIGHT_PIECE)
-    
     fill_pieces(points)
     
     points.append(TakenSection())
-    points[-1].add_piece(1, DARK_PIECE)
     brd.update_board_array(points)
     return points
 
@@ -87,13 +83,10 @@ class OffSection(Point):
         mult = 1 if not self.draw_pieces_from_down_to_up else -1
         
         for piece in self.pieces:
+            piece.is_off = True
             piece.set_position(x, y)
             piece.draw()
             y += mult * OFF_PIECE_HEIGHT
-            
-    def add_piece(self, n=1, piece_color=BLACK):
-        super().add_piece(n, piece_color)
-        for piece in self.pieces: piece.is_off = True
         
 class TakenSection(Point):
     def __init__(self):

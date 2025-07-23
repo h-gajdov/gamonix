@@ -21,17 +21,6 @@ events.set_points(points)
 dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
 
-def get_number_of_pieces_in_base():
-    light_count = 0
-    dark_count = 0
-    for light_base_index in range(18, 24):
-        if points[light_base_index].piece_color == LIGHT_PIECE:
-            light_count += len(points[light_base_index].pieces)
-    for dark_base_index in range(0, 6):
-        if points[dark_base_index].piece_color == DARK_PIECE:
-            dark_count += len(points[dark_base_index].pieces)
-    return {'light': light_count, 'dark': dark_count}
-
 universal.dice_values = events.roll_dice()
 running = True
 while running:
@@ -77,7 +66,7 @@ while running:
     layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
     
-    # print(get_number_of_pieces_in_base())
+    # print(brd.get_number_of_pieces_in_base())
     
     layer.Layer.draw_layers(screen)
     pygame.display.flip()
