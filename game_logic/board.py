@@ -1,5 +1,5 @@
 from game_logic.fen import *
-board = [0] * 24
+board = [0] * 26
 
 number_of_light_pieces_off = 0
 number_of_dark_pieces_off = 0
@@ -26,14 +26,23 @@ def set_off_pieces(light, dark):
     number_of_light_pieces_off = light
     number_of_dark_pieces_off = dark
     
-def get_available_moves_for_position(dice_values: tuple, is_light_on_turn: bool):
+def get_available_moves(dice_values: tuple, is_light_on_turn: bool):
     indices = []
     turn_multiplier = 1 if is_light_on_turn else -1
-    if dice_values[0] == dice_values[1]:
+    
+    if len(dice_values) > 1 and dice_values[0] == dice_values[1]:
         indices.extend([turn_multiplier * mult * dice_values[0] for mult in range(1, 5)])
     else:
-        idx1 = turn_multiplier * dice_values[0]
-        idx2 = turn_multiplier * dice_values[1]
-        idx3 = turn_multiplier * (dice_values[0] + dice_values[1])
-        indices = [idx1, idx2, idx3]
-    return [idx for idx in indices if idx != 0]
+        indices = [turn_multiplier * value for value in dice_values]
+    return indices
+
+def get_available_points_from_position(position, dice_values, is_light_on_turn):
+    moves = get_available_moves(dice_values, is_light_on_turn)
+    result = []
+    for move in moves:
+        if move + position < 1 or move + position > 24: continue
+        if board[position] * board[move + position] < 0: continue
+        
+        result.append(move + position)
+        
+    return result

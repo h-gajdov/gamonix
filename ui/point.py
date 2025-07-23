@@ -33,3 +33,7 @@ class Point(ABC):
         
     def move_piece_to(self, destination):
         self.pieces[-1].move_between_points(self, destination)
+        
+    def check_pieces_color(self, other):
+        if self.pieces: return self.pieces[-1].color == other.pieces[-1].color
+        else: return True

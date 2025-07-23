@@ -1,7 +1,7 @@
 import pygame
-import random 
 import events
 import layer
+import universal
 from colors import *
 from triangle import *
 from options import *
@@ -18,17 +18,10 @@ layer.intialize_layers()
 points = initialize_points_array()
 events.set_points(points)
 
-can_move_to_points = []
-taken_pieces = []
 off_pieces = get_off_pieces()
 
 dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
-
-dice_values = (1, 1)
-dice_sum = 4
-is_light_on_turn = False
-available_moves = get_available_moves_for_position(dice_values, is_light_on_turn)
 
 def get_number_of_pieces_in_base():
     light_count = 0
@@ -41,16 +34,14 @@ def get_number_of_pieces_in_base():
             dark_count += len(points[dark_base_index].pieces)
     return {'light': light_count, 'dark': dark_count}
 
-def roll_dice():
-    global available_moves
-    result = (random.randint(1, 6), random.randint(1, 6))
-    d_sum = sum(result) if result[0] != result[1] else 4 * result[0]
-    available_moves = get_available_moves_for_position(result, is_light_on_turn)
-    return result, d_sum
-
+universal.dice_values = events.roll_dice()
 running = True
 while running:
-    for event in pygame.event.get():    
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_d:
+                universal.dice_values = events.roll_dice()
+            
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             events.move_pieces(event)
         
@@ -82,15 +73,15 @@ while running:
     box2 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 + dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
 
     #Draw taken pieces
-    number_of_taken_pieces = number_of_taken_dark_pieces + number_of_taken_light_pieces
-    y_coord = SCREEN_HEIGHT / 2 - (number_of_taken_pieces - 1) * PIECE_RADIUS
-    for piece in taken_pieces:
-        piece.set_position(SCREEN_WIDTH / 2, y_coord)
-        y_coord += 2 * PIECE_RADIUS
-        piece.draw()
+    # number_of_taken_pieces = number_of_taken_dark_pieces + number_of_taken_light_pieces
+    # y_coord = SCREEN_HEIGHT / 2 - (number_of_taken_pieces - 1) * PIECE_RADIUS
+    # for piece in taken_pieces:
+    #     piece.set_position(SCREEN_WIDTH / 2, y_coord)
+    #     y_coord += 2 * PIECE_RADIUS
+    #     piece.draw()
 
-    text_surface_1 = dice1_text.render(str(dice_values[0]), False, BLACK)
-    text_surface_2 = dice1_text.render(str(dice_values[1]), True, BLACK) 
+    text_surface_1 = dice1_text.render(str(events.dice_values_ui[0]), False, BLACK)
+    text_surface_2 = dice1_text.render(str(events.dice_values_ui[1]), True, BLACK) 
     text_rect_1 = text_surface_1.get_rect(center=box1.center)
     text_rect_2 = text_surface_2.get_rect(center=box2.center)
     layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
