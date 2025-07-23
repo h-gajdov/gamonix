@@ -1,5 +1,7 @@
+from math import fabs
 from game_logic.fen import *
-board = [0] * 26
+from ui.colors import *
+board = [0] * 27
 
 number_of_light_pieces_off = 0
 number_of_dark_pieces_off = 0
@@ -8,9 +10,14 @@ number_of_taken_dark_pieces = 0
 
 available_moves = {}
 
+def update_board_array(points):
+    for idx, point in enumerate(points):
+        board[idx] = len(point.pieces) if point.get_color_of_last_piece() == LIGHT_PIECE else -len(point.pieces)
+    print(board)
+
 def initialize_board_array():
     global board
-    fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:0'
+    fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:4W:1W:0:0:0:2B:0:0:0:0:0:0:0'
     # fen = '3B:3B:3B:2B:2B:2B:0:0:0:0:0:0:0:0:0:0:0:0:2W:2W:2W:3W:3W:3W:0:0:0:0:0:0:0'
     board, light, dark = convert_fen_to_board(fen)
     set_off_pieces(light, dark)
@@ -41,7 +48,7 @@ def get_available_points_from_position(position, dice_values, is_light_on_turn):
     result = []
     for move in moves:
         if move + position < 1 or move + position > 24: continue
-        if board[position] * board[move + position] < 0: continue
+        if fabs(board[move + position]) > 1 and board[position] * board[move + position] < 0: continue
         
         result.append(move + position)
         

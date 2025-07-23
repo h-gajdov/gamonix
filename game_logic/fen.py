@@ -1,5 +1,5 @@
 def convert_fen_to_board(fen):
-    board = [0] * 26
+    board = [0] * 27
     info = fen.split(':')
     for position in range(24):
         entry = info[position]

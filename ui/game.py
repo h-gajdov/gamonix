@@ -2,23 +2,21 @@ import pygame
 import events
 import layer
 import universal
+import game_logic.board as brd
 from colors import *
 from triangle import *
 from options import *
-from game_logic.board import *
 
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 transparent_surface = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
 pygame.display.set_caption("Gamonix")
 
-initialize_board_array()
+brd.initialize_board_array()
 layer.intialize_layers()
 
 points = initialize_points_array()
 events.set_points(points)
-
-off_pieces = get_off_pieces()
 
 dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
@@ -71,14 +69,6 @@ while running:
     tmp_width = SCREEN_WIDTH - 2 * BOARD_WIDTH 
     box1 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 - dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
     box2 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 + dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
-
-    #Draw taken pieces
-    # number_of_taken_pieces = number_of_taken_dark_pieces + number_of_taken_light_pieces
-    # y_coord = SCREEN_HEIGHT / 2 - (number_of_taken_pieces - 1) * PIECE_RADIUS
-    # for piece in taken_pieces:
-    #     piece.set_position(SCREEN_WIDTH / 2, y_coord)
-    #     y_coord += 2 * PIECE_RADIUS
-    #     piece.draw()
 
     text_surface_1 = dice1_text.render(str(events.dice_values_ui[0]), False, BLACK)
     text_surface_2 = dice1_text.render(str(events.dice_values_ui[1]), True, BLACK) 

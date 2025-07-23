@@ -31,9 +31,13 @@ class Point(ABC):
     def add_specific_piece(self, piece):
         self.pieces.append(piece)
         
-    def move_piece_to(self, destination):
-        self.pieces[-1].move_between_points(self, destination)
+    def move_piece_to(self, destination, index=-1):
+        self.pieces[index].move_between_points(self, destination)
         
     def check_pieces_color(self, other):
         if self.pieces: return self.pieces[-1].color == other.pieces[-1].color
         else: return True
+        
+    def get_color_of_last_piece(self):
+        if not self.pieces: return None
+        return self.pieces[-1].color 

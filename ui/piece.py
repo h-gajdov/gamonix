@@ -28,8 +28,6 @@ class Piece:
     def move_between_points(self, source_point, destination_point):
         source_point.remove_specific_piece(self)
         destination_point.add_specific_piece(self)
-        # destination_point.set_pieces_positions()
-        # destination_point.piece_color = self.color
         self.is_highlighted = False
 
     def set_highlight(self, value):
