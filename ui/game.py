@@ -35,7 +35,7 @@ while running:
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
     
-    #Triangles
+    #Points
     for point in points: point.draw()
     
     #Borders
@@ -65,9 +65,6 @@ while running:
     text_rect_2 = text_surface_2.get_rect(center=box2.center)
     layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
-    
-    print(universal.dice_values)
-    # print(brd.get_most_distant_piece(universal.is_light_on_turn))
     
     layer.Layer.draw_layers(screen)
     pygame.display.flip()

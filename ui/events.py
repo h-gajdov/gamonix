@@ -22,8 +22,6 @@ def roll_dice():
     else: result = [value1] * 4
     
     result = handle_distant_dice_values(result)
-    
-    print(result)
     dice_values_ui = (value1, value2)
     return tuple(result)
 
@@ -34,8 +32,8 @@ def get_clicked_point(click_pos):
 
 def get_current_position(point):
     result = points.index(point)
-    if result == 26: 
-        result = 0 if universal.is_light_on_turn else 25
+    # if result == 26: 
+        # result = 0 if universal.is_light_on_turn else 25
     return result
 
 def select_point(clicked_point):
@@ -53,11 +51,13 @@ def select_point(clicked_point):
     
     selected_point = clicked_point
     
+    is_taken = False
     current_position = get_current_position(selected_point)
     if current_position == 26:
+        is_taken = True
         current_position = 25 if not universal.is_light_on_turn else 0
     
-    indices = brd.get_available_points_from_position(current_position, universal.dice_values, universal.is_light_on_turn)
+    indices = brd.get_available_points_from_position(current_position, universal.dice_values, universal.is_light_on_turn, is_taken)
     can_move_to_points = [points[idx] for idx in indices]
     for point in can_move_to_points: 
         point.set_highlight(True)

@@ -18,7 +18,7 @@ def update_board_array(points):
 def initialize_board_array():
     global board
     # fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:0'
-    fen = '3B:3B:3B:2B:2B:1B:1B:0:0:0:0:0:0:0:0:0:0:0:2W:2W:2W:3W:3W:3W:0:0:0:0:0:0:0'
+    fen = '3B:3B:3B:2B:2B:2B:0:0:0:0:0:0:0:0:0:0:0:0:2W:2W:2W:3W:3W:3W:0:0:0:0:0:0:0'
     board, light, dark = convert_fen_to_board(fen)
     set_off_pieces(light, dark)
         
@@ -35,18 +35,24 @@ def get_available_moves(dice_values: tuple, is_light_on_turn: bool):
     turn_multiplier = 1 if is_light_on_turn else -1
     
     if len(dice_values) > 1 and dice_values[0] == dice_values[1]:
-        indices.extend([turn_multiplier * mult * dice_values[0] for mult in range(1, 5)])
+        indices.extend([turn_multiplier * dice_values[0]] * len(dice_values))
     else:
         indices = [turn_multiplier * value for value in dice_values]
     return indices
 
-def get_available_points_from_position(position, dice_values, is_light_on_turn):
+def get_available_points_from_position(position, dice_values, is_light_on_turn, is_taken=False):
     moves = get_available_moves(dice_values, is_light_on_turn)
     result = []
+    visited = []
     for move in moves:
+        if move in visited: continue
+        
+        visited.append(move)
         target = move + position
         if target < 0 or target > 25: continue
-        if fabs(board[target]) > 1 and board[position] * board[target] < 0: continue
+        if fabs(board[target]) > 1: 
+            if is_taken and board[26] * board[target] < 0: continue
+            elif not is_taken and board[position] * board[target] < 0: continue
         
         result.append(target)
 
@@ -59,6 +65,7 @@ def get_most_distant_piece(light: bool):
     else:
         for idx in range(24, 0, -1):
             if board[idx] < 0: return idx
+    return 0
 
 class PiecesInBaseCounter:
     def __init__(self, light, dark):
