@@ -1,3 +1,4 @@
+import game_logic.board as brd
 from abc import ABC, abstractmethod
 from piece import Piece
 from colors import *
@@ -37,7 +38,13 @@ class Point(ABC):
     def check_pieces_color(self, other):
         if self.pieces: return self.pieces[-1].color == other.pieces[-1].color
         else: return True
-        
+    
+    def take(self, idx, points):
+        if brd.board[idx] < 0:
+            self.move_piece_to(points[27])
+        else:
+            self.move_piece_to(points[26])
+    
     def get_color_of_last_piece(self):
         if not self.pieces: return None
         return self.pieces[-1].color 

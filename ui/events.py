@@ -32,8 +32,6 @@ def get_clicked_point(click_pos):
 
 def get_current_position(point):
     result = points.index(point)
-    # if result == 26: 
-        # result = 0 if universal.is_light_on_turn else 25
     return result
 
 def select_point(clicked_point):
@@ -43,7 +41,7 @@ def select_point(clicked_point):
             if brd.board[26] > 0: return idx == 26
             else: return brd.board[idx] > 0
         else: 
-            if brd.board[26] < 0: return idx == 26
+            if brd.board[27] < 0: return idx == 27
             else: return brd.board[idx] < 0
     
     if universal.is_light_on_turn and not check_condition(True, points.index(clicked_point)): return
@@ -53,7 +51,7 @@ def select_point(clicked_point):
     
     is_taken = False
     current_position = get_current_position(selected_point)
-    if current_position == 26:
+    if current_position >= 26:
         is_taken = True
         current_position = 25 if not universal.is_light_on_turn else 0
     
@@ -85,7 +83,7 @@ def handle_distant_dice_values(array):
     return result
 
 def handle_dice_values_after_move(current_position, target_position):
-    if current_position != 26:
+    if current_position < 26:
         delta = int(math.fabs(current_position - target_position))
     else: 
         delta = target_position if universal.is_light_on_turn else 25 - target_position
@@ -115,8 +113,8 @@ def move_pieces(event):
         target_position = points.index(clicked_point)
         
         if math.fabs(brd.board[target_position]) == 1 and brd.board[current_position] * brd.board[target_position] < 0:
-            clicked_point.move_piece_to(points[26])
-            if selected_point == points[26]:
+            clicked_point.take(points.index(clicked_point), points)
+            if selected_point == points[26] or selected_point == points[27]:
                 selected_point.move_piece_to(clicked_point, 0)
             else:
                 selected_point.move_piece_to(clicked_point)

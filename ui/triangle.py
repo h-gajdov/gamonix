@@ -17,6 +17,7 @@ def fill_pieces(points):
         point.add_piece(n, piece_color)
 
 def initialize_points_array():
+    global taken_sections
     points = []
     down_off_section_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT - BOARD_HEIGHT
     right_off_section_x = SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH
@@ -36,7 +37,8 @@ def initialize_points_array():
     points.append(OffSection(right_off_section_x, BOARD_HEIGHT, OFF_SECTION, False)) #Light off section
     fill_pieces(points)
     
-    points.append(TakenSection())
+    points.append(TakenSection(is_white_section=True))
+    points.append(TakenSection(is_white_section=False))
     brd.update_board_array(points)
     return points
 
@@ -89,20 +91,26 @@ class OffSection(Point):
             y += mult * OFF_PIECE_HEIGHT
         
 class TakenSection(Point):
-    def __init__(self):
+    def __init__(self, is_white_section):
         super().__init__(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT / 2, color=NO_COLOR)
         self.rect = None
+        self.is_white_section = is_white_section
         
     def draw(self):
         self.draw_pieces()
         height = 2 * PIECE_RADIUS * len(self.pieces)
-        self.rect = draw_rect(layer.game_board_layer, NO_COLOR, self.x - PIECE_RADIUS, self.y - height / 2, 2 * PIECE_RADIUS, height)
+        y_coord = self.y - height if self.is_white_section else self.y
+        self.rect = draw_rect(layer.game_board_layer, NO_COLOR, self.x - PIECE_RADIUS, y_coord, 2 * PIECE_RADIUS, height)
     
     def draw_pieces(self):
         x = self.x
-        y = self.y - (len(self.pieces) - 1) * PIECE_RADIUS
+        height = 2 * PIECE_RADIUS * len(self.pieces)
+        mult = 1 if self.is_white_section else -1
         
+        if self.is_white_section: y = self.y - height + PIECE_RADIUS
+        else: y = self.y + height - PIECE_RADIUS
+            
         for piece in self.pieces:
             piece.set_position(x, y)
             piece.draw()
-            y += 2 * PIECE_RADIUS
+            y += mult * 2 * PIECE_RADIUS

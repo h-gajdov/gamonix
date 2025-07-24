@@ -1,7 +1,7 @@
 from math import fabs
 from game_logic.fen import *
 from ui.colors import *
-board = [0] * 27
+board = [0] * 28
 
 number_of_light_pieces_off = 0
 number_of_dark_pieces_off = 0
@@ -18,7 +18,7 @@ def update_board_array(points):
 def initialize_board_array():
     global board
     # fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:0'
-    fen = '3B:3B:3B:2B:2B:2B:0:0:0:0:0:0:0:0:0:0:0:0:2W:2W:2W:3W:3W:3W:0:0:0:0:0:0:0'
+    fen = '3B:3B:3B:2B:2B:0:0:0:0:0:0:0:0:0:0:0:2W:2W:2W:1B:1B:3W:3W:3W:0:0:0:0:0:0:0'
     board, light, dark = convert_fen_to_board(fen)
     set_off_pieces(light, dark)
         
