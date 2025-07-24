@@ -18,9 +18,12 @@ def roll_dice():
     global dice_values_ui
     value1 = random.randint(1, 6)
     value2 = random.randint(1, 6)
-    if value1 != value2: result = [value1, value2, value1 + value2]
+    if value1 != value2: result = [value1, value2]
     else: result = [value1] * 4
     
+    result = handle_distant_dice_values(result)
+    
+    print(result)
     dice_values_ui = (value1, value2)
     return tuple(result)
 
@@ -73,6 +76,14 @@ def change_player():
     universal.is_light_on_turn = not universal.is_light_on_turn
     universal.dice_values = roll_dice() 
 
+def handle_distant_dice_values(array):
+    result = array[:]
+    max_value = max(result)
+    most_distant = brd.get_most_distant_piece(universal.is_light_on_turn)
+    if max_value > most_distant:
+        result = [value if value <= most_distant else most_distant for value in result]
+    return result
+
 def handle_dice_values_after_move(current_position, target_position):
     if current_position != 26:
         delta = int(math.fabs(current_position - target_position))
@@ -88,13 +99,10 @@ def handle_dice_values_after_move(current_position, target_position):
                 count -= 1
             universal.dice_values = tuple(tmp)
         else:
-            if delta == max(tmp):
-                change_player()
-            else: 
-                tmp.pop()
-                tmp.remove(delta)
-                universal.dice_values = tuple(tmp)
+            tmp.remove(delta)
+            universal.dice_values = tuple(tmp)
     else: change_player()
+    universal.dice_values = handle_distant_dice_values(universal.dice_values)
 
 def move_pieces(event):
     global selected_point, can_move_to_points

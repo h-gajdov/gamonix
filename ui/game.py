@@ -66,7 +66,8 @@ while running:
     layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
     
-    # print(brd.get_number_of_pieces_in_base())
+    print(universal.dice_values)
+    # print(brd.get_most_distant_piece(universal.is_light_on_turn))
     
     layer.Layer.draw_layers(screen)
     pygame.display.flip()
