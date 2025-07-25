@@ -21,13 +21,13 @@ events.set_points(points)
 dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
 
-universal.dice_values = events.roll_dice()
+universal.change_player()
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d:
-                universal.dice_values = events.roll_dice()
+                universal.dice_values = universal.roll_dice()
             
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             events.move_pieces(event)
@@ -59,8 +59,8 @@ while running:
     box1 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 - dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
     box2 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 + dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
 
-    text_surface_1 = dice1_text.render(str(events.dice_values_ui[0]), False, BLACK)
-    text_surface_2 = dice1_text.render(str(events.dice_values_ui[1]), True, BLACK) 
+    text_surface_1 = dice1_text.render(str(universal.dice_values_ui[0]), False, BLACK)
+    text_surface_2 = dice1_text.render(str(universal.dice_values_ui[1]), True, BLACK) 
     text_rect_1 = text_surface_1.get_rect(center=box1.center)
     text_rect_2 = text_surface_2.get_rect(center=box2.center)
     layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
