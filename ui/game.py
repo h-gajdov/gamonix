@@ -21,7 +21,7 @@ events.set_points(points)
 dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
 
-universal.change_player()
+universal.start_game()
 running = True
 while running:
     for event in pygame.event.get():

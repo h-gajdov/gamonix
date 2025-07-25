@@ -1,4 +1,5 @@
 import random
+import game_logic.board as brd
 from game_logic.player import Player
 from colors import *
 
@@ -25,4 +26,14 @@ def change_player():
     current_player = players[current_player_index]
 
     dice_values = roll_dice()
-    print(current_player_index)
+
+def start_game():
+    global dice_values, dice_values_ui, current_player_index, current_player
+    if 0 in brd.dice_fen: 
+        dice_values = roll_dice()
+        print('call bre')
+    else:
+        dice_values = dice_values_ui = brd.dice_fen
+
+    current_player_index = brd.player_fen
+    current_player = players[current_player_index]

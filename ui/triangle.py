@@ -10,7 +10,6 @@ from shapes import *
 def fill_pieces(points):
     board = brd.get_board()
     for index, point in enumerate(points):
-        if index == 0 or index == 25: continue
         board_num = board[index]
         n = math.fabs(board_num)
         piece_color = LIGHT_PIECE if board_num > 0 else DARK_PIECE
@@ -35,10 +34,10 @@ def initialize_points_array():
     set_tris_array(False, True, BOARD_HEIGHT, range(1, 14))
 
     points.append(OffSection(right_off_section_x, BOARD_HEIGHT, OFF_SECTION, False)) #Light off section
-    fill_pieces(points)
     
     points.append(TakenSection(is_white_section=True))
     points.append(TakenSection(is_white_section=False))
+    fill_pieces(points)
     brd.update_board_array(points)
     return points
 

@@ -2,11 +2,8 @@ from math import fabs
 from game_logic.fen import *
 from ui.colors import *
 board = [0] * 28
-
-number_of_light_pieces_off = 0
-number_of_dark_pieces_off = 0
-number_of_taken_light_pieces = 0
-number_of_taken_dark_pieces = 0
+player_fen = 0
+dice_fen = (1, 1)
 
 available_moves = {}
 
@@ -16,19 +13,14 @@ def update_board_array(points):
     print(board)
 
 def initialize_board_array():
-    global board
+    global board, player_fen, dice_fen
+    # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
     # fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:0'
     fen = '3B:3B:3B:2B:2B:1B:1B:0:0:0:0:0:0:0:0:0:0:0:2W:2W:2W:3W:3W:3W:0:0:0:0:0:0:0'
-    board, light, dark = convert_fen_to_board(fen)
-    set_off_pieces(light, dark)
+    board, dice_fen, player_fen = convert_fen_to_board(fen)
         
 def get_board():
     return board
-
-def set_off_pieces(light, dark):
-    global number_of_light_pieces_off, number_of_dark_pieces_off
-    number_of_light_pieces_off = light
-    number_of_dark_pieces_off = dark
     
 def get_available_moves(dice_values: tuple, is_light_on_turn: bool):
     indices = []
