@@ -31,7 +31,6 @@ def start_game():
     global dice_values, dice_values_ui, current_player_index, current_player
     if 0 in brd.dice_fen: 
         dice_values = roll_dice()
-        print('call bre')
     else:
         dice_values = dice_values_ui = brd.dice_fen
 
