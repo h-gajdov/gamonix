@@ -1,6 +1,7 @@
 import math
 import universal
 import game_logic.board as brd
+import game_logic.player as player
 from options import *
 from colors import *
 
@@ -80,6 +81,7 @@ def handle_dice_values_after_move(current_position, target_position):
         universal.change_player()
 
     universal.dice_values = universal.current_player.handle_distant_dice_values(universal.dice_values)
+    player.Player.set_dice_values(universal.dice_values)
 
 def move_pieces(event):
     global selected_point, can_move_to_points

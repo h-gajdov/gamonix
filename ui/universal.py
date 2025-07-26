@@ -1,11 +1,11 @@
 import random
+import game_logic.player as player
 import game_logic.board as brd
-from game_logic.player import Player
 from colors import *
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [Player(DARK_PIECE), Player(LIGHT_PIECE)]
+players = [player.Player(DARK_PIECE), player.Player(LIGHT_PIECE)]
 current_player_index = 0
 current_player = players[current_player_index]
 
@@ -26,6 +26,8 @@ def change_player():
     current_player = players[current_player_index]
 
     dice_values = roll_dice()
+    player.Player.set_dice_values(dice_values)
+    print(current_player.get_available_moves())
 
 def start_game():
     global dice_values, dice_values_ui, current_player_index, current_player
@@ -36,3 +38,5 @@ def start_game():
 
     current_player_index = brd.player_fen
     current_player = players[current_player_index]
+    player.Player.set_dice_values(dice_values)
+    print(current_player.get_available_moves())
