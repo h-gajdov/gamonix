@@ -15,7 +15,7 @@ def initialize_board_array():
     global board, player_fen, dice_fen
     # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
     fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:0'
-    # fen = '2W:0:0:0:0:3B:2B:3B:0:0:0:5W:3B:0:0:0:3W:2B:5W:0:0:0:2B:0:0:0:0:0:6:6:1'
+    fen = '2B:2B:2B:2B:2B:2B:3B:0:0:0:0:0:0:0:0:0:0:3W:2W:2W:2W:2W:2W:2w:0:0:0:0:0:0:0'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
         
 def get_board():
