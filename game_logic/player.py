@@ -2,15 +2,17 @@ import game_logic.board as brd
 from game_logic.move import Move
 from ui.colors import *
 
-def get_destinations_from_source_point(source_idx, mult):
+def get_destinations_from_source_point(source_idx, source_value, mult):
     visited = []
     destinations = []
     for value in Player.dice_values:
         if value in visited: continue
         visited.append(value)
-                
-        target = source_idx + mult * value
-        if target >= 0 and brd.board[source_idx] * brd.board[target] >= 0:
+        
+        target = source_idx + mult * value        
+        if target < 0 or target >= len(brd.board): continue
+        
+        if source_value * brd.board[target] >= 0:
             destinations.append(target)
     return destinations
 
@@ -21,17 +23,31 @@ class Player:
     
     def __init__(self, color):
         self.color = color
-        self.available_moves = self.get_available_moves()
 
     def get_available_moves(self):
         result = []
         
         def get_moves(bigger_than_zero):
+            taken = False
+            if bigger_than_zero:
+                mult = 1
+                taken = brd.board[26] != 0
+                source = 0
+            else:
+                mult = -1
+                taken = brd.board[27] != 0
+                source = 25
+            
+            if taken:
+                point_idx = 26 if bigger_than_zero else 27
+                destinations = get_destinations_from_source_point(source, brd.board[point_idx], mult)
+                result.extend([Move(point_idx, dest) for dest in destinations])
+                return
+            
             for idx, point in enumerate(brd.board):
                 if (bigger_than_zero and point > 0) or (not bigger_than_zero and point < 0):
-                    mult = 1 if bigger_than_zero else -1
-                    destinations = get_destinations_from_source_point(idx, mult)
-                    result.append([Move(idx, dest) for dest in destinations])
+                    destinations = get_destinations_from_source_point(idx, brd.board[idx], mult)
+                    result.extend([Move(idx, dest) for dest in destinations])
         
         if self.color == LIGHT_PIECE:
             get_moves(bigger_than_zero=True)

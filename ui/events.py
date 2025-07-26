@@ -105,6 +105,7 @@ def move_pieces(event):
         
         handle_dice_values_after_move(current_position, target_position)
         print(universal.dice_values)
+        if not universal.player_has_moves(): universal.change_player()
         deselect_all()
     elif len(clicked_point.pieces) > 0:
         deselect_all()

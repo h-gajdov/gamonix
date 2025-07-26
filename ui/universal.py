@@ -18,7 +18,14 @@ def roll_dice():
     
     result = current_player.handle_distant_dice_values(result)
     dice_values_ui = (value1, value2)
+    player.Player.set_dice_values(tuple(result))
+    
+    print(current_player.get_available_moves())
     return tuple(result)
+
+def player_has_moves():
+    global current_player
+    return len(current_player.get_available_moves()) == 0
 
 def change_player():
     global current_player_index, current_player, players, dice_values
@@ -26,9 +33,10 @@ def change_player():
     current_player = players[current_player_index]
 
     dice_values = roll_dice()
-    player.Player.set_dice_values(dice_values)
-    print(current_player.get_available_moves())
-
+    if player_has_moves(): 
+        print("NO LEGAL MOVES")
+        change_player()
+    
 def start_game():
     global dice_values, dice_values_ui, current_player_index, current_player
     if 0 in brd.dice_fen: 
@@ -38,5 +46,7 @@ def start_game():
 
     current_player_index = brd.player_fen
     current_player = players[current_player_index]
-    player.Player.set_dice_values(dice_values)
-    print(current_player.get_available_moves())
+    
+    if player_has_moves: 
+        print("NO LEGAL MOVES")
+        change_player()

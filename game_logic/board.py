@@ -1,11 +1,10 @@
+import game_logic.player as player
 from math import fabs
 from game_logic.fen import *
 from ui.colors import *
 board = [0] * 28
 player_fen = 0
 dice_fen = (1, 1)
-
-available_moves = {}
 
 def update_board_array(points):
     for idx, point in enumerate(points):
@@ -16,7 +15,7 @@ def initialize_board_array():
     global board, player_fen, dice_fen
     # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
     # fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:0'
-    fen = '3B:3B:3B:2B:2B:1B:1B:0:0:0:0:0:0:0:0:0:0:0:2W:2W:2W:3W:3W:3W:0:0:0:0:0:0:0'
+    fen = '0:2W:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:6:6:0'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
         
 def get_board():
@@ -38,7 +37,6 @@ def get_available_points_from_position(position, dice_values, is_light_on_turn, 
     visited = []
     for move in moves:
         if move in visited: continue
-        
         pieces_in_base = PiecesInBaseCounter.get_number_of_pieces_in_base()
 
         visited.append(move)
@@ -49,7 +47,9 @@ def get_available_points_from_position(position, dice_values, is_light_on_turn, 
         if pieces_in_base.dark != 15 and target == 0: continue
         
         if fabs(board[target]) > 1: 
-            if is_taken and board[26] * board[target] < 0: continue
+            if is_taken: 
+                if is_light_on_turn and board[26] * board[target] < 0: continue
+                if not is_light_on_turn and board[27] * board[target] < 0: continue
             elif not is_taken and board[position] * board[target] < 0: continue
         
         result.append(target)
@@ -64,6 +64,9 @@ def get_most_distant_piece(light: bool):
         for idx in range(24, 0, -1):
             if board[idx] < 0: return idx
     return 0
+
+def is_available_moves_empty():
+    available_moves = player.Player.get_available_moves()
 
 class PiecesInBaseCounter:
     def __init__(self, light, dark):
