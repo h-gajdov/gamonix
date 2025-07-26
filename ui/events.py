@@ -4,6 +4,7 @@ import game_logic.board as brd
 import game_logic.player as player
 from options import *
 from colors import *
+from ai.agent import Agent
 
 points = []
 can_move_to_points = []
@@ -105,6 +106,12 @@ def move_pieces(event):
         
         handle_dice_values_after_move(current_position, target_position)
         print(universal.dice_values)
+        
+        if isinstance(universal.current_player, Agent): 
+            print(universal.current_player.move())
+        else:
+            print(universal.current_player.get_available_moves())
+            
         if not universal.player_has_moves(): universal.change_player()
         deselect_all()
     elif len(clicked_point.pieces) > 0:

@@ -9,10 +9,15 @@ def get_destinations_from_source_point(source_idx, source_value, mult):
         if value in visited: continue
         visited.append(value)
         
-        target = source_idx + mult * value        
-        if target < 0 or target >= len(brd.board): continue
+        pieces_in_base = brd.PiecesInBaseCounter.get_number_of_pieces_in_base()
         
-        if source_value * brd.board[target] >= 0:
+        target = source_idx + mult * value        
+        if target > 25: continue
+        if target < 0 or target >= len(brd.board): continue
+        if target == 25 and pieces_in_base.light != 15: continue
+        if target == 0 and pieces_in_base.dark != 15: continue
+        
+        if source_value * brd.board[target] >= 0 or brd.board[target] == 1:
             destinations.append(target)
     return destinations
 
