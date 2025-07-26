@@ -67,7 +67,7 @@ while running:
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
     
     import ai.eval
-    print(ai.eval.block_counts(brd.board))
+    print(ai.eval.blot_positions(brd.board))
 
     layer.Layer.draw_layers(screen)
     pygame.display.flip()
