@@ -9,13 +9,13 @@ dice_fen = (1, 1)
 def update_board_array(points):
     for idx, point in enumerate(points):
         board[idx] = len(point.pieces) if point.get_color_of_last_piece() == LIGHT_PIECE else -len(point.pieces)
-    print(board)
+    # print(board)
 
 def initialize_board_array():
     global board, player_fen, dice_fen
     # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
     fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:1'
-    # fen = '2W:0:0:0:0:3B:2B:3B:0:0:0:5W:3B:0:0:0:3W:2B:5W:0:0:0:2B:0:0:0:0:0:6:6:1'
+    # fen = '3B:3B:3B:2B:2B:0:0:0:0:0:0:0:0:0:0:0:0:0:2B:2W:4W:3W:3W:3W:0:0:0:0:0:0:0'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
         
 def get_board():
@@ -65,6 +65,15 @@ def get_most_distant_piece(light: bool):
             if board[idx] < 0: return idx
     return 0
 
+def get_closest_piece(light: bool):
+    if light:
+        for idx in range(24, 0, -1):
+            if board[idx] > 0: return 25 - idx
+    else:
+        for idx in range(1, 25):
+            if board[idx] < 0: return idx
+    return 0
+
 def is_available_moves_empty():
     available_moves = player.Player.get_available_moves()
 
@@ -83,8 +92,7 @@ def update_dice_values(dice_values, move, is_light):
     dice_values.remove(delta)
     return tuple(dice_values)
 
-def move_piece(move, dice_values, player_color):
-    global board
+def move_piece(move, board, dice_values, player_color):
     dice_values = update_dice_values(dice_values, move, player_color == LIGHT_PIECE)
     if player_color == DARK_PIECE:
         if board[move.destination_point] * board[move.source_point] < 0:
@@ -102,19 +110,25 @@ def move_piece(move, dice_values, player_color):
         
         board[move.source_point] -= 1
         board[move.destination_point] += 1
-    return dice_values
+    return board, dice_values
 
 class PiecesInBaseCounter:
-    def __init__(self, light, dark):
+    def __init__(self, light, dark, light_points_other_base, dark_points_other_base):
         self.light = light
         self.dark = dark
+        self.light_points_other_base = light_points_other_base
+        self.dark_points_other_base = dark_points_other_base
     
     def get_number_of_pieces_in_base():
         light_count = 0
         dark_count = 0
+        light_other = 0
+        dark_other = 0
         for idx in range(19, 26):
             if board[idx] > 0: light_count += board[idx]
+            elif board[idx] < 0: dark_other += 1 
         for idx in range(0, 7):
             if board[idx] < 0: dark_count += int(fabs(board[idx]))
+            elif board[idx] > 0: light_other += 1
         
-        return PiecesInBaseCounter(light_count, dark_count)
+        return PiecesInBaseCounter(light_count, dark_count, light_other, dark_other)

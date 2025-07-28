@@ -5,11 +5,11 @@ import debug.time_passed as tp
 
 brd.initialize_board_array()
 universal.start_game()
-print(universal.dice_values)
-print(brd.board)
+# print(universal.dice_values)
+# print(brd.board)
 def simulate_move(debug_print=True):
     move = universal.current_player.move()
-    universal.dice_values = brd.move_piece(move, universal.dice_values, universal.current_player.color)
+    brd.board, universal.dice_values = brd.move_piece(move, brd.board, universal.dice_values, universal.current_player.color)
     player.Player.set_dice_values(universal.dice_values)
     
     if debug_print: 
@@ -34,4 +34,4 @@ def simulate_games(n = 1):
         
     print("Light:", light, "Dark:", dark)
     
-tp.calculate_function_time(simulate_games, n=1000)
+# tp.calculate_function_time(simulate_games, n=1000)
