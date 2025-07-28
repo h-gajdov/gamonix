@@ -3,6 +3,8 @@ import events
 import layer
 import universal
 import game_logic.board as brd
+import console
+import debug.time_passed as tp
 from colors import *
 from triangle import *
 from options import *
@@ -15,9 +17,6 @@ pygame.display.set_caption("Gamonix")
 brd.initialize_board_array()
 layer.intialize_layers()
 
-points = initialize_points_array()
-events.set_points(points)
-
 dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
 
@@ -27,13 +26,17 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d:
-                universal.dice_values = universal.roll_dice()
+                tp.calculate_function_time(console.simulate_move)
+                # universal.dice_values = universal.roll_dice()
             
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             events.move_pieces(event)
         
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
+    
+    points = initialize_points_array()
+    events.set_points(points)
     
     #Points
     for point in points: point.draw()

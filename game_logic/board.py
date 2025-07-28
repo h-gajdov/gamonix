@@ -14,7 +14,7 @@ def update_board_array(points):
 def initialize_board_array():
     global board, player_fen, dice_fen
     # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
-    fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:0'
+    fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:1'
     # fen = '2W:0:0:0:0:3B:2B:3B:0:0:0:5W:3B:0:0:0:3W:2B:5W:0:0:0:2B:0:0:0:0:0:6:6:1'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
         
@@ -50,7 +50,7 @@ def get_available_points_from_position(position, dice_values, is_light_on_turn, 
             if is_taken: 
                 if is_light_on_turn and board[26] * board[target] < 0: continue
                 if not is_light_on_turn and board[27] * board[target] < 0: continue
-            elif not is_taken and board[position] * board[target] < 0: continue
+            elif board[position] * board[target] < 0: continue
         
         result.append(target)
 
@@ -67,6 +67,42 @@ def get_most_distant_piece(light: bool):
 
 def is_available_moves_empty():
     available_moves = player.Player.get_available_moves()
+
+def get_delta(source_pos, destination_pos):
+    delta = fabs(source_pos - destination_pos) 
+    if source_pos == 26: delta = fabs(0 - destination_pos)
+    elif source_pos == 27: delta = fabs(25 - destination_pos)
+    return delta
+
+def update_dice_values(dice_values, move, is_light):
+    most_distant = get_most_distant_piece(is_light)
+    dice_values = tuple([value if value <= most_distant else most_distant for value in dice_values])
+    
+    delta = get_delta(move.source_point, move.destination_point)
+    dice_values = list(dice_values)
+    dice_values.remove(delta)
+    return tuple(dice_values)
+
+def move_piece(move, dice_values, player_color):
+    global board
+    dice_values = update_dice_values(dice_values, move, player_color == LIGHT_PIECE)
+    if player_color == DARK_PIECE:
+        if board[move.destination_point] * board[move.source_point] < 0:
+            board[26] += 1
+            board[move.destination_point] = 0
+            # print('TAKEN')
+        
+        board[move.source_point] += 1
+        board[move.destination_point] -= 1
+    else:
+        if board[move.destination_point] * board[move.source_point] < 0:
+            board[27] -= 1
+            board[move.destination_point] = 0
+            # print('TAKEN')
+        
+        board[move.source_point] -= 1
+        board[move.destination_point] += 1
+    return dice_values
 
 class PiecesInBaseCounter:
     def __init__(self, light, dark):

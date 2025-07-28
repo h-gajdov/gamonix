@@ -17,7 +17,7 @@ def get_destinations_from_source_point(source_idx, source_value, mult):
         if target == 25 and pieces_in_base.light != 15: continue
         if target == 0 and pieces_in_base.dark != 15: continue
         
-        if source_value * brd.board[target] >= 0 or brd.board[target] == 1:
+        if source_value * brd.board[target] >= 0 or abs(brd.board[target]) == 1:
             destinations.append(target)
     return destinations
 

@@ -7,7 +7,7 @@ from ai.agent import Agent
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [player.Player(DARK_PIECE), rand_agent.RandomAI(LIGHT_PIECE)]
+players = [rand_agent.RandomAI(DARK_PIECE), rand_agent.RandomAI(LIGHT_PIECE)]
 current_player_index = 0
 current_player = players[current_player_index]
 
@@ -22,7 +22,7 @@ def roll_dice():
     dice_values_ui = (value1, value2)
     player.Player.set_dice_values(tuple(result))
     
-    print(current_player.get_available_moves())
+    # print(current_player.get_available_moves())
     return tuple(result)
 
 def player_has_moves():
@@ -34,12 +34,12 @@ def change_player():
     current_player_index = (current_player_index + 1) % len(players)
     current_player = players[current_player_index]
 
-    if isinstance(current_player, Agent):
-        print(current_player.move())
+    # if isinstance(current_player, Agent):
+    #     print(current_player.move())
 
     dice_values = roll_dice()
     if not player_has_moves(): 
-        print("NO LEGAL MOVES")
+        # print("NO LEGAL MOVES")
         change_player()
     
 def start_game():
@@ -53,9 +53,9 @@ def start_game():
     current_player_index = brd.player_fen
     current_player = players[current_player_index]
     
-    if isinstance(current_player, Agent):
-        print(current_player.move())
+    # if isinstance(current_player, Agent):
+    #     print(current_player.move())
     
     if not player_has_moves(): 
-        print("NO LEGAL MOVES")
+        # print("NO LEGAL MOVES")
         change_player()
