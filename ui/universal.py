@@ -1,12 +1,11 @@
 import random
 import ai.agent as agent
 import game_logic.board as brd
-import game_logic.player as player
 from colors import *
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [agent.GreedyAgent(DARK_PIECE), agent.GreedyAgent(LIGHT_PIECE)]
+players = [agent.DepthGreedyAgent(DARK_PIECE), agent.DepthGreedyAgent(LIGHT_PIECE)]
 current_player_index = 0
 current_player = players[current_player_index]
 
@@ -19,12 +18,11 @@ def roll_dice():
     
     result = current_player.handle_distant_dice_values(result, brd.board)
     dice_values_ui = (value1, value2)
-    player.Player.set_dice_values(result)
     return tuple(result)
 
 def player_has_moves():
-    global current_player
-    return len(current_player.get_available_moves(brd.board)) != 0
+    global current_player, dice_values
+    return len(current_player.get_available_moves(brd.board, dice_values)) != 0
 
 def change_player():
     global current_player_index, current_player, players, dice_values
@@ -45,7 +43,6 @@ def start_game():
         dice_values = roll_dice()
     else:
         dice_values = dice_values_ui = brd.dice_fen
-        player.Player.set_dice_values(dice_values)
         
     current_player_index = brd.player_fen
     current_player = players[current_player_index]

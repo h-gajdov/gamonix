@@ -15,8 +15,8 @@ def initialize_board_array():
     global board, player_fen, dice_fen
     # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
     first_rand = randint(0, 1)
-    fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:{first_rand}'
-    # fen = '3B:3B:3B:2B:2B:0:0:0:0:0:0:0:0:0:0:0:0:0:2B:2W:4W:3W:3W:3W:0:0:0:0:0:0:0'
+    fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:{1}'
+    # fen = '2B:9B:0:0:0:2B:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:7W:7W:0:0:1:2:6:6:0'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
         
 def get_board():
@@ -33,7 +33,7 @@ def get_available_moves(dice_values: tuple, color: tuple):
         indices = [turn_multiplier * value for value in dice_values]
     return indices
 
-def get_available_points_from_position(position, dice_values, is_light_on_turn, is_taken=False):
+def get_available_points_from_position(position, board, dice_values, is_light_on_turn, is_taken=False):
     color = LIGHT_PIECE if is_light_on_turn else DARK_PIECE
     moves = get_available_moves(dice_values, color)
     result = []
@@ -74,7 +74,7 @@ def get_delta(source_pos, destination_pos):
     elif source_pos == 27: delta = fabs(25 - destination_pos)
     return delta
 
-def update_dice_values(dice_values, move, color):
+def update_dice_values(dice_values, move, color, board):
     most_distant = get_most_distant_piece(color, board)
     dice_values = tuple([value if value <= most_distant else most_distant for value in dice_values])
     
@@ -86,7 +86,7 @@ def update_dice_values(dice_values, move, color):
     return tuple(dice_values)
 
 def move_piece(move, board, dice_values, player_color):
-    dice_values = update_dice_values(dice_values, move, player_color)
+    dice_values = update_dice_values(dice_values, move, player_color, board)
     if player_color == DARK_PIECE:
         if board[move.destination_point] * board[move.source_point] < 0:
             board[26] += 1

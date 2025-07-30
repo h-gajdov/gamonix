@@ -6,16 +6,15 @@ import debug.time_passed as tp
 brd.initialize_board_array()
 universal.start_game()
 def simulate_move(debug_print=True):
-    move = universal.current_player.move(brd.board)
+    move = universal.current_player.move(brd.board, universal.dice_values)
     brd.board, universal.dice_values = brd.move_piece(move, brd.board[:], universal.dice_values, universal.current_player.color)
-    player.Player.set_dice_values(universal.dice_values)
     
     if debug_print: 
         print("Dice:", universal.dice_values)
         print("Move:", universal.current_player_index, move)    
         print("Board:", brd.board)
     
-    if not universal.dice_values or not universal.current_player.get_available_moves(brd.board): universal.change_player()
+    if not universal.dice_values or not universal.current_player.get_available_moves(brd.board, universal.dice_values): universal.change_player()
     
 def simulate_games(n = 1):
     dark = 0
