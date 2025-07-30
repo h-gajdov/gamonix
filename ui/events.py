@@ -81,7 +81,7 @@ def handle_dice_values_after_move(current_position, target_position):
     else:
         universal.change_player()
 
-    universal.dice_values = universal.current_player.handle_distant_dice_values(universal.dice_values)
+    universal.dice_values = universal.current_player.handle_distant_dice_values(universal.dice_values, brd.board)
     player.Player.set_dice_values(universal.dice_values)
 
 def move_pieces(event):

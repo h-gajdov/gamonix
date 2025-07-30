@@ -26,7 +26,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d:
-                tp.calculate_function_time(console.simulate_move)
+                tp.calculate_function_time(console.simulate_move, False)
                 # universal.dice_values = universal.roll_dice()
             
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
@@ -68,12 +68,7 @@ while running:
     text_rect_2 = text_surface_2.get_rect(center=box2.center)
     layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
-
-    import ai.eval as eval
-    light_score = eval.evaluate_position_of_player(brd.board, LIGHT_PIECE)
-    dark_score = eval.evaluate_position_of_player(brd.board, DARK_PIECE)
-    print("LIGHT:", light_score, "DARK:", dark_score)
-
+    
     layer.Layer.draw_layers(screen)
     pygame.display.flip()
 

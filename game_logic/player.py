@@ -29,7 +29,8 @@ class Player:
     def __init__(self, color):
         self.color = color
 
-    def get_available_moves(self):
+    def get_available_moves(self, board):
+        Player.dice_values = self.handle_distant_dice_values(Player.dice_values, board)
         result = []
         
         def get_moves(bigger_than_zero):
@@ -45,29 +46,29 @@ class Player:
             
             if taken:
                 point_idx = 26 if bigger_than_zero else 27
-                destinations = get_destinations_from_source_point(source, brd.board[point_idx], mult)
-                result.extend([Move(point_idx, dest) for dest in destinations])
+                destinations = get_destinations_from_source_point(source, board[point_idx], mult)
+                result.extend([Move(point_idx, dest, board, Player.dice_values, self.color) for dest in destinations])
                 return
             
-            for idx, point in enumerate(brd.board):
+            for idx, point in enumerate(board):
                 if (bigger_than_zero and point > 0) or (not bigger_than_zero and point < 0):
-                    destinations = get_destinations_from_source_point(idx, brd.board[idx], mult)
-                    result.extend([Move(idx, dest) for dest in destinations])
+                    destinations = get_destinations_from_source_point(idx, board[idx], mult)
+                    result.extend([Move(idx, dest, board, Player.dice_values, self.color) for dest in destinations])
         
         if self.color == LIGHT_PIECE:
             get_moves(bigger_than_zero=True)
         else:
             get_moves(bigger_than_zero=False)
-            
+        
         return result
     
     def is_light(self):
         return self.color == LIGHT_PIECE
     
-    def handle_distant_dice_values(self, array):
+    def handle_distant_dice_values(self, array, board):
         result = array[:]
         max_value = max(result)
-        most_distant = brd.get_most_distant_piece(self.is_light())
+        most_distant = brd.get_most_distant_piece(self.color, board)
         if max_value > most_distant:
             result = [value if value <= most_distant else most_distant for value in result]
         return result

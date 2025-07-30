@@ -1,7 +1,7 @@
-import game_logic.player as player
 from math import fabs
 from game_logic.fen import *
 from ui.colors import *
+from random import randint
 board = [0] * 28
 player_fen = 0
 dice_fen = (1, 1)
@@ -14,15 +14,17 @@ def update_board_array(points):
 def initialize_board_array():
     global board, player_fen, dice_fen
     # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
-    fen = '2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:1'
+    first_rand = randint(0, 1)
+    fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:{first_rand}'
     # fen = '3B:3B:3B:2B:2B:0:0:0:0:0:0:0:0:0:0:0:0:0:2B:2W:4W:3W:3W:3W:0:0:0:0:0:0:0'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
         
 def get_board():
     return board
     
-def get_available_moves(dice_values: tuple, is_light_on_turn: bool):
+def get_available_moves(dice_values: tuple, color: tuple):
     indices = []
+    is_light_on_turn = color == LIGHT_PIECE
     turn_multiplier = 1 if is_light_on_turn else -1
     
     if len(dice_values) > 1 and dice_values[0] == dice_values[1]:
@@ -32,7 +34,8 @@ def get_available_moves(dice_values: tuple, is_light_on_turn: bool):
     return indices
 
 def get_available_points_from_position(position, dice_values, is_light_on_turn, is_taken=False):
-    moves = get_available_moves(dice_values, is_light_on_turn)
+    color = LIGHT_PIECE if is_light_on_turn else DARK_PIECE
+    moves = get_available_moves(dice_values, color)
     result = []
     visited = []
     for move in moves:
@@ -56,26 +59,14 @@ def get_available_points_from_position(position, dice_values, is_light_on_turn, 
 
     return result
 
-def get_most_distant_piece(light: bool):
-    if light:
-        for idx in range(1, 25):
-            if board[idx] > 0: return 25 - idx
+def get_most_distant_piece(color: tuple, brd):
+    if color == LIGHT_PIECE:
+        for idx in range(1, 28):
+            if brd[idx] > 0: return 25 - idx if idx < 26 else 25
     else:
-        for idx in range(24, 0, -1):
-            if board[idx] < 0: return idx
+        for idx in range(27, 0, -1):
+            if brd[idx] < 0: return idx if idx < 26 else 25
     return 0
-
-def get_closest_piece(light: bool):
-    if light:
-        for idx in range(24, 0, -1):
-            if board[idx] > 0: return 25 - idx
-    else:
-        for idx in range(1, 25):
-            if board[idx] < 0: return idx
-    return 0
-
-def is_available_moves_empty():
-    available_moves = player.Player.get_available_moves()
 
 def get_delta(source_pos, destination_pos):
     delta = fabs(source_pos - destination_pos) 
@@ -83,17 +74,19 @@ def get_delta(source_pos, destination_pos):
     elif source_pos == 27: delta = fabs(25 - destination_pos)
     return delta
 
-def update_dice_values(dice_values, move, is_light):
-    most_distant = get_most_distant_piece(is_light)
+def update_dice_values(dice_values, move, color):
+    most_distant = get_most_distant_piece(color, board)
     dice_values = tuple([value if value <= most_distant else most_distant for value in dice_values])
     
     delta = get_delta(move.source_point, move.destination_point)
+    if delta > most_distant: delta = most_distant
+    
     dice_values = list(dice_values)
     dice_values.remove(delta)
     return tuple(dice_values)
 
 def move_piece(move, board, dice_values, player_color):
-    dice_values = update_dice_values(dice_values, move, player_color == LIGHT_PIECE)
+    dice_values = update_dice_values(dice_values, move, player_color)
     if player_color == DARK_PIECE:
         if board[move.destination_point] * board[move.source_point] < 0:
             board[26] += 1
@@ -118,7 +111,8 @@ class PiecesInBaseCounter:
         self.dark = dark
         self.light_points_other_base = light_points_other_base
         self.dark_points_other_base = dark_points_other_base
-    
+
+    @staticmethod
     def get_number_of_pieces_in_base():
         light_count = 0
         dark_count = 0
