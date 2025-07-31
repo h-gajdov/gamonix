@@ -5,7 +5,7 @@ from colors import *
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [agent.DepthGreedyAgent(DARK_PIECE), agent.DepthGreedyAgent(LIGHT_PIECE)]
+players = [agent.GreedyAgent(DARK_PIECE), agent.ExpectimaxAgent(LIGHT_PIECE, 2)]
 current_player_index = 0
 current_player = players[current_player_index]
 
@@ -49,7 +49,7 @@ def start_game():
     
     # if isinstance(current_player, agent.Agent):
         # print(current_player.move())
-    
+
     if not player_has_moves(): 
         # print("NO LEGAL MOVES")
         change_player()

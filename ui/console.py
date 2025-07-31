@@ -20,16 +20,20 @@ def simulate_games(n = 1):
     dark = 0
     light = 0
     while n > 0:
+        print(f"n={n}")
         brd.initialize_board_array()
         universal.start_game()
+        count = 0
         while brd.board[0] != -15 and brd.board[25] != 15:
             simulate_move(False)
-        
+            count += 1
+            if count > 1000: 
+                print(f"{n} blocked")
+                break
+
         if brd.board[0] == -15: dark += 1
         else: light += 1
         n -= 1
-        print(f"n={n}")
-        
-    print("Light:", light, "Dark:", dark)
-    
-tp.calculate_function_time(simulate_games, n=3000)
+        print("Light:", light, "Dark:", dark)
+
+# tp.calculate_function_time(simulate_games, n=3000)

@@ -24,7 +24,8 @@ class Player:
     def __init__(self, color):
         self.color = color
 
-    def get_available_moves(self, board, dice_values):
+    def get_available_moves(self, board, dice_values, color=None):
+        if not color: color = self.color
         dice_values = self.handle_distant_dice_values(dice_values, board)
         result = []
         
@@ -42,15 +43,15 @@ class Player:
             if taken:
                 point_idx = 26 if bigger_than_zero else 27
                 destinations = get_destinations_from_source_point(source, board, dice_values, bigger_than_zero, taken)
-                result.extend([Move(point_idx, dest, board, dice_values, self.color) for dest in destinations])
+                result.extend([Move(point_idx, dest, board, dice_values, color) for dest in destinations])
                 return
             
             for idx, point in enumerate(board):
                 if (bigger_than_zero and point > 0) or (not bigger_than_zero and point < 0):
                     destinations = get_destinations_from_source_point(idx, board, dice_values, bigger_than_zero, taken)
-                    result.extend([Move(idx, dest, board, dice_values, self.color) for dest in destinations])
+                    result.extend([Move(idx, dest, board, dice_values, color) for dest in destinations])
         
-        if self.color == LIGHT_PIECE:
+        if color == LIGHT_PIECE:
             get_moves(bigger_than_zero=True)
         else:
             get_moves(bigger_than_zero=False)

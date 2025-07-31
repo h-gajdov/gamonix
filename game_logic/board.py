@@ -15,8 +15,8 @@ def initialize_board_array():
     global board, player_fen, dice_fen
     # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
     first_rand = randint(0, 1)
-    fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:{1}'
-    # fen = '2B:9B:0:0:0:2B:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:7W:7W:0:0:1:2:6:6:0'
+    fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:{first_rand}'
+    # fen = '11B:1B:0:0:0:0:1B:0:0:0:0:0:0:0:0:0:0:0:0:1W:0:9W:5W:2B:0:0:0:0:2:5:1'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
         
 def get_board():
@@ -86,6 +86,9 @@ def update_dice_values(dice_values, move, color, board):
     return tuple(dice_values)
 
 def move_piece(move, board, dice_values, player_color):
+    most_distant = get_most_distant_piece(player_color, board)
+    dice_values = tuple([value if value <= most_distant else most_distant for value in dice_values])
+    
     dice_values = update_dice_values(dice_values, move, player_color, board)
     if player_color == DARK_PIECE:
         if board[move.destination_point] * board[move.source_point] < 0:
