@@ -8,7 +8,7 @@ from colors import *
 from shapes import *
 
 def fill_pieces(points):
-    board = brd.get_board()
+    board = brd.board
     for index, point in enumerate(points):
         board_num = board[index]
         n = math.fabs(board_num)

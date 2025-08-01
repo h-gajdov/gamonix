@@ -18,9 +18,6 @@ def initialize_board_array():
     fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:{first_rand}'
     # fen = '11B:1B:0:0:0:0:1B:0:0:0:0:0:0:0:0:0:0:0:0:1W:0:9W:5W:2B:0:0:0:0:2:5:1'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
-        
-def get_board():
-    return board
     
 def get_available_moves(dice_values: tuple, color: tuple):
     indices = []
@@ -33,8 +30,8 @@ def get_available_moves(dice_values: tuple, color: tuple):
         indices = [turn_multiplier * value for value in dice_values]
     return indices
 
-def get_available_points_from_position(position, board, dice_values, is_light_on_turn, is_taken=False):
-    color = LIGHT_PIECE if is_light_on_turn else DARK_PIECE
+def get_available_points_from_position(position, board, dice_values, color, is_taken=False):
+    is_light_on_turn = color == LIGHT_PIECE
     moves = get_available_moves(dice_values, color)
     result = []
     visited = []
@@ -56,7 +53,6 @@ def get_available_points_from_position(position, board, dice_values, is_light_on
             elif board[position] * board[target] < 0: continue
         
         result.append(target)
-
     return result
 
 def get_most_distant_piece(color: tuple, brd):
@@ -74,9 +70,14 @@ def get_delta(source_pos, destination_pos):
     elif source_pos == 27: delta = fabs(25 - destination_pos)
     return delta
 
+def handle_distant_dice_values(dice_values, board, color, most_distant=None):
+    if not most_distant: most_distant = get_most_distant_piece(color, board)
+    result = [value if value <= most_distant else most_distant for value in dice_values]
+    return tuple(result)
+
 def update_dice_values(dice_values, move, color, board):
     most_distant = get_most_distant_piece(color, board)
-    dice_values = tuple([value if value <= most_distant else most_distant for value in dice_values])
+    dice_values = handle_distant_dice_values(dice_values, board, color, most_distant)
     
     delta = get_delta(move.source_point, move.destination_point)
     if delta > most_distant: delta = most_distant
@@ -94,7 +95,6 @@ def move_piece(move, board, dice_values, player_color):
         if board[move.destination_point] * board[move.source_point] < 0:
             board[26] += 1
             board[move.destination_point] = 0
-            # print('TAKEN')
         
         board[move.source_point] += 1
         board[move.destination_point] -= 1
@@ -102,11 +102,18 @@ def move_piece(move, board, dice_values, player_color):
         if board[move.destination_point] * board[move.source_point] < 0:
             board[27] -= 1
             board[move.destination_point] = 0
-            # print('TAKEN')
         
         board[move.source_point] -= 1
         board[move.destination_point] += 1
     return board, dice_values
+
+def get_all_unique_dice_values():
+    return [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6),
+            (2, 2), (2, 3), (2, 4), (2, 5), (2, 6),
+            (3, 3), (3, 4), (3, 5), (3, 6),
+            (4, 4), (4, 5), (4, 6),
+            (5, 5), (5, 6),
+            (6, 6)]
 
 class PiecesInBaseCounter:
     def __init__(self, light, dark, light_points_other_base, dark_points_other_base):

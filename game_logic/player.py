@@ -2,23 +2,8 @@ import game_logic.board as brd
 from game_logic.move import Move
 from ui.colors import *
 
-def get_destinations_from_source_point(source_idx, board, dice_values, is_light, is_taken):
-    # visited = []
-    # destinations = []
-    # for value in dice_values:
-    #     if value in visited: continue
-    #     visited.append(value)
-    #
-    #     pieces_in_base = brd.PiecesInBaseCounter.get_number_of_pieces_in_base()
-    #
-    #     target = source_idx + mult * value
-    #     if target < 0 or target > 25: continue
-    #     if target == 25 and pieces_in_base.light != 15: continue
-    #     if target == 0 and pieces_in_base.dark != 15: continue
-    #
-    #     if source_value * brd.board[target] >= 0 or abs(brd.board[target]) == 1:
-    #         destinations.append(target)
-    return brd.get_available_points_from_position(source_idx, board, dice_values, is_light, is_taken)
+def get_destinations_from_source_point(source_idx, board, dice_values, player_color, is_taken):
+    return brd.get_available_points_from_position(source_idx, board, dice_values, player_color, is_taken)
 
 class Player:
     def __init__(self, color):
@@ -26,43 +11,29 @@ class Player:
 
     def get_available_moves(self, board, dice_values, color=None):
         if not color: color = self.color
-        dice_values = self.handle_distant_dice_values(dice_values, board)
+        dice_values = brd.handle_distant_dice_values(dice_values, board, color)
         result = []
         
-        def get_moves(bigger_than_zero):
-            taken = False
-            if bigger_than_zero:
-                mult = 1
-                taken = brd.board[26] != 0
-                source = 0
-            else:
-                mult = -1
-                taken = brd.board[27] != 0
-                source = 25
-            
-            if taken:
-                point_idx = 26 if bigger_than_zero else 27
-                destinations = get_destinations_from_source_point(source, board, dice_values, bigger_than_zero, taken)
-                result.extend([Move(point_idx, dest, board, dice_values, color) for dest in destinations])
-                return
-            
-            for idx, point in enumerate(board):
-                if (bigger_than_zero and point > 0) or (not bigger_than_zero and point < 0):
-                    destinations = get_destinations_from_source_point(idx, board, dice_values, bigger_than_zero, taken)
-                    result.extend([Move(idx, dest, board, dice_values, color) for dest in destinations])
-        
-        if color == LIGHT_PIECE:
-            get_moves(bigger_than_zero=True)
+        taken = False
+        is_light = color == LIGHT_PIECE
+        if is_light:
+            mult = 1
+            taken = brd.board[26] != 0
+            source = 0
         else:
-            get_moves(bigger_than_zero=False)
+            mult = -1
+            taken = brd.board[27] != 0
+            source = 25
+            
+        if taken:
+            point_idx = 26 if is_light else 27
+            destinations = get_destinations_from_source_point(source, board, dice_values, color, taken)
+            result.extend([Move(point_idx, dest, board, dice_values, color) for dest in destinations])
+            return result
+            
+        for idx, point in enumerate(board):
+            if (is_light and point > 0) or (not is_light and point < 0):
+                destinations = get_destinations_from_source_point(idx, board, dice_values, color, taken)
+                result.extend([Move(idx, dest, board, dice_values, color) for dest in destinations])
         
-        return result
-    
-    def is_light(self):
-        return self.color == LIGHT_PIECE
-    
-    def handle_distant_dice_values(self, array, board):
-        result = array[:]
-        most_distant = brd.get_most_distant_piece(self.color, board)
-        result = [value if value <= most_distant else most_distant for value in result]
         return result

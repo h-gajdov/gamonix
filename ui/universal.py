@@ -16,7 +16,7 @@ def roll_dice():
     if value1 != value2: result = [value1, value2]
     else: result = [value1] * 4
     
-    result = current_player.handle_distant_dice_values(result, brd.board)
+    result = brd.handle_distant_dice_values(result, brd.board, current_player.color)
     dice_values_ui = (value1, value2)
     return tuple(result)
 
@@ -29,16 +29,14 @@ def change_player():
     current_player_index = (current_player_index + 1) % len(players)
     current_player = players[current_player_index]
 
-    # if isinstance(current_player, agent.Agent):
-        # print(current_player.move())
-
     dice_values = roll_dice()
-    if not player_has_moves(): 
-        # print("NO LEGAL MOVES")
+    if not player_has_moves():
         change_player()
     
 def start_game():
     global dice_values, dice_values_ui, current_player_index, current_player
+    brd.initialize_board_array()
+    
     if 0 in brd.dice_fen: 
         dice_values = roll_dice()
     else:
@@ -46,10 +44,6 @@ def start_game():
         
     current_player_index = brd.player_fen
     current_player = players[current_player_index]
-    
-    # if isinstance(current_player, agent.Agent):
-        # print(current_player.move())
 
-    if not player_has_moves(): 
-        # print("NO LEGAL MOVES")
+    if not player_has_moves():
         change_player()

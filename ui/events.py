@@ -44,7 +44,7 @@ def select_point(clicked_point):
         is_taken = True
         current_position = 25 if not universal.current_player.is_light() else 0
     
-    indices = brd.get_available_points_from_position(current_position, brd.board, universal.dice_values, universal.current_player.is_light(), is_taken)
+    indices = brd.get_available_points_from_position(current_position, brd.board, universal.dice_values, universal.current_player.color, is_taken)
     can_move_to_points = [points[idx] for idx in indices]
     for point in can_move_to_points: 
         point.set_highlight(True)

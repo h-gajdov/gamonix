@@ -4,7 +4,6 @@ import random
 from ai.eval import evaluate_position_of_player
 from ui.colors import *
 from abc import ABC, abstractmethod
-from copy import deepcopy
 
 class Agent(player.Player):
     def __init__(self, color):
@@ -51,7 +50,7 @@ class DepthGreedyAgent(Agent):
                 result = move
         return result
     
-    def recursive(self, move, board, dice_values, depth) :
+    def recursive_search(self, move, board, dice_values, depth) :
         result_board, result_dice = brd.move_piece(move, board[:], dice_values, self.color)
 
         if not result_dice or depth >= len(dice_values):
@@ -74,36 +73,31 @@ class ExpectimaxAgent(Agent):
     def expectimax(self, board, is_max_player, depth):
         opponent_color = DARK_PIECE if self.color == LIGHT_PIECE else LIGHT_PIECE
         color = self.color if is_max_player else opponent_color
-
+        
         if depth >= self.max_depth:
             return evaluate_position_of_player(board, self.color)
         else:
-            all_dice = [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6),
-                        (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6),
-                        (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6),
-                        (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6),
-                        (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6),
-                        (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)]
+            all_dice = brd.get_all_unique_dice_values()
 
             average = -100000 #if blocked return this
+            scores = []
             for dice in all_dice:
                 new_boards = self.get_all_board_states_after_move(board, dice, color)
-                scores = []
                 for state in new_boards:
-                    brd = state[-1]
-                    scores.append(self.expectimax(brd, not is_max_player, depth + 1))
+                    new_board = state[-1]
+                    scores.append(self.expectimax(new_board, not is_max_player, depth + 1))
 
-                if scores: average = sum(scores) / len(scores)
+            if scores: average = sum(scores) / len(scores)
             return average
 
     def move(self, board, dice_values):
         best_score = float('-inf')
         best_move = None
-
+        
         board_states = self.get_all_board_states_after_move(board, dice_values)
         for state in board_states:
             brd = state[-1]
-            score = self.expectimax(brd, is_max_player=True, depth=1)
+            score = self.expectimax(brd, is_max_player=False, depth=1)
 
             if best_score < score:
                 best_score = score
@@ -117,12 +111,12 @@ class ExpectimaxAgent(Agent):
 
         result = []
         for move in available_moves:
-            board_inst = self.recursive(move, board, dice_values, 0, [], color)
+            board_inst = self.recursive_search(move, board, dice_values, 0, [], color)
             for brd in board_inst:
                 result.append(brd)
         return result
 
-    def recursive(self, move, board, dice_values, depth, mvs, color):
+    def recursive_search(self, move, board, dice_values, depth, mvs, color):
         mvs.append(move)
         result_board, result_dice = brd.move_piece(move, board[:], dice_values, color)
 
@@ -135,6 +129,6 @@ class ExpectimaxAgent(Agent):
 
         result_array = []
         for mv in available_moves:
-            result_array.extend(self.recursive(mv, result_board, result_dice, depth + 1, mvs, color))
+            result_array.extend(self.recursive_search(mv, result_board, result_dice, depth + 1, mvs, color))
 
         return result_array

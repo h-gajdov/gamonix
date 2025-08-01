@@ -49,7 +49,6 @@ def evaluate_position_of_player(board, player_color):
             point_no = i if player_color == DARK_PIECE else 25 - i
             my_color = player_color == DARK_PIECE and board[i] < 0 or player_color == LIGHT_PIECE and board[i] > 0
             
-            # if board[i] != 0 and my_color:
             all_passed = point_no < opponent_most_distant                        
                         
             if my_color and abs(board[i]) > 1: #is block
@@ -73,7 +72,7 @@ def evaluate_position_of_player(board, player_color):
         if all_passed:
             score += evaluate_points(board, player_color) * config.run_or_block_factor
     
-    else: #passed each othe
+    else: #passed each other
         pieces_in_base = brd.PiecesInBaseCounter.get_number_of_pieces_in_base()
         count_in_base = pieces_in_base.dark if player_color == DARK_PIECE else pieces_in_base.light
         # count_in_other = pieces_in_base.dark_points_other_base if player_color == DARK_PIECE else pieces_in_base.light_points_other_base
