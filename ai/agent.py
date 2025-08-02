@@ -29,6 +29,7 @@ class GreedyAgent(Agent):
         available_moves = self.get_available_moves(board, dice_values)
         available_moves = sorted(available_moves, key=lambda x: x.source_point)
         if self.color == DARK_PIECE: available_moves.reverse()
+        if not available_moves: return None
         best_move = max(available_moves, key=lambda x: x.evaluate())
         return best_move
 
@@ -117,18 +118,18 @@ class ExpectimaxAgent(Agent):
         return result
 
     def recursive_search(self, move, board, dice_values, depth, mvs, color):
-        mvs.append(move)
+        new_mvs = mvs + [move]
         result_board, result_dice = brd.move_piece(move, board[:], dice_values, color)
 
         if not result_dice or depth >= len(dice_values):
-            return [[tuple(mvs), result_board]]
+            return [[tuple(new_mvs), result_board]]
 
         available_moves = self.get_available_moves(result_board, result_dice, color)
         if not available_moves:
-            return [[tuple(mvs), result_board]]
+            return [[tuple(new_mvs), result_board]]
 
         result_array = []
         for mv in available_moves:
-            result_array.extend(self.recursive_search(mv, result_board, result_dice, depth + 1, mvs, color))
+            result_array.extend(self.recursive_search(mv, result_board, result_dice, depth + 1, new_mvs, color))
 
         return result_array

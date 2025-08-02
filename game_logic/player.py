@@ -13,16 +13,15 @@ class Player:
         if not color: color = self.color
         dice_values = brd.handle_distant_dice_values(dice_values, board, color)
         result = []
-        
-        taken = False
+
         is_light = color == LIGHT_PIECE
         if is_light:
             mult = 1
-            taken = brd.board[26] != 0
+            taken = board[26] != 0
             source = 0
         else:
             mult = -1
-            taken = brd.board[27] != 0
+            taken = board[27] != 0
             source = 25
             
         if taken:

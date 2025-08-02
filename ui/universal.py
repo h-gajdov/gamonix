@@ -5,7 +5,7 @@ from colors import *
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [agent.GreedyAgent(DARK_PIECE), agent.ExpectimaxAgent(LIGHT_PIECE, 2)]
+players = [agent.ExpectimaxAgent(DARK_PIECE, 2), agent.ExpectimaxAgent(LIGHT_PIECE, 2)]
 current_player_index = 0
 current_player = players[current_player_index]
 
@@ -47,3 +47,7 @@ def start_game():
 
     if not player_has_moves():
         change_player()
+
+def create_new_game():
+    start_game()  # Initializes global vars, but you may need to isolate
+    return brd.board.copy(), dice_values[:], current_player, current_player_index

@@ -15,8 +15,8 @@ def initialize_board_array():
     global board, player_fen, dice_fen
     # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
     first_rand = randint(0, 1)
-    fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:{first_rand}'
-    # fen = '11B:1B:0:0:0:0:1B:0:0:0:0:0:0:0:0:0:0:0:0:1W:0:9W:5W:2B:0:0:0:0:2:5:1'
+    # fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:{first_rand}'
+    fen = f'2W:0:0:0:1B:3B:1B:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:4:2:1'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
     
 def get_available_moves(dice_values: tuple, color: tuple):
@@ -32,6 +32,7 @@ def get_available_moves(dice_values: tuple, color: tuple):
 
 def get_available_points_from_position(position, board, dice_values, color, is_taken=False):
     is_light_on_turn = color == LIGHT_PIECE
+
     moves = get_available_moves(dice_values, color)
     result = []
     visited = []
@@ -51,7 +52,7 @@ def get_available_points_from_position(position, board, dice_values, color, is_t
                 if is_light_on_turn and board[26] * board[target] < 0: continue
                 if not is_light_on_turn and board[27] * board[target] < 0: continue
             elif board[position] * board[target] < 0: continue
-        
+
         result.append(target)
     return result
 

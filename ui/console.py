@@ -2,7 +2,7 @@ import universal
 import game_logic.board as brd
 import debug.time_passed as tp
 
-universal.start_game()
+# universal.start_game()
 def simulate_move(debug_print=True):
     move = universal.current_player.move(brd.board, universal.dice_values)
     brd.board, universal.dice_values = brd.move_piece(move, brd.board[:], universal.dice_values, universal.current_player.color)
@@ -33,4 +33,4 @@ def simulate_games(n = 1):
         n -= 1
         print("Light:", light, "Dark:", dark)
 
-# tp.calculate_function_time(simulate_games, n=3000)
+tp.calculate_function_time(simulate_games, n=3000)
