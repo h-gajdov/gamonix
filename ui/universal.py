@@ -5,7 +5,7 @@ from colors import *
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [agent.ExpectimaxAgent(DARK_PIECE, 2), agent.ExpectimaxAgent(LIGHT_PIECE, 2)]
+players = [agent.GreedyAgent(DARK_PIECE), agent.ExpectimaxAgent(LIGHT_PIECE, 2)]
 current_player_index = 0
 current_player = players[current_player_index]
 

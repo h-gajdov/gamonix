@@ -33,4 +33,4 @@ def simulate_games(n = 1):
         n -= 1
         print("Light:", light, "Dark:", dark)
 
-tp.calculate_function_time(simulate_games, n=3000)
+# tp.calculate_function_time(simulate_games, n=3000)
