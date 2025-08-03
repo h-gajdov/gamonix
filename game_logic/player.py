@@ -8,6 +8,7 @@ def get_destinations_from_source_point(source_idx, board, dice_values, player_co
 class Player:
     def __init__(self, color):
         self.color = color
+        self.opponent_color = DARK_PIECE if self.color == LIGHT_PIECE else LIGHT_PIECE
 
     def get_available_moves(self, board, dice_values, color=None):
         if not color: color = self.color

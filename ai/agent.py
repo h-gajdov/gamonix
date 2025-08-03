@@ -73,8 +73,7 @@ class ExpectimaxAgent(Agent):
         self.max_depth = max_depth
 
     def expectimax(self, state, is_max_player, depth):
-        opponent_color = DARK_PIECE if self.color == LIGHT_PIECE else LIGHT_PIECE
-        color = self.color if is_max_player else opponent_color
+        color = self.color if is_max_player else self.opponent_color
         
         if depth >= self.max_depth:
             return evaluate_position_of_player(state.board, self.color)
@@ -131,3 +130,40 @@ class ExpectimaxAgent(Agent):
             result_array.extend(self.recursive_search(mv, result_board, result_dice, depth + 1, new_mvs, color))
 
         return result_array
+    
+class CachingExpectimaxAgent(ExpectimaxAgent):
+    def __init__(self, color, max_depth=2):
+        super().__init__(color, max_depth)
+        self.cache = {}
+
+    def clear_cache(self):
+        self.cache.clear() 
+
+    def move(self, board, dice_values):
+        result = super().move(board, dice_values)
+        return result
+
+    def expectimax(self, state, is_max_player, depth):
+        color = self.color if is_max_player else self.opponent_color
+        
+        cache_check = self.cache.get(state)
+        if cache_check: return cache_check
+
+        if depth >= self.max_depth:
+            score = evaluate_position_of_player(state.board, self.color) 
+            self.cache[state] = score
+            return score
+        else:
+            all_dice = brd.get_all_unique_dice_values()
+
+            average = -100000 #if blocked return this
+            scores = []
+            for dice in all_dice:
+                new_boards = self.get_all_board_states_after_move(state.board, dice, color)
+                for new_state in new_boards:
+                    scores.append(self.expectimax(new_state, not is_max_player, depth + 1))
+
+            if scores: average = sum(scores) / len(scores)
+
+            self.cache[state] = average
+            return average

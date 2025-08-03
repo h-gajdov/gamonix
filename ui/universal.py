@@ -5,7 +5,7 @@ from colors import *
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [agent.GreedyAgent(DARK_PIECE), agent.ExpectimaxAgent(LIGHT_PIECE, 2)]
+players = [agent.GreedyAgent(DARK_PIECE), agent.CachingExpectimaxAgent(LIGHT_PIECE, 2)]
 current_player_index = 0
 current_player = players[current_player_index]
 
@@ -26,9 +26,13 @@ def player_has_moves():
 
 def change_player():
     global current_player_index, current_player, players, dice_values
+    
+    if isinstance(current_player, agent.CachingExpectimaxAgent): 
+        current_player.clear_cache()
+    
     current_player_index = (current_player_index + 1) % len(players)
     current_player = players[current_player_index]
-
+    
     dice_values = roll_dice()
     if not player_has_moves():
         change_player()
