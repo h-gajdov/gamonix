@@ -109,12 +109,12 @@ def move_piece(move, board, dice_values, player_color):
     return board, dice_values
 
 def get_all_unique_dice_values():
-    return [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6),
-            (2, 2), (2, 3), (2, 4), (2, 5), (2, 6),
-            (3, 3), (3, 4), (3, 5), (3, 6),
-            (4, 4), (4, 5), (4, 6),
-            (5, 5), (5, 6),
-            (6, 6)]
+    return [(1, 1, 1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6),
+            (2, 2, 2, 2), (2, 3), (2, 4), (2, 5), (2, 6),
+            (3, 3, 3, 3), (3, 4), (3, 5), (3, 6),
+            (4, 4, 4, 4), (4, 5), (4, 6),
+            (5, 5, 5, 5), (5, 6),
+            (6, 6, 6, 6)]
 
 class PiecesInBaseCounter:
     def __init__(self, light, dark, light_points_other_base, dark_points_other_base):

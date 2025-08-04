@@ -167,3 +167,120 @@ class CachingExpectimaxAgent(ExpectimaxAgent):
 
             self.cache[state] = average
             return average
+        
+class BeamExpectimaxAgent(ExpectimaxAgent):
+    def __init__(self, color, max_depth=2, beam_width=5):
+        super().__init__(color, max_depth)
+        self.beam_width = beam_width
+        self.cache = {}
+
+    def clear_cache(self):
+        self.cache.clear() 
+
+    def _apply_beam(self, states, k):
+        if len(states) <= k:
+            return states
+        
+        scored = []
+        for s in states:
+            cache_check = self.cache.get(s)
+            if cache_check:
+                scored.append((cache_check, s))
+            else:
+                scored.append((evaluate_position_of_player(s.board, self.color), s))
+                
+        scored.sort(reverse=True, key=lambda x: x[0])
+        return [s for (_, s) in scored[:k]]
+
+    def move(self, board, dice_values):
+        best_score = float('-inf')
+        best_move = None
+        
+        board_states = self.get_all_board_states_after_move(board, dice_values)
+        board_states = self._apply_beam(board_states, self.beam_width)
+        for state in board_states:
+            score = self.expectimax(state, is_max_player=False, depth=1)
+
+            if best_score < score:
+                best_score = score
+                best_move = state.move_history[0]
+
+        return best_move
+
+    def expectimax(self, state, is_max_player, depth):
+        color = self.color if is_max_player else self.opponent_color
+        
+        cache_check = self.cache.get(state)
+        if cache_check: return cache_check
+        
+        if depth >= self.max_depth:
+            score = evaluate_position_of_player(state.board, self.color) 
+            self.cache[state] = score
+            return score
+        else:
+            all_dice = brd.get_all_unique_dice_values()
+
+            average = -100000 #if blocked return this
+            scores = []
+            for dice in all_dice:
+                new_boards = self.get_all_board_states_after_move(state.board, dice, color)
+                new_boards = self._apply_beam(new_boards, self.beam_width)
+                for new_state in new_boards:
+                    scores.append(self.expectimax(new_state, not is_max_player, depth + 1))
+
+            if scores: average = sum(scores) / len(scores)
+
+            self.cache[state] = average
+            return average
+        
+class AdaptiveBeamAgent(BeamExpectimaxAgent):
+    def __init__(self, color, max_depth=2, beam_width=5):
+        super().__init__(color, max_depth, beam_width)
+
+    def _beam_width_at_depth(self, k, depth):
+        return max(2, k - depth)
+    
+    def _apply_beam(self, states, k, depth):
+        beam_width = self._beam_width_at_depth(k, depth)
+        return super()._apply_beam(states, beam_width)
+
+    def move(self, board, dice_values):
+        best_score = float('-inf')
+        best_move = None
+        
+        board_states = self.get_all_board_states_after_move(board, dice_values)
+        board_states = self._apply_beam(board_states, self.beam_width, 0)
+        for state in board_states:
+            score = self.expectimax(state, is_max_player=False, depth=1)
+
+            if best_score < score:
+                best_score = score
+                best_move = state.move_history[0]
+
+        return best_move
+
+    def expectimax(self, state, is_max_player, depth):
+        color = self.color if is_max_player else self.opponent_color
+        
+        cache_check = self.cache.get(state)
+        if cache_check: return cache_check
+        
+        if depth >= self.max_depth:
+            score = evaluate_position_of_player(state.board, self.color) 
+            self.cache[state] = score
+            return score
+        else:
+            all_dice = brd.get_all_unique_dice_values()
+
+            average = -100000 #if blocked return this
+            scores = []
+            for dice in all_dice:
+                new_boards = self.get_all_board_states_after_move(state.board, dice, color)
+                new_boards = self._apply_beam(new_boards, self.beam_width, depth)
+                for new_state in new_boards:
+                    scores.append(self.expectimax(new_state, not is_max_player, depth + 1))
+
+            if scores: average = sum(scores) / len(scores)
+
+            self.cache[state] = average
+            return average
