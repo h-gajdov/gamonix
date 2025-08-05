@@ -16,7 +16,7 @@ def initialize_board_array():
     # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
     first_rand = randint(0, 1)
     fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:{first_rand}'
-    fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:1:4:{1}'
+    # fen = f'3B:3B:3B:2B:2B:2B:0:0:0:0:0:0:0:0:0:0:0:0:2W:2W:2W:3W:3W:3W:0:0:0:0:0:0:{1}'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
     
 def get_available_moves(dice_values: tuple, color: tuple):
@@ -38,7 +38,7 @@ def get_available_points_from_position(position, board, dice_values, color, is_t
     visited = []
     for move in moves:
         if move in visited: continue
-        pieces_in_base = PiecesInBaseCounter.get_number_of_pieces_in_base()
+        pieces_in_base = PiecesInBaseCounter.get_number_of_pieces_in_base(board)
 
         visited.append(move)
         target = move + position
@@ -124,16 +124,19 @@ class PiecesInBaseCounter:
         self.dark_points_other_base = dark_points_other_base
 
     @staticmethod
-    def get_number_of_pieces_in_base():
+    def get_number_of_pieces_in_base(board):
         light_count = 0
         dark_count = 0
         light_other = 0
         dark_other = 0
         for idx in range(19, 26):
             if board[idx] > 0: light_count += board[idx]
-            elif board[idx] < 0: dark_other += 1 
+            elif board[idx] < 0: dark_other += abs(board[idx])
         for idx in range(0, 7):
-            if board[idx] < 0: dark_count += int(fabs(board[idx]))
-            elif board[idx] > 0: light_other += 1
-        
+            if board[idx] < 0: dark_count += abs(board[idx])
+            elif board[idx] > 0: light_other += board[idx]
+
+        light_other += board[26]
+        dark_other += -board[27]
+
         return PiecesInBaseCounter(light_count, dark_count, light_other, dark_other)

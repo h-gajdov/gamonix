@@ -37,7 +37,8 @@ class Agent(player.Player):
             if cache_check: return cache_check
 
         if depth >= self.max_depth:
-            score = evaluate_position_of_player(state.board, self.color) 
+            score = evaluate_position_of_player(state.board, self.color)
+            score -= evaluate_position_of_player(state.board, self.opponent_color)
             if has_cache: self.cache[state] = score
             return score
         else:
@@ -53,8 +54,9 @@ class Agent(player.Player):
                     else:
                         new_states = self._apply_beam(new_states, self.beam_width)            
 
+                m = 1 if dice[0] == dice[1] else 2
                 for new_state in new_states:
-                    scores.append(self.expectimax(new_state, not is_max_player, depth + 1))
+                    scores.append(self.expectimax(new_state, not is_max_player, depth + 1) * m)
 
             if scores: average = sum(scores) / len(scores)
 

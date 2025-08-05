@@ -5,6 +5,8 @@ import universal
 import game_logic.board as brd
 import console
 import debug.time_passed as tp
+
+from ai.eval import evaluate_position_of_player
 from colors import *
 from triangle import *
 from options import *
@@ -19,13 +21,23 @@ dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
 
 universal.start_game()
+
+points = initialize_points_array()
+events.set_points(points)
+
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d:
+                # console.print_simulated_move()
                 tp.calculate_function_time(console.simulate_move, False)
+                points = initialize_points_array()
+                events.set_points(points)
                 # universal.dice_values = universal.roll_dice()
+            if event.key == pygame.K_e:
+                print("LIGHT:", evaluate_position_of_player(brd.board, LIGHT_PIECE))
+                print("DARK:", evaluate_position_of_player(brd.board, DARK_PIECE))
             
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             events.move_pieces(event)
@@ -33,12 +45,9 @@ while running:
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
     
-    points = initialize_points_array()
-    events.set_points(points)
-    
     #Points
     for point in points: point.draw()
-    
+
     #Borders
     draw_rect(layer.background_board_layer, BOARD_BORDER, 0, 0, SCREEN_WIDTH, BOARD_HEIGHT)
     draw_rect(layer.background_board_layer, BOARD_BORDER, 0, SCREEN_HEIGHT - BOARD_HEIGHT, SCREEN_WIDTH, BOARD_HEIGHT)

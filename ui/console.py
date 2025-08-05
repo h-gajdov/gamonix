@@ -14,6 +14,10 @@ def simulate_move(debug_print=True):
     
     if not universal.dice_values or not universal.current_player.get_available_moves(brd.board, universal.dice_values): universal.change_player()
     
+def print_simulated_move():
+    move = universal.current_player.move(brd.board, universal.dice_values)
+    print(move)
+    
 def simulate_games(n = 1):
     dark = 0
     light = 0

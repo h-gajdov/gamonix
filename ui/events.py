@@ -1,10 +1,10 @@
 import math
 import universal
 import game_logic.board as brd
-import game_logic.player as player
+
 from options import *
 from colors import *
-from ai.agent import Agent
+from game_logic.move import Move
 
 points = []
 can_move_to_points = []
@@ -33,16 +33,16 @@ def select_point(clicked_point):
             if brd.board[27] < 0: return idx == 27
             else: return brd.board[idx] < 0
     
-    if universal.current_player.is_light() and not check_condition(True, points.index(clicked_point)): return
-    if not universal.current_player.is_light() and not check_condition(False, points.index(clicked_point)): return
+    if universal.current_player.color == LIGHT_PIECE and not check_condition(True, points.index(clicked_point)): return
+    if universal.current_player.color == DARK_PIECE and not check_condition(False, points.index(clicked_point)): return
     
     selected_point = clicked_point
-    
+
     is_taken = False
     current_position = get_current_position(selected_point)
     if current_position >= 26:
         is_taken = True
-        current_position = 25 if not universal.current_player.is_light() else 0
+        current_position = 25 if universal.current_player.color == DARK_PIECE else 0
     
     indices = brd.get_available_points_from_position(current_position, brd.board, universal.dice_values, universal.current_player.color, is_taken)
     can_move_to_points = [points[idx] for idx in indices]
@@ -62,27 +62,8 @@ def deselect_all():
 def handle_dice_values_after_move(current_position, target_position):
     global dice_values_ui
 
-    if current_position < 26:
-        delta = int(math.fabs(current_position - target_position))
-    else: 
-        delta = target_position if universal.current_player.is_light() else 25 - target_position
-        
-    if len(universal.dice_values) != 1:
-        tmp = list(universal.dice_values)
-        if universal.dice_values[0] == universal.dice_values[1]: 
-            count = delta / universal.dice_values[0]
-            while count:
-                tmp.pop()
-                count -= 1
-            universal.dice_values = tuple(tmp)
-        else:
-            tmp.remove(delta)
-            universal.dice_values = tuple(tmp)
-    else:
-        universal.change_player()
-
-    universal.dice_values = universal.current_player.handle_distant_dice_values(universal.dice_values, brd.board)
-    player.Player.set_dice_values(universal.dice_values)
+    move = Move(current_position, target_position, brd.board, universal.dice_values, universal.current_player.color)
+    universal.dice_values = brd.update_dice_values(universal.dice_values, move, universal.current_player.color, brd.board)
 
 def move_pieces(event):
     global selected_point, can_move_to_points
@@ -106,13 +87,8 @@ def move_pieces(event):
         
         handle_dice_values_after_move(current_position, target_position)
         print(universal.dice_values)
-        
-        if isinstance(universal.current_player, Agent): 
-            print(universal.current_player.move())
-        else:
-            print(universal.current_player.get_available_moves())
             
-        if not universal.player_has_moves(): universal.change_player()
+        if not universal.dice_values or not universal.player_has_moves(): universal.change_player()
         deselect_all()
     elif len(clicked_point.pieces) > 0:
         deselect_all()
