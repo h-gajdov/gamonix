@@ -78,6 +78,9 @@ def evaluate_position_of_player(board, player_color):
         # count_in_other = pieces_in_base.dark_points_other_base if player_color == DARK_PIECE else pieces_in_base.light_points_other_base
         
         score += count_in_base * 100
+        
+        off_idx = 0 if player_color == DARK_PIECE else 25  
+        # score += board[off_idx] * 200 #reward positions where pieces are in the off section
         # score -= count_in_other * 50
         
     return score + evaluate_points(board, player_color)
