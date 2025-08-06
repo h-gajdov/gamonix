@@ -15,8 +15,7 @@ configs = {
         blots_factor=1,
         blots_factor_passed=1,
         blots_threshold=0,
-        run_or_block_factor=0,
-        taking_pieces_factor=0
+        run_or_block_factor=0
     ),
     'trained': Config(
         blocked_point_score=1.608432,
@@ -24,7 +23,6 @@ configs = {
         blots_factor=1.225,
         blots_factor_passed=1.925,
         blots_threshold=3,
-        run_or_block_factor=0.262721103,
-        taking_pieces_factor=10
+        run_or_block_factor=0.262721103
     )
 }

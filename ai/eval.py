@@ -42,13 +42,9 @@ def evaluate_position_of_player(board, player_color):
     all_passed = True
     # Check this. It might overfit the solution
     # if player_color == DARK_PIECE:
-    #     score += abs(board[26]) * tpf 
+    #     score -= abs(board[27]) * tpf 
     # elif player_color == LIGHT_PIECE:
-    #     score += abs(board[27]) * tpf
-    
-    pieces_in_base = brd.PiecesInBaseCounter.get_number_of_pieces_in_base(board)
-    count_in_other = pieces_in_base.dark_points_other_base if player_color == DARK_PIECE else pieces_in_base.light_points_other_base
-    # score -= count_in_other * 9
+    #     score -= abs(board[26]) * tpf
 
     if my_most_distant > opponent_most_distant:
         for i in range(1, 25): 
@@ -79,14 +75,17 @@ def evaluate_position_of_player(board, player_color):
             score += evaluate_points(board, player_color) * config.run_or_block_factor
     
     else: #passed each other
+        pieces_in_base = brd.PiecesInBaseCounter.get_number_of_pieces_in_base(board)
         count_in_base = pieces_in_base.dark if player_color == DARK_PIECE else pieces_in_base.light
 
+        #Pieces in base heuristic
         score += count_in_base * 100
 
-    # player_off_section_idx = 0 if player_color == DARK_PIECE else 25
-    # player_number_of_off_pieces = abs(board[player_off_section_idx])
-    # opponent_number_of_off_pieces = abs(board[25 - player_off_section_idx])
-    # score += player_number_of_off_pieces * 100
-    # score -= opponent_number_of_off_pieces * 100
+        #Pieces in off section heuristic
+        player_off_section_idx = 0 if player_color == DARK_PIECE else 25
+        player_number_of_off_pieces = abs(board[player_off_section_idx])
+        opponent_number_of_off_pieces = abs(board[25 - player_off_section_idx])
+        score += (player_number_of_off_pieces - opponent_number_of_off_pieces) * 100
+
 
     return score + evaluate_points(board, player_color)
