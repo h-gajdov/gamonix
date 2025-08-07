@@ -21,18 +21,18 @@ def evaluate_points(board, color):
     
     return light - dark if color == DARK_PIECE else dark - light
     
-def evaluate_position_of_player(board, player_color):
-    config = configs['trained']
+def evaluate_position_of_player(board, player_color, config):
+    # config = configs['trained']
     score = 0
     in_block = False
     block_count = 0
-    
+
     bt = config.blots_threshold
     bf = config.blots_factor
     bfp = config.blots_factor_passed
     cbf = config.connected_blocks_factor
     bps = config.blocked_point_score
-    tpf = config.taking_pieces_factor
+    # tpf = config.taking_pieces_factor
     
     other_color = LIGHT_PIECE if player_color == DARK_PIECE else DARK_PIECE
     

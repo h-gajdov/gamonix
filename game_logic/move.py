@@ -10,9 +10,9 @@ class Move:
         self.dice_values = dice_values
         self.color = color
     
-    def evaluate(self):
+    def evaluate(self, config):
         result_board, _ = brd.move_piece(self, self.board[:], self.dice_values, self.color) 
-        return evaluate_position_of_player(result_board, self.color)
+        return evaluate_position_of_player(result_board, self.color, config)
     
     def __repr__(self):
-        return f"{self.source_point} -> {self.destination_point} eval: {self.evaluate()}"
+        return f"{self.source_point} -> {self.destination_point}"

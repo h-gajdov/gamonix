@@ -10,6 +10,10 @@ class Player:
         self.color = color
         self.opponent_color = DARK_PIECE if self.color == LIGHT_PIECE else LIGHT_PIECE
 
+    def __repr__(self):
+        color_str = "LIGHT" if self.color == LIGHT_PIECE else "DARK"
+        return f"Player: {color_str}"
+
     def get_available_moves(self, board, dice_values, color=None):
         if not color: color = self.color
         dice_values = brd.handle_distant_dice_values(dice_values, board, color)
