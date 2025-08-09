@@ -3,12 +3,12 @@ from ai.agent import *
 from ui.colors import *
 import ui.console as console
 
-POPULATION_SIZE = 30
+POPULATION_SIZE = 10
 NUM_GENERATIONS = 50
 NUM_GAMES_PER_PAIR = 5
 TOP_K = POPULATION_SIZE // 3
 MUTATIONS_PER_ELITE = 3
-ai_agent = GreedyAgent
+ai_agent = AdaptiveBeamAgent
 
 class Individual:
     def __init__(self, id, player, generation, score=0):
@@ -24,13 +24,13 @@ def initialize_population(n = POPULATION_SIZE):
     return [Individual(id, initialize_agent(), 0) for id in range(n)]
 
 def initialize_agent():
-    return ai_agent(DARK_PIECE, Config.random_config())
+    return ai_agent(DARK_PIECE, Config.random_config(), 2)
 
 def train_config():
     population = initialize_population()
     for generation in range(NUM_GENERATIONS):
         print("GENERATION:", generation)
-        population = play_tournament(population)
+        population = play_tournament(population, generation)
         best_performers = get_best_performers(population, TOP_K)
         
         mutated = best_performers[TOP_K // 2:] 
@@ -42,11 +42,15 @@ def train_config():
             ind.score = 0
             ind.id = idx
 
+        print(population)
+        for ind in population:
+            print(ind.id, ind.player.config)
+            
     print(population)
     for ind in population:
         print(ind.id, ind.player.config)
 
-def play_tournament(population):
+def play_tournament(population, generation):
     for i in range(len(population)):
         for j in range(i + 1, len(population)):
             light_player = population[i].player
@@ -56,7 +60,7 @@ def play_tournament(population):
             dark_player.color = DARK_PIECE
             players = [dark_player, light_player]
             
-            print(f"LOG: Pair {population[i].id} against {population[j].id}")
+            print(f"LOG: Pair {population[i].id} against {population[j].id} Gen: {generation}")
 
             light = 0
             dark = 0
