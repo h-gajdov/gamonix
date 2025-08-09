@@ -16,3 +16,26 @@ class Move:
     
     def __repr__(self):
         return f"{self.source_point} -> {self.destination_point}"
+    
+    def gnu_format(self, reverse):
+        if self.source_point == 0 or self.source_point == 25: return ''
+        
+        if not reverse:
+            source = self.source_point
+            destination = self.destination_point
+        else:
+            source = 25 - self.source_point
+            destination = 25 - self.destination_point
+        
+        if destination == 0 or destination == 25: destination = 'off'
+        
+        if self.source_point < 0 or self.source_point > 24: result = f'bar/{destination}'
+        else: result = f"{source}/{destination}"
+        return result
+    
+    @staticmethod
+    def parse_moves_to_gnu_format(moves: list, reverse=False):
+        gnu_format = ''
+        for move in moves:
+            gnu_format += f"{move.gnu_format(reverse)} "
+        return gnu_format

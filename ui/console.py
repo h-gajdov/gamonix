@@ -14,7 +14,7 @@ class GameInfo:
         return f"Players: {self.players}\nWinner: {self.winner}\nMoves: {len(self.move_history)}\nMove history: {self.move_history}"
 
 def simulate_move(debug_print=True):
-    move = universal.current_player.move(brd.board, universal.dice_values)
+    move = universal.current_player.move(brd.board, universal.dice_values)[0]
     brd.board, universal.dice_values = brd.move_piece(move, brd.board[:], universal.dice_values, universal.current_player.color)
     
     if debug_print: 

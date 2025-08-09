@@ -1,12 +1,12 @@
 import random
 import ai.agent as agent
 import game_logic.board as brd
-from colors import *
+from ui.colors import *
 from ai.config import configs
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [agent.AdaptiveBeamAgent(DARK_PIECE, configs['50gens30popgreedy'], 3), agent.AdaptiveBeamAgent(LIGHT_PIECE, configs['trained'], 2)]
+players = [agent.GreedyAgent(DARK_PIECE, configs['50gens30popgreedy']), agent.AdaptiveBeamAgent(LIGHT_PIECE, configs['trained'], 2)]
 # players = [agent.GreedyAgent(DARK_PIECE, configs['trained']), agent.GreedyAgent(LIGHT_PIECE, configs['trained'])]
 current_player_index = 0
 current_player = players[current_player_index]

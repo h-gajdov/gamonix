@@ -57,11 +57,13 @@ def get_available_points_from_position(position, board, dice_values, color, is_t
 
 def get_most_distant_piece(color: tuple, brd):
     if color == LIGHT_PIECE:
-        for idx in range(1, 28):
-            if brd[idx] > 0: return 25 - idx if idx < 26 else 25
+        if brd[26] > 0: return 25
+        for idx in range(1, 25):
+            if brd[idx] > 0: return 25 - idx
     else:
+        if brd[27] > 0: return 25
         for idx in range(27, 0, -1):
-            if brd[idx] < 0: return idx if idx < 26 else 25
+            if brd[idx] < 0: return idx
     return 0
 
 def get_delta(source_pos, destination_pos):
@@ -87,8 +89,8 @@ def update_dice_values(dice_values, move, color, board):
     return tuple(dice_values)
 
 def move_piece(move, board, dice_values, player_color):
-    most_distant = get_most_distant_piece(player_color, board)
-    dice_values = tuple([value if value <= most_distant else most_distant for value in dice_values])
+    # most_distant = get_most_distant_piece(player_color, board)
+    # dice_values = tuple([value if value <= most_distant else most_distant for value in dice_values])
     
     dice_values = update_dice_values(dice_values, move, player_color, board)
     if player_color == DARK_PIECE:

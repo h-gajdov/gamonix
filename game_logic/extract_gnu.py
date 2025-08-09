@@ -36,30 +36,34 @@ def parse_bit_string_for_player(bit_string, start):
     
 # bit_string = decode_position_id_to_bit_string('4HPwARSA4ANgAw==')    
 # bit_string = decode_position_id_to_bit_string('zN6IMQCbOQcAWA==')    
-def decode_position(position_id):
+def decode_position(position_id, reverse=False):
     bit_string = decode_position_id_to_bit_string(position_id + "==")    
     board, end = parse_bit_string_for_player(bit_string, 0)
     other, _ = parse_bit_string_for_player(bit_string, end)
-
+    
+    if reverse: board, other = other, board
+    
     taken_board = board[-1]
     off_board = 15 - sum(board)
-    board = board[:-1]
     taken_other = other[-1]
     off_other = 15 - sum(other)
+    board = board[:-1]
     other = other[:-1]
-    print(board)
-    print(other)
 
     final = [0] * 28
-
+    
     for i in range(1, 25):
         if board[i - 1] != 0:
             final[i] = -board[i - 1]
         else:
             final[i] = other[23 - (i - 1)]
-        
-    final[26] = taken_other
-    final[27] - -taken_board
-    final[0] = off_board
+    
+    if not reverse:
+        final[26] = taken_other
+        final[27] = -taken_board
+    else:
+        final[26] = taken_other
+        final[27] = -taken_board
+    final[0] = -off_board
     final[25] = off_other
     return final
