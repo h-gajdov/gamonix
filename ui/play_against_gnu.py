@@ -32,7 +32,8 @@ gnubg = subprocess.Popen(
 )
 
 gnubg.stdin.write(f'new game\n')
-gnubg.stdin.write(f'roll {dice_values[0]} {dice_values[1]}\n')
+gnubg.stdin.write(f'{dice_values[0]} {dice_values[1]}\n')
+# gnubg.stdin.write('set board Qx8mJBgHAAAAAA')
 gnubg.stdin.flush()
 print(dice_values)
 
@@ -59,6 +60,8 @@ def read_the_board(print_board=False):
         line = gnubg.stdout.readline().strip()
         if line == 'Session complete': 
             game_finished = True
+        elif 'resign' in line:
+            send_command('accept')
         
         id = re.search(r'Position ID: .*', line)
         if id: position_id = id.group().split(':')[1].strip()
@@ -72,27 +75,32 @@ def read_the_board(print_board=False):
 
 read_the_board()
 while not game_finished:
-    read_the_board()
+    send_command('roll')
+    send_command(f'{dice_values[0]} {dice_values[1]}')
+    read_the_board(True)
     if game_finished: break
 
     position_id = get_position_id()
     player_on_turn = get_player_on_turn()
+    if not position_id: continue
     board = gnu.decode_position(position_id, player_on_turn == 'gamonix')
     print("PLAYER ON TURN:", player_on_turn)
-    if player_on_turn == 'gnubg':
-        agent.color = LIGHT_PIECE
-        if dice_values[0] == dice_values[1]: dice_values = tuple([dice_values[0]] * 4)
-        moves = Move.parse_moves_to_gnu_format(agent.move(board, dice_values), reverse=True)
-        send_command(f"move {moves.strip()}")
+    moves = None
+    if player_on_turn == 'gnubg': pass
+        # agent.color = LIGHT_PIECE
+        # if dice_values[0] == dice_values[1]: dice_values = tuple([dice_values[0]] * 4)
+        # moves = Move.parse_moves_to_gnu_format(agent.move(board, dice_values), reverse=True)
+        # send_command(f"move {moves.strip()}")
     elif player_on_turn == 'gamonix':
         agent.color = DARK_PIECE
         if dice_values[0] == dice_values[1]: dice_values = tuple([dice_values[0]] * 4)
         moves = Move.parse_moves_to_gnu_format(agent.move(board, dice_values))
         send_command(f"move {moves.strip()}")
-    
+    else:     
+        dice_values = roll_dice_plain()
+        continue
+
     print(moves)
     read_the_board(True)
-    
+
     dice_values = roll_dice_plain()
-    send_command('roll')
-    send_command(f'{dice_values[0]} {dice_values[1]}')
