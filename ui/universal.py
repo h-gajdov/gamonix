@@ -10,6 +10,9 @@ players = [agent.GreedyAgent(DARK_PIECE, configs['50gens30popgreedy']), agent.Ad
 # players = [agent.GreedyAgent(DARK_PIECE, configs['trained']), agent.GreedyAgent(LIGHT_PIECE, configs['trained'])]
 current_player_index = 0
 current_player = players[current_player_index]
+opening = True
+
+STARTING_BOARD = [0, 2, 0, 0, 0, 0, -5, 0, -3, 0, 0, 0, 5, -5, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, -2, 0, 0, 0]
 
 def roll_dice():
     global dice_values_ui
@@ -27,8 +30,9 @@ def player_has_moves():
     return len(current_player.get_available_moves(brd.board, dice_values)) != 0
 
 def change_player():
-    global current_player_index, current_player, players, dice_values
+    global current_player_index, current_player, players, dice_values, opening
     
+    opening = False
     if isinstance(current_player, agent.CachingExpectimaxAgent): 
         current_player.clear_cache()
     
@@ -40,8 +44,10 @@ def change_player():
         change_player()
     
 def start_game():
-    global dice_values, dice_values_ui, current_player_index, current_player
+    global dice_values, dice_values_ui, current_player_index, current_player, opening
+
     brd.initialize_board_array()
+    opening = brd.board == STARTING_BOARD
     
     if 0 in brd.dice_fen: 
         dice_values = roll_dice()

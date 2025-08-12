@@ -4,6 +4,8 @@ import debug.time_passed as tp
 
 from ui.colors import *
 
+next_moves = []
+
 class GameInfo:
     def __init__(self, players, winner, move_history):
         self.players = players
@@ -14,9 +16,12 @@ class GameInfo:
         return f"Players: {self.players}\nWinner: {self.winner}\nMoves: {len(self.move_history)}\nMove history: {self.move_history}"
 
 def simulate_move(debug_print=True):
-    move = universal.current_player.move(brd.board, universal.dice_values)[0]
-    brd.board, universal.dice_values = brd.move_piece(move, brd.board[:], universal.dice_values, universal.current_player.color)
+    global next_moves
+    if not next_moves:
+        next_moves = universal.current_player.move(brd.board, universal.dice_values)
     
+    move = next_moves.pop(0)
+    brd.board, universal.dice_values = brd.move_piece(move, brd.board[:], universal.dice_values, universal.current_player.color)
     if debug_print: 
         print("Dice:", universal.dice_values)
         print("Move:", universal.current_player_index, move)    

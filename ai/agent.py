@@ -1,6 +1,7 @@
 import game_logic.player as player
 import game_logic.board as brd
 import random
+from ai.opening_moves import opening_moves
 from ai.eval import evaluate_position_of_player
 from ai.state import State
 from ui.colors import *
@@ -13,6 +14,10 @@ class Agent(player.Player):
     
     @abstractmethod
     def move(self, board, dice_values): pass
+
+    def get_opening_moves(self, dice_values):
+        sorted_dice = tuple(sorted(list([dice_values[0], dice_values[1]])))
+        return opening_moves[sorted_dice]
 
     def _apply_beam(self, states, k):
         if len(states) <= k:
