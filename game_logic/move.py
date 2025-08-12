@@ -39,3 +39,10 @@ class Move:
         for move in moves:
             gnu_format += f"{move.gnu_format(reverse)} "
         return gnu_format
+
+    @staticmethod
+    def convert_to_global(source_point, destination_point, player_color, board, dice_values):
+        if player_color == DARK_PIECE: 
+            return Move(source_point, destination_point, board, dice_values, player_color)
+        else:
+            return Move(25 - source_point, 25 - destination_point, board, dice_values, player_color)

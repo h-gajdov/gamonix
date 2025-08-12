@@ -1,8 +1,6 @@
-import math
 import game_logic.board as brd
 
 from ui.colors import *
-from ai.config import configs
 
 def evaluate_points(board, color):
     light = 0

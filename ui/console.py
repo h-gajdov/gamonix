@@ -18,7 +18,7 @@ class GameInfo:
 def simulate_move(debug_print=True):
     global next_moves
     if not next_moves:
-        next_moves = universal.current_player.move(brd.board, universal.dice_values)
+        next_moves = universal.current_player.move(brd.board, universal.dice_values, universal.opening)
     
     move = next_moves.pop(0)
     brd.board, universal.dice_values = brd.move_piece(move, brd.board[:], universal.dice_values, universal.current_player.color)

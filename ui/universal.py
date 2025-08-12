@@ -6,8 +6,8 @@ from ai.config import configs
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [agent.GreedyAgent(DARK_PIECE, configs['50gens30popgreedy']), agent.AdaptiveBeamAgent(LIGHT_PIECE, configs['trained'], 2)]
-# players = [agent.GreedyAgent(DARK_PIECE, configs['trained']), agent.GreedyAgent(LIGHT_PIECE, configs['trained'])]
+players = [agent.AdaptiveBeamAgent(color=DARK_PIECE, config=configs['trained'], play_opening=True, max_depth=2), 
+            agent.AdaptiveBeamAgent(color=DARK_PIECE, config=configs['trained'], play_opening=True, max_depth=2)]
 current_player_index = 0
 current_player = players[current_player_index]
 opening = True

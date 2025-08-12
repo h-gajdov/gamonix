@@ -15,10 +15,11 @@ def roll_dice_plain():
     return (value1, value2)
 
 game_finished = False
+opening_position_id = '4HPwATDgc/ABMA'
 dice_values = (0, 0)
 while dice_values[0] == dice_values[1]: dice_values = roll_dice_plain() #with gnu you can't start with duplicates
 
-agent = AdaptiveBeamAgent(DARK_PIECE, configs['trained'], 2)
+agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['trained'], play_opening=True, max_depth=2)
 env = load_dotenv(dotenv_path='.env')
 path_to_gnubg = os.getenv('PATH_TO_GNUBG')
 
@@ -73,7 +74,12 @@ def read_the_board(print_board=False):
     if not game_finished: gnubg.stdout.readline() # a line that is returned after the board
     return position_id
 
-read_the_board()
+read_the_board(True)
+gnu_first = False #If gnubg is first it prints the board 3 times not 2
+if get_player_on_turn() == 'gnubg':
+    dice_values = roll_dice_plain()
+    gnu_first = True
+
 while not game_finished:
     send_command('roll')
     send_command(f'{dice_values[0]} {dice_values[1]}')
@@ -81,26 +87,28 @@ while not game_finished:
     if game_finished: break
 
     position_id = get_position_id()
+    is_opening = position_id == opening_position_id
+
+    if gnu_first: read_the_board(True)
     player_on_turn = get_player_on_turn()
     if not position_id: continue
     board = gnu.decode_position(position_id, player_on_turn == 'gamonix')
     print("PLAYER ON TURN:", player_on_turn)
     moves = None
-    if player_on_turn == 'gnubg': pass
-        # agent.color = LIGHT_PIECE
-        # if dice_values[0] == dice_values[1]: dice_values = tuple([dice_values[0]] * 4)
-        # moves = Move.parse_moves_to_gnu_format(agent.move(board, dice_values), reverse=True)
-        # send_command(f"move {moves.strip()}")
+    if player_on_turn == 'gnubg': 
+        pass
     elif player_on_turn == 'gamonix':
         agent.color = DARK_PIECE
         if dice_values[0] == dice_values[1]: dice_values = tuple([dice_values[0]] * 4)
-        moves = Move.parse_moves_to_gnu_format(agent.move(board, dice_values))
+        moves = Move.parse_moves_to_gnu_format(agent.move(board, dice_values, is_opening))
         send_command(f"move {moves.strip()}")
-    else:     
+    else:
         dice_values = roll_dice_plain()
+        gnu_first = False
         continue
 
     print(moves)
     read_the_board(True)
 
     dice_values = roll_dice_plain()
+    gnu_first = False

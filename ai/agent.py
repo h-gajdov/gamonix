@@ -1,6 +1,8 @@
 import game_logic.player as player
 import game_logic.board as brd
 import random
+
+from game_logic.move import Move
 from ai.opening_moves import opening_moves
 from ai.eval import evaluate_position_of_player
 from ai.state import State
@@ -8,12 +10,21 @@ from ui.colors import *
 from abc import ABC, abstractmethod
 
 class Agent(player.Player):
-    def __init__(self, color, config):
+    def __init__(self, color, config, play_opening=False):
         super().__init__(color)
         self.config = config
+        self.play_opening = play_opening
     
     @abstractmethod
-    def move(self, board, dice_values): pass
+    def move(self, board, dice_values, opening_move=False):
+        if opening_move:
+            opening = self.get_opening_moves(dice_values)
+            result = []
+            for mv in opening:
+                result.append(Move.convert_to_global(mv[0], mv[1], self.color, board, dice_values))
+            return result
+        else: 
+            return None
 
     def get_opening_moves(self, dice_values):
         sorted_dice = tuple(sorted(list([dice_values[0], dice_values[1]])))
@@ -70,19 +81,24 @@ class Agent(player.Player):
             return average
     
 class RandomAgent(Agent):
-    def __init__(self, color, config=None):
-        super().__init__(color, config)
+    def __init__(self, color, config=None, play_opening=False):
+        super().__init__(color, config, play_opening)
         
-    def move(self, board, dice_values):
+    def move(self, board, dice_values, opening_move=False):
+        #Random player ignores opening moves
+        # if opening_move: return super().move(board, dice_values, opening_move)
+
         available_moves = self.get_available_moves(board, dice_values)
         if not available_moves: return None
         return [random.choice(available_moves)]
     
 class GreedyAgent(Agent):    
-    def __init__(self, color, config):
-        super().__init__(color, config)
+    def __init__(self, color, config, play_opening=False):
+        super().__init__(color, config, play_opening)
     
-    def move(self, board, dice_values):
+    def move(self, board, dice_values, opening_move=False):
+        if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
+
         available_moves = self.get_available_moves(board, dice_values)
         available_moves = sorted(available_moves, key=lambda x: x.source_point)
         if self.color == DARK_PIECE: available_moves.reverse()
@@ -91,10 +107,12 @@ class GreedyAgent(Agent):
         return [best_move]
 
 class DepthGreedyAgent(Agent):
-    def __init__(self, color, config):
-        super().__init__(color, config)
+    def __init__(self, color, config, play_opening=False):
+        super().__init__(color, config, play_opening)
 
-    def move(self, board, dice_values):
+    def move(self, board, dice_values, opening_move=False):
+        if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
+
         available_moves = self.get_available_moves(board, dice_values)
         sort_order = -1 if self.color == DARK_PIECE else 1
         available_moves.sort(key=lambda x: sort_order * x.source_point)
@@ -125,11 +143,13 @@ class DepthGreedyAgent(Agent):
         )
         
 class ExpectimaxAgent(Agent):
-    def __init__(self, color, config, max_depth=2):
-        super().__init__(color, config)
+    def __init__(self, color, config, play_opening=False, max_depth=2):
+        super().__init__(color, config, play_opening)
         self.max_depth = max_depth
 
-    def move(self, board, dice_values):
+    def move(self, board, dice_values, opening_move=False):
+        if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
+        
         best_score = float('-inf')
         
         board_states = self.get_all_board_states_after_move(board, dice_values)
@@ -171,27 +191,29 @@ class ExpectimaxAgent(Agent):
         return result_array
     
 class CachingExpectimaxAgent(ExpectimaxAgent):
-    def __init__(self, color, config, max_depth=2):
-        super().__init__(color, config, max_depth)
+    def __init__(self, color, config, play_opening=False, max_depth=2):
+        super().__init__(color, config, play_opening, max_depth)
         self.cache = {}
 
     def clear_cache(self):
         self.cache.clear() 
 
-    def move(self, board, dice_values):
-        result = super().move(board, dice_values)
+    def move(self, board, dice_values, opening_move=False):
+        result = super().move(board, dice_values, opening_move)
         return result
         
 class BeamExpectimaxAgent(CachingExpectimaxAgent):
-    def __init__(self, color, config, max_depth=2, beam_width=5):
-        super().__init__(color, config, max_depth)
+    def __init__(self, color, config, play_opening=False, max_depth=2, beam_width=5):
+        super().__init__(color, config, play_opening, max_depth)
         self.beam_width = beam_width
         self.cache = {}
 
     def clear_cache(self):
         self.cache.clear() 
 
-    def move(self, board, dice_values):
+    def move(self, board, dice_values, opening_move=False):
+        if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
+        
         best_score = float('-inf')
         
         board_states = self.get_all_board_states_after_move(board, dice_values)
@@ -207,8 +229,8 @@ class BeamExpectimaxAgent(CachingExpectimaxAgent):
         return best_state.move_history
         
 class AdaptiveBeamAgent(BeamExpectimaxAgent):
-    def __init__(self, color, config, max_depth=2, beam_width=5):
-        super().__init__(color, config, max_depth, beam_width)
+    def __init__(self, color, config, play_opening=False, max_depth=2, beam_width=5):
+        super().__init__(color, config, play_opening, max_depth, beam_width)
 
     def _beam_width_at_depth(self, k, depth):
         return max(2, k - depth)
@@ -217,7 +239,9 @@ class AdaptiveBeamAgent(BeamExpectimaxAgent):
         beam_width = self._beam_width_at_depth(k, depth)
         return super()._apply_beam(states, beam_width)
 
-    def move(self, board, dice_values):
+    def move(self, board, dice_values, opening_move=False):
+        if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
+
         best_score = float('-inf')
         
         board_states = self.get_all_board_states_after_move(board, dice_values)
