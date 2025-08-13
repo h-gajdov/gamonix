@@ -32,9 +32,14 @@ gnubg = subprocess.Popen(
     bufsize=1
 )
 
+#set players name
+targets = ['gnubg', 'gamonix']
+for i in range(2):
+    gnubg.stdin.write(f'set player {i} name {targets[i]}\n')
+gnubg.stdin.flush()
+
 gnubg.stdin.write(f'new game\n')
 gnubg.stdin.write(f'{dice_values[0]} {dice_values[1]}\n')
-# gnubg.stdin.write('set board Qx8mJBgHAAAAAA')
 gnubg.stdin.flush()
 print(dice_values)
 
