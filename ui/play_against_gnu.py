@@ -11,7 +11,6 @@ from colors import *
 
 results_folder = os.path.join(os.path.dirname(__file__), '..', 'results')
 num_files = len([f for f in os.listdir(results_folder) if os.path.isfile(os.path.join(results_folder, f))])
-print(num_files)
 file_content = ''
 
 def roll_dice_plain():
@@ -46,7 +45,6 @@ gnubg.stdin.flush()
 gnubg.stdin.write(f'new game\n')
 gnubg.stdin.write(f'{dice_values[0]} {dice_values[1]}\n')
 gnubg.stdin.flush()
-print(dice_values)
 
 def send_command(command):
     gnubg.stdin.write(command + "\n")
