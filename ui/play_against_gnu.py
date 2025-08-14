@@ -9,6 +9,11 @@ from ai.agent import AdaptiveBeamAgent
 from ai.config import configs
 from colors import *
 
+results_folder = os.path.join(os.path.dirname(__file__), '..', 'results')
+num_files = len([f for f in os.listdir(results_folder) if os.path.isfile(os.path.join(results_folder, f))])
+print(num_files)
+file_content = ''
+
 def roll_dice_plain():
     value1 = random.randint(1, 6)
     value2 = random.randint(1, 6)
@@ -60,7 +65,7 @@ def get_position_id():
 
 #read the board
 def read_the_board(print_board=False):
-    global game_finished
+    global game_finished, file_content
     position_id = ''
     while not game_finished:
         line = gnubg.stdout.readline().strip()
@@ -72,7 +77,9 @@ def read_the_board(print_board=False):
         id = re.search(r'Position ID: .*', line)
         if id: position_id = id.group().split(':')[1].strip()
         
-        if print_board: print(line) 
+        if print_board: 
+            file_content += line + '\n'
+            print(line) 
         if re.search(r'X: [aA-zZ]*', line): 
             break
         
@@ -117,3 +124,6 @@ while not game_finished:
 
     dice_values = roll_dice_plain()
     gnu_first = False
+
+with open(os.path.join(results_folder, f'g{num_files + 1}.txt'), 'w') as f:
+    f.write(file_content)
