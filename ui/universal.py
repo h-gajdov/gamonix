@@ -6,7 +6,7 @@ from ai.config import configs
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [agent.AdaptiveBeamAgent(color=DARK_PIECE, config=configs['trained'], play_opening=True, max_depth=2), 
+players = [agent.AdaptiveBeamAgent(color=LIGHT_PIECE, config=configs['trained'], play_opening=True, max_depth=2), 
             agent.AdaptiveBeamAgent(color=DARK_PIECE, config=configs['trained'], play_opening=True, max_depth=2)]
 current_player_index = 0
 current_player = players[current_player_index]
@@ -36,6 +36,7 @@ def change_player():
     if isinstance(current_player, agent.CachingExpectimaxAgent): 
         current_player.clear_cache()
     
+    print(current_player_index)
     current_player_index = (current_player_index + 1) % len(players)
     current_player = players[current_player_index]
     

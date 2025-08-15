@@ -1,4 +1,5 @@
 import pygame
+import pygame.gfxdraw
 from colors import *
 
 def draw_circle(layer, color, x, y, radius, width=0):
@@ -11,10 +12,24 @@ def draw_transparent_circle(layer, color, x, y, radius, width=0):
     return draw_circle(layer, color, x, y, radius, width)
 
 def draw_polygon(layer, color, points: list, width=0):
-    rect = pygame.draw.polygon(layer.surface, color, points)
-    if width != 0:
-        pygame.draw.polygon(layer.surface, BLACK, points, width=width)
-    return rect
+    scale = 4
+    points_scaled = [(int(x * scale), int(y * scale)) for x, y in points]
+    w = int(max(p[0] for p in points) - min(p[0] for p in points)) * scale + 4
+    h = int(max(p[1] for p in points) - min(p[1] for p in points)) * scale + 4
+    surf = pygame.Surface((w, h), pygame.SRCALPHA)
+
+    offset_x = -min(p[0] for p in points_scaled) + 2
+    offset_y = -min(p[1] for p in points_scaled) + 2
+    points_offset = [(x + offset_x, y + offset_y) for x, y in points_scaled]
+
+    pygame.draw.polygon(surf, color, points_offset)
+    surf = pygame.transform.smoothscale(surf, (w // scale, h // scale))
+    layer.surface.blit(surf, (min(p[0] for p in points) - 1, min(p[1] for p in points) - 1))
+
+    return pygame.Rect(min(p[0] for p in points),
+                       min(p[1] for p in points),
+                       max(p[0] for p in points) - min(p[0] for p in points),
+                       max(p[1] for p in points) - min(p[1] for p in points))
 
 def draw_transparent_polygon(layer, color, points: list, width=0):
     return draw_polygon(layer, color, points, width)
