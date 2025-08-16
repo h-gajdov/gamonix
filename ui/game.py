@@ -2,11 +2,9 @@ import pygame
 import events
 import layer
 import universal
-import game_logic.board as brd
 import console
 import debug.time_passed as tp
 
-from ai.eval import evaluate_position_of_player
 from colors import *
 from triangle import *
 from options import *
