@@ -16,6 +16,7 @@ def initialize_board_array():
     # 0-23 pieces:light_taken:dark_taken:light_off:dark_off:dice_1:dice_2:current_player_index
     first_rand = randint(0, 1)
     fen = f'2W:0:0:0:0:5B:0:3B:0:0:0:5W:5B:0:0:0:3W:0:5W:0:0:0:0:2B:0:0:0:0:0:0:{first_rand}'
+    # fen = f'2B:1W:2W:0:0:5B:2B:3B:0:0:0:0:0:0:1W:0:2W:0:3W:0:0:3W:3W:1B:0:2:0:0:5:6:{0}'
     board, dice_fen, player_fen = convert_fen_to_board(fen)
     
 def get_available_moves(dice_values: tuple, color: tuple):

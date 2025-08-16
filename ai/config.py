@@ -59,5 +59,13 @@ configs = {
         blots_factor_passed=0.5611325421587715,
         blots_threshold=1,
         run_or_block_factor=0.2746299033248154
+    ),
+    '41gensnodoubles': Config(
+        blocked_point_score = 1.145912,
+        connected_blocks_factor = 2.019573916,
+        blots_factor = 1.747286362,
+        blots_factor_passed=1.925,
+        blots_threshold = 14,
+        run_or_block_factor = 0.838315223
     )
 }

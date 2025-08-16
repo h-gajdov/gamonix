@@ -35,9 +35,6 @@ while running:
                 points = initialize_points_array()
                 events.set_points(points)
                 # universal.dice_values = universal.roll_dice()
-            if event.key == pygame.K_e:
-                print("LIGHT:", evaluate_position_of_player(brd.board, LIGHT_PIECE))
-                print("DARK:", evaluate_position_of_player(brd.board, DARK_PIECE))
             
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             events.move_pieces(event)
