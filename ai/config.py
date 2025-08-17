@@ -67,5 +67,13 @@ configs = {
         blots_factor_passed=1.925,
         blots_threshold = 14,
         run_or_block_factor = 0.838315223
+    ),
+    '50gens10popadaptivebeam': Config(
+        blocked_point_score = 2.4639930271713357,
+        connected_blocks_factor = 0.007367688680662399,
+        blots_factor = 1.1249712528297793,
+        blots_factor_passed = 1.0533350706205358,
+        blots_threshold = 4,
+        run_or_block_factor = 0.9937827793375248
     )
 }
