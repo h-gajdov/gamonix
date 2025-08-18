@@ -32,7 +32,8 @@ def select_point(clicked_point):
         else: 
             if brd.board[27] < 0: return idx == 27
             else: return brd.board[idx] < 0
-    
+
+    if clicked_point.compare_pieces_color(universal.players[universal.AI_PLAYER_INDEX].color): return
     if universal.current_player.color == LIGHT_PIECE and not check_condition(True, points.index(clicked_point)): return
     if universal.current_player.color == DARK_PIECE and not check_condition(False, points.index(clicked_point)): return
     

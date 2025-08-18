@@ -37,7 +37,7 @@ def player_has_moves():
 
 def change_player():
     global current_player_index, current_player, players, dice_values, opening, next_moves
-    
+
     opening = False
     if isinstance(current_player, agent.CachingExpectimaxAgent): 
         current_player.clear_cache()

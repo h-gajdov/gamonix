@@ -17,7 +17,10 @@ class Point(ABC):
     
     @abstractmethod
     def draw_pieces(self): pass
-    
+
+    def compare_pieces_color(self, other: tuple):
+        return len(self.pieces) != 0 and self.pieces[0].color == other
+
     def set_highlight(self, value):
         self.is_highlighted = value
         

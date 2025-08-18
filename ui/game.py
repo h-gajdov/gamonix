@@ -27,7 +27,7 @@ running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_d:
+            if event.key == pygame.K_d and universal.ai_is_on_turn():
                 # console.print_simulated_move()
                 tp.calculate_function_time(console.simulate_move, False)
                 points = initialize_points_array()
@@ -42,7 +42,7 @@ while running:
 
     #Points
     for point in points:
-        is_transparent = bool(point.pieces) and point.pieces[0].color[:3] != universal.players[universal.current_player_index].color
+        is_transparent = not point.compare_pieces_color(universal.players[universal.current_player_index].color)
 
         point.draw(is_transparent)
 
