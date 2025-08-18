@@ -5,7 +5,9 @@ from colors import *
 def draw_circle(layer, color, x, y, radius, width=0):
     rect = pygame.draw.circle(layer.surface, color, (x, y), radius)
     if width != 0:
-        pygame.draw.circle(layer.surface, BLACK, (x, y), radius, width=width)
+        alpha = color[3] if len(color) == 4 else 255
+        border_color = tuple(list(BLACK) + [alpha])
+        pygame.draw.circle(layer.surface, border_color, (x, y), radius, width=width)
     return rect
     
 def draw_transparent_circle(layer, color, x, y, radius, width=0):

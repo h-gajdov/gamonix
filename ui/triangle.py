@@ -16,7 +16,6 @@ def fill_pieces(points):
         point.add_piece(n, piece_color)
 
 def initialize_points_array():
-    global taken_sections
     points = []
     down_off_section_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT - BOARD_HEIGHT
     right_off_section_x = SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH
@@ -46,7 +45,7 @@ class Triangle(Point):
         super().__init__(x, y, color)
         self.is_upside_down = is_upside_down
         
-    def draw(self):
+    def draw(self, transparent_pieces=False):
         p1 = (self.x - TRIANGLE_WIDTH / 2, self.y)
         p2 = (self.x + TRIANGLE_WIDTH / 2, self.y)
         
@@ -56,14 +55,15 @@ class Triangle(Point):
         if self.is_highlighted:
             draw_polygon(layer.points_highlight_layer, GREEN_HIGHLIGHT, [p1, p2, p3])
         
-        self.draw_pieces()
+        self.draw_pieces(transparent_pieces)
     
-    def draw_pieces(self):
+    def draw_pieces(self, transparent_pieces=False):
         y = self.y + PIECE_RADIUS if self.is_upside_down else self.y - PIECE_RADIUS
-        
+
         for piece in self.pieces:
+            alpha = 190 if transparent_pieces else 255
             piece.set_position(self.x, y)
-            piece.draw()
+            piece.draw(alpha)
             y += 2 * PIECE_RADIUS if self.is_upside_down else -2 * PIECE_RADIUS
     
 class OffSection(Point):
@@ -71,7 +71,7 @@ class OffSection(Point):
         super().__init__(x, y, color)
         self.draw_pieces_from_down_to_up = draw_pieces_from_down_to_up
         
-    def draw(self):
+    def draw(self, transparent_pieces=False):
         self.rect = draw_rect(layer.game_board_layer, OFF_SECTION, self.x, self.y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)  
         if self.is_highlighted:
             draw_rect(layer.points_highlight_layer, GREEN_HIGHLIGHT, self.x, self.y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
@@ -95,13 +95,13 @@ class TakenSection(Point):
         self.rect = None
         self.is_white_section = is_white_section
         
-    def draw(self):
-        self.draw_pieces()
+    def draw(self, transparent_pieces=False):
+        self.draw_pieces(transparent_pieces)
         height = 2 * PIECE_RADIUS * len(self.pieces)
         y_coord = self.y - height if self.is_white_section else self.y
         self.rect = draw_rect(layer.game_board_layer, NO_COLOR, self.x - PIECE_RADIUS, y_coord, 2 * PIECE_RADIUS, height)
     
-    def draw_pieces(self):
+    def draw_pieces(self, transparent_pieces=False):
         x = self.x
         height = 2 * PIECE_RADIUS * len(self.pieces)
         mult = 1 if self.is_white_section else -1
@@ -110,6 +110,7 @@ class TakenSection(Point):
         else: y = self.y + height - PIECE_RADIUS
             
         for piece in self.pieces:
+            alpha = 190 if transparent_pieces else 255
             piece.set_position(x, y)
-            piece.draw()
+            piece.draw(alpha)
             y += mult * 2 * PIECE_RADIUS

@@ -13,7 +13,7 @@ class Point(ABC):
         self.pieces = []
 
     @abstractmethod
-    def draw(self): pass
+    def draw(self, transparent_pieces=False): pass
     
     @abstractmethod
     def draw_pieces(self): pass

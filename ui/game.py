@@ -36,12 +36,15 @@ while running:
             
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             events.move_pieces(event)
-        
+
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
 
     #Points
-    for point in points: point.draw()
+    for point in points:
+        is_transparent = bool(point.pieces) and point.pieces[0].color[:3] != universal.players[universal.current_player_index].color
+
+        point.draw(is_transparent)
 
     #Borders
     draw_rect(layer.background_board_layer, BOARD_BORDER, 0, 0, SCREEN_WIDTH, BOARD_HEIGHT)

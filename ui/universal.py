@@ -8,12 +8,17 @@ dice_values = (1, 1)
 dice_values_ui = (1, 1)
 players = [agent.AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2),
             agent.AdaptiveBeamAgent(color=LIGHT_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2)]
+
+AI_PLAYER_INDEX = 0
 current_player_index = 0
 current_player = players[current_player_index]
 opening = True
 next_moves = []
 
 STARTING_BOARD = [0, 2, 0, 0, 0, 0, -5, 0, -3, 0, 0, 0, 5, -5, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, -2, 0, 0, 0]
+
+def ai_is_on_turn():
+    return AI_PLAYER_INDEX == current_player_index
 
 def roll_dice():
     global dice_values_ui
