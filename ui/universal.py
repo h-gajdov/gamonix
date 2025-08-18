@@ -11,6 +11,7 @@ players = [agent.AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodou
 current_player_index = 0
 current_player = players[current_player_index]
 opening = True
+next_moves = []
 
 STARTING_BOARD = [0, 2, 0, 0, 0, 0, -5, 0, -3, 0, 0, 0, 5, -5, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, -2, 0, 0, 0]
 
@@ -30,7 +31,7 @@ def player_has_moves():
     return len(current_player.get_available_moves(brd.board, dice_values)) != 0
 
 def change_player():
-    global current_player_index, current_player, players, dice_values, opening
+    global current_player_index, current_player, players, dice_values, opening, next_moves
     
     opening = False
     if isinstance(current_player, agent.CachingExpectimaxAgent): 
@@ -39,13 +40,14 @@ def change_player():
     print(current_player_index)
     current_player_index = (current_player_index + 1) % len(players)
     current_player = players[current_player_index]
-    
+
+    next_moves = []
     dice_values = roll_dice()
     if not player_has_moves():
         change_player()
     
 def start_game():
-    global dice_values, dice_values_ui, current_player_index, current_player, opening
+    global dice_values, dice_values_ui, current_player_index, current_player, opening, next_moves
 
     brd.initialize_board_array()
     opening = brd.board == STARTING_BOARD
@@ -57,10 +59,7 @@ def start_game():
         
     current_player_index = brd.player_fen
     current_player = players[current_player_index]
+    next_moves = []
 
     if not player_has_moves():
         change_player()
-
-def create_new_game():
-    start_game()  # Initializes global vars, but you may need to isolate
-    return brd.board.copy(), dice_values[:], current_player, current_player_index

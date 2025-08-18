@@ -39,7 +39,7 @@ while running:
         
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)
-    
+
     #Points
     for point in points: point.draw()
 
