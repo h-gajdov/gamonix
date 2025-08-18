@@ -19,15 +19,18 @@ def simulate_move(debug_print=True):
     global next_moves
     if not next_moves:
         next_moves = universal.current_player.move(brd.board, universal.dice_values, universal.opening)
-    
+
     move = next_moves.pop(0)
     brd.board, universal.dice_values = brd.move_piece(move, brd.board[:], universal.dice_values, universal.current_player.color)
-    if debug_print: 
+    if debug_print:
         print("Dice:", universal.dice_values)
-        print("Move:", universal.current_player_index, move)    
+        print("Move:", universal.current_player_index, move)
         print("Board:", brd.board)
-    
-    if not universal.dice_values or not universal.current_player.get_available_moves(brd.board, universal.dice_values): universal.change_player()
+
+    if not universal.dice_values or not universal.current_player.get_available_moves(brd.board, universal.dice_values):
+        next_moves = []
+        universal.change_player()
+
     return move
 
 def simulate_game(players=universal.players):
