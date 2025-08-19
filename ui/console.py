@@ -19,6 +19,7 @@ def simulate_move(debug_print=True):
 
     move = universal.next_moves.pop(0)
     brd.board, universal.dice_values = brd.move_piece(move, brd.board[:], universal.dice_values, universal.current_player.color)
+    universal.current_player.add_move_this_turn(move)
     if debug_print:
         print("Dice:", universal.dice_values)
         print("Move:", universal.current_player_index, move)
@@ -57,7 +58,7 @@ def simulate_games(n = 1):
         print(f"n={n}")
         info = simulate_game()
 
-        if info == None: continue
+        if info is None: continue
 
         if info.winner.color == DARK_PIECE: dark += 1
         else: light += 1

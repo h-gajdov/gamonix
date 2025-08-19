@@ -37,8 +37,11 @@ def player_has_moves():
     global current_player, dice_values
     return len(current_player.get_available_moves(brd.board, dice_values)) != 0
 
+def get_player_not_on_turn():
+    return players[(current_player_index + 1) % len(players)]
+
 def change_player():
-    global current_player_index, current_player, players, dice_values, opening, next_moves, time_to_next_move
+    global current_player_index, current_player, players, dice_values, opening, next_moves, time_to_next_move, moves_this_turn, can_clear_moves_this_turn
 
     time_to_next_move = time.time() + 1
     opening = False
@@ -50,12 +53,14 @@ def change_player():
     current_player = players[current_player_index]
 
     next_moves = []
+    current_player.clear_moves_this_turn()
+
     dice_values = roll_dice()
     if not player_has_moves():
         change_player()
     
 def start_game():
-    global dice_values, dice_values_ui, current_player_index, current_player, opening, next_moves, time_to_next_move
+    global dice_values, dice_values_ui, current_player_index, current_player, opening, next_moves, time_to_next_move, moves_this_turn, can_clear_moves_this_turn
 
     brd.initialize_board_array()
     opening = brd.board == STARTING_BOARD
@@ -67,6 +72,7 @@ def start_game():
         
     current_player_index = brd.player_fen
     current_player = players[current_player_index]
+    current_player.clear_moves_this_turn()
     next_moves = []
 
     time_to_next_move = time.time() + 1

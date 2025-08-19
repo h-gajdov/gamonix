@@ -24,6 +24,16 @@ universal.start_game()
 points = initialize_points_array()
 events.set_points(points)
 
+def highlight_previous_moves(player):
+    for move in player.moves_this_turn:
+        if move.source_point not in highlighted:
+            points[move.source_point].highlight_made_move()
+            highlighted.append(move.source_point)
+
+        if move.destination_point not in highlighted:
+            points[move.destination_point].highlight_made_move()
+            highlighted.append(move.destination_point)
+
 running = True
 while running:
     for event in pygame.event.get():
@@ -50,8 +60,13 @@ while running:
     #Points
     for point in points:
         is_transparent = not point.compare_pieces_color(universal.players[universal.current_player_index].color)
-
         point.draw(is_transparent)
+
+    highlighted = []
+    if universal.current_player.moves_this_turn:
+        highlight_previous_moves(universal.current_player)
+    else:
+        highlight_previous_moves(universal.get_player_not_on_turn())
 
     #Borders
     draw_rect(layer.background_board_layer, BOARD_BORDER, 0, 0, SCREEN_WIDTH, BOARD_HEIGHT)

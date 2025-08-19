@@ -18,6 +18,9 @@ class Point(ABC):
     @abstractmethod
     def draw_pieces(self): pass
 
+    @abstractmethod
+    def highlight_made_move(self): pass
+
     def compare_pieces_color(self, other: tuple):
         return len(self.pieces) != 0 and self.pieces[0].color == other
 
@@ -41,7 +44,7 @@ class Point(ABC):
     def check_pieces_color(self, other):
         if self.pieces: return self.pieces[-1].color == other.pieces[-1].color
         else: return True
-    
+
     def take(self, idx, points):
         if brd.board[idx] < 0:
             self.move_piece_to(points[27])

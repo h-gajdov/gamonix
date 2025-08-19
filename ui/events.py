@@ -87,8 +87,9 @@ def move_pieces(event):
         brd.update_board_array(points)
         
         handle_dice_values_after_move(current_position, target_position)
+        universal.current_player.add_move_this_turn(Move(current_position, target_position, brd.board, universal.dice_values, universal.current_player.color))
         print(universal.dice_values)
-            
+
         if not universal.dice_values or not universal.player_has_moves(): universal.change_player()
         deselect_all()
     elif len(clicked_point.pieces) > 0:

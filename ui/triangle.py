@@ -65,7 +65,17 @@ class Triangle(Point):
             piece.set_position(self.x, y)
             piece.draw(alpha)
             y += 2 * PIECE_RADIUS if self.is_upside_down else -2 * PIECE_RADIUS
-    
+
+    def highlight_made_move(self):
+        if self.is_highlighted: return
+
+        p1 = (self.x - TRIANGLE_WIDTH / 2, self.y)
+        p2 = (self.x + TRIANGLE_WIDTH / 2, self.y)
+
+        tmp = TRIANGLE_HEIGHT if self.is_upside_down else SCREEN_HEIGHT - TRIANGLE_HEIGHT
+        p3 = (self.x, tmp)
+        draw_polygon(layer.points_highlight_layer, MOVE_HIGHLIGHT, [p1, p2, p3])
+
 class OffSection(Point):
     def __init__(self, x, y, color, draw_pieces_from_down_to_up):
         super().__init__(x, y, color)
@@ -88,7 +98,11 @@ class OffSection(Point):
             piece.set_position(x, y)
             piece.draw()
             y += mult * OFF_PIECE_HEIGHT
-        
+
+    def highlight_made_move(self):
+        if self.is_highlighted: return
+        draw_rect(layer.points_highlight_layer, MOVE_HIGHLIGHT, self.x, self.y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
+
 class TakenSection(Point):
     def __init__(self, is_white_section):
         super().__init__(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT / 2, color=NO_COLOR)
@@ -114,3 +128,6 @@ class TakenSection(Point):
             piece.set_position(x, y)
             piece.draw(alpha)
             y += mult * 2 * PIECE_RADIUS
+
+    def highlight_made_move(self):
+        pass

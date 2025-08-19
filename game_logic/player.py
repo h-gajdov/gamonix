@@ -9,10 +9,17 @@ class Player:
     def __init__(self, color):
         self.color = color
         self.opponent_color = DARK_PIECE if self.color == LIGHT_PIECE else LIGHT_PIECE
+        self.moves_this_turn = []
 
     def __repr__(self):
         color_str = "LIGHT" if self.color == LIGHT_PIECE else "DARK"
         return f"Player: {color_str}"
+
+    def clear_moves_this_turn(self):
+        self.moves_this_turn.clear()
+
+    def add_move_this_turn(self, move):
+        self.moves_this_turn.append(move)
 
     def get_available_moves(self, board, dice_values, color=None):
         if not color: color = self.color
