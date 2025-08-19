@@ -47,8 +47,7 @@ def change_player():
     opening = False
     if isinstance(current_player, agent.CachingExpectimaxAgent): 
         current_player.clear_cache()
-    
-    print(current_player_index)
+
     current_player_index = (current_player_index + 1) % len(players)
     current_player = players[current_player_index]
 

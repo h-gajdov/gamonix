@@ -23,8 +23,8 @@ opening_position_id = '4HPwATDgc/ABMA'
 dice_values = (0, 0)
 while dice_values[0] == dice_values[1]: dice_values = roll_dice_plain() #with gnu you can't start with duplicates
 
-agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['trained'], play_opening=True, max_depth=2)
-env = load_dotenv(dotenv_path='.env')
+agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2)
+env = load_dotenv(dotenv_path='../.env')
 path_to_gnubg = os.getenv('PATH_TO_GNUBG')
 
 gnubg = subprocess.Popen(

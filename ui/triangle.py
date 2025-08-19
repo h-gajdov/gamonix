@@ -58,13 +58,22 @@ class Triangle(Point):
         self.draw_pieces(transparent_pieces)
     
     def draw_pieces(self, transparent_pieces=False):
-        y = self.y + PIECE_RADIUS if self.is_upside_down else self.y - PIECE_RADIUS
+        alpha = 190 if transparent_pieces else 255
+        mult = 1 if self.is_upside_down else -1
+        max_height = TRIANGLE_HEIGHT - 2 * PIECE_RADIUS
+
+        n = len(self.pieces)
+        y = self.y + mult * PIECE_RADIUS
+
+        if n > 5:
+            diff = max_height / (len(self.pieces) - 1) * mult
+        else:
+            diff = mult * 2 * PIECE_RADIUS
 
         for piece in self.pieces:
-            alpha = 190 if transparent_pieces else 255
             piece.set_position(self.x, y)
             piece.draw(alpha)
-            y += 2 * PIECE_RADIUS if self.is_upside_down else -2 * PIECE_RADIUS
+            y += diff
 
     def highlight_made_move(self):
         if self.is_highlighted: return
