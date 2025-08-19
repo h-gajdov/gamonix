@@ -1,5 +1,6 @@
 import pygame
 import events
+import time
 import layer
 import universal
 import console
@@ -36,6 +37,12 @@ while running:
             
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             events.move_pieces(event)
+
+    if time.time() > universal.time_to_next_move and universal.ai_is_on_turn():
+        console.simulate_move(False)
+        points = initialize_points_array()
+        events.set_points(points)
+        universal.time_to_next_move = time.time() + 1
 
     layer.Layer.clear_layers()
     layer.background_board_layer.surface.fill(BOARD_BACKGROUND)

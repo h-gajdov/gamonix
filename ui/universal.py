@@ -1,4 +1,5 @@
 import random
+import time
 import ai.agent as agent
 import game_logic.board as brd
 from ui.colors import *
@@ -9,6 +10,7 @@ dice_values_ui = (1, 1)
 players = [agent.AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2),
             agent.AdaptiveBeamAgent(color=LIGHT_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2)]
 
+time_to_next_move = time.time()
 AI_PLAYER_INDEX = 0
 current_player_index = 0
 current_player = players[current_player_index]
@@ -36,8 +38,9 @@ def player_has_moves():
     return len(current_player.get_available_moves(brd.board, dice_values)) != 0
 
 def change_player():
-    global current_player_index, current_player, players, dice_values, opening, next_moves
+    global current_player_index, current_player, players, dice_values, opening, next_moves, time_to_next_move
 
+    time_to_next_move = time.time() + 1
     opening = False
     if isinstance(current_player, agent.CachingExpectimaxAgent): 
         current_player.clear_cache()
@@ -52,7 +55,7 @@ def change_player():
         change_player()
     
 def start_game():
-    global dice_values, dice_values_ui, current_player_index, current_player, opening, next_moves
+    global dice_values, dice_values_ui, current_player_index, current_player, opening, next_moves, time_to_next_move
 
     brd.initialize_board_array()
     opening = brd.board == STARTING_BOARD
@@ -66,5 +69,6 @@ def start_game():
     current_player = players[current_player_index]
     next_moves = []
 
+    time_to_next_move = time.time() + 1
     if not player_has_moves():
         change_player()
