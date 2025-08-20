@@ -20,9 +20,15 @@ dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
 
 universal.start_game()
-
 points = initialize_points_array()
 events.set_points(points)
+
+def undo_move():
+    state = universal.previous_states.pop()
+    brd.board = state[0]
+    universal.dice_values = state[1]
+    points = initialize_points_array()
+    events.set_points(points)
 
 def highlight_previous_moves(player):
     for move in player.moves_this_turn:
@@ -38,12 +44,8 @@ running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_d and universal.ai_is_on_turn():
-                # console.print_simulated_move()
-                tp.calculate_function_time(console.simulate_move, False)
-                points = initialize_points_array()
-                events.set_points(points)
-                # universal.dice_values = universal.roll_dice()
+            if event.key == pygame.K_u and len(universal.previous_states) > 0:
+                undo_move()
             
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             events.move_pieces(event)

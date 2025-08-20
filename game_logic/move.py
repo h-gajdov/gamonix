@@ -32,7 +32,10 @@ class Move:
         if self.source_point < 0 or self.source_point > 24: result = f'bar/{destination}'
         else: result = f"{source}/{destination}"
         return result
-    
+
+    def reverse(self):
+        return Move(self.destination_point, self.source_point, self.board, self.dice_values, self.color)
+
     @staticmethod
     def parse_moves_to_gnu_format(moves: list, reverse=False):
         gnu_format = ''

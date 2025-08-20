@@ -75,6 +75,7 @@ def move_pieces(event):
     if selected_point and clicked_point in can_move_to_points: 
         current_position = points.index(selected_point)
         target_position = points.index(clicked_point)
+        universal.previous_states.append((brd.board[:], universal.dice_values))
         
         if math.fabs(brd.board[target_position]) == 1 and brd.board[current_position] * brd.board[target_position] < 0:
             clicked_point.take(points.index(clicked_point), points)
