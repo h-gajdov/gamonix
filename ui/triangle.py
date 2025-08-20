@@ -24,7 +24,7 @@ def initialize_points_array():
     def set_tris_array(is_dark, is_upside_down, y, iteration):
         for x in iteration:
             if x == 7: continue
-            startX = x * TRIANGLE_WIDTH + TRIANGLE_WIDTH / 2
+            startX = x * TRIANGLE_WIDTH_FLOATING + TRIANGLE_WIDTH_FLOATING / 2
             point = Triangle(startX, y, LIGHT_TRIANGLES if is_dark else DARK_TRIANGLES, is_upside_down)
             is_dark = not is_dark
             points.append(point)
@@ -46,8 +46,8 @@ class Triangle(Point):
         self.is_upside_down = is_upside_down
         
     def draw(self, transparent_pieces=False):
-        p1 = (self.x - TRIANGLE_WIDTH / 2, self.y)
-        p2 = (self.x + TRIANGLE_WIDTH / 2, self.y)
+        p1 = (self.x - TRIANGLE_WIDTH_FLOATING / 2, self.y)
+        p2 = (self.x + TRIANGLE_WIDTH_FLOATING / 2, self.y)
         
         tmp = TRIANGLE_HEIGHT if self.is_upside_down else SCREEN_HEIGHT - TRIANGLE_HEIGHT
         p3 = (self.x, tmp)
@@ -78,8 +78,8 @@ class Triangle(Point):
     def highlight_made_move(self):
         if self.is_highlighted: return
 
-        p1 = (self.x - TRIANGLE_WIDTH / 2, self.y)
-        p2 = (self.x + TRIANGLE_WIDTH / 2, self.y)
+        p1 = (self.x - TRIANGLE_WIDTH_FLOATING / 2, self.y)
+        p2 = (self.x + TRIANGLE_WIDTH_FLOATING / 2, self.y)
 
         tmp = TRIANGLE_HEIGHT if self.is_upside_down else SCREEN_HEIGHT - TRIANGLE_HEIGHT
         p3 = (self.x, tmp)
@@ -91,7 +91,7 @@ class OffSection(Point):
         self.draw_pieces_from_down_to_up = draw_pieces_from_down_to_up
         
     def draw(self, transparent_pieces=False):
-        self.rect = draw_rect(layer.game_board_layer, OFF_SECTION, self.x, self.y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)  
+        self.rect = draw_rect(layer.game_board_layer, OFF_SECTION, self.x, self.y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
         if self.is_highlighted:
             draw_rect(layer.points_highlight_layer, GREEN_HIGHLIGHT, self.x, self.y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
             
