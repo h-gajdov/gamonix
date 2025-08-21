@@ -23,6 +23,8 @@ universal.start_game()
 points = initialize_points_array()
 events.set_points(points)
 
+image = pygame.image.load("ui/assets/table_borders.png").convert_alpha()
+
 def undo_move():
     state = universal.previous_states.pop()
     brd.board = state[0]
@@ -71,13 +73,13 @@ while running:
         highlight_previous_moves(universal.get_player_not_on_turn())
 
     #Borders
-    draw_rect(layer.background_board_layer, BOARD_BORDER, 0, 0, SCREEN_WIDTH, BOARD_HEIGHT)
-    draw_rect(layer.background_board_layer, BOARD_BORDER, 0, SCREEN_HEIGHT - BOARD_HEIGHT, SCREEN_WIDTH, BOARD_HEIGHT)
-    draw_rect(layer.background_board_layer, BOARD_BORDER, 0, 0, BOARD_WIDTH, SCREEN_HEIGHT)
-    draw_rect(layer.background_board_layer, BOARD_BORDER, SCREEN_WIDTH - BOARD_WIDTH, 0, BOARD_WIDTH, SCREEN_HEIGHT)
+    # draw_rect(layer.background_board_layer, BOARD_BORDER, 0, 0, SCREEN_WIDTH, BOARD_HEIGHT)
+    # draw_rect(layer.background_board_layer, BOARD_BORDER, 0, SCREEN_HEIGHT - BOARD_HEIGHT, SCREEN_WIDTH, BOARD_HEIGHT)
+    # draw_rect(layer.background_board_layer, BOARD_BORDER, 0, 0, BOARD_WIDTH, SCREEN_HEIGHT)
+    # draw_rect(layer.background_board_layer, BOARD_BORDER, SCREEN_WIDTH - BOARD_WIDTH, 0, BOARD_WIDTH, SCREEN_HEIGHT)
     
     #Middle Border
-    draw_rect(layer.background_board_layer, BOARD_BORDER, SCREEN_WIDTH / 2 - BOARD_WIDTH / 2, 0, BOARD_WIDTH, SCREEN_HEIGHT)
+    # draw_rect(layer.background_board_layer, BOARD_BORDER, SCREEN_WIDTH / 2 - BOARD_WIDTH / 2, 0, BOARD_WIDTH, SCREEN_HEIGHT)
     
     #Off sections
     down_off_section_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT - BOARD_HEIGHT
@@ -97,7 +99,8 @@ while running:
     text_rect_2 = text_surface_2.get_rect(center=box2.center)
     layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
-    
+
+    layer.game_board_layer.surface.blit(image, (0, 0))
     layer.Layer.draw_layers(screen)
     pygame.display.flip()
 
