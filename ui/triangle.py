@@ -52,6 +52,13 @@ class Triangle(Point):
         tmp = TRIANGLE_HEIGHT if self.is_upside_down else SCREEN_HEIGHT - TRIANGLE_HEIGHT
         p3 = (self.x, tmp)
         self.rect = draw_polygon(layer.game_board_layer, self.color, [p1, p2, p3])
+
+        dash1 = (p1[0] + 8, p1[1])
+        dash2 = (p2[0] - 8, p2[1])
+        dash3 = (p3[0] - 1.25, p3[1] - 30 if self.is_upside_down else p3[1] + 30)
+
+        draw_dashed_polygon(layer.game_board_layer.surface, (211, 211, 211, 0), [dash1, dash3], dash_length=2)
+        draw_dashed_polygon(layer.game_board_layer.surface, (211, 211, 211, 128), [dash3, dash2], dash_length=2)
         if self.is_highlighted:
             draw_polygon(layer.points_highlight_layer, GREEN_HIGHLIGHT, [p1, p2, p3])
         

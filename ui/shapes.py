@@ -1,6 +1,30 @@
+import math
 import pygame
 import pygame.gfxdraw
 from colors import *
+
+def draw_dashed_polygon(surface, color, points, width=1, dash_length=10, gap_length=5):
+    for i in range(len(points)):
+        start = points[i]
+        end = points[(i + 1) % len(points)]
+
+        dx = end[0] - start[0]
+        dy = end[1] - start[1]
+        length = math.hypot(dx, dy)
+
+        pos = 0
+        angle = math.atan2(dy, dx)
+        while pos < length:
+            dash_end = min(pos + dash_length, length)
+
+            x1 = start[0] + math.cos(angle) * pos
+            y1 = start[1] + math.sin(angle) * pos
+            x2 = start[0] + math.cos(angle) * dash_end
+            y2 = start[1] + math.sin(angle) * dash_end
+
+            pygame.draw.line(surface, color, (x1, y1), (x2, y2), width)
+
+            pos += dash_length + gap_length
 
 def draw_circle(layer, color, x, y, radius, width=0):
     rect = pygame.draw.circle(layer.surface, color, (x, y), radius)
