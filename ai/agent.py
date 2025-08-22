@@ -14,7 +14,10 @@ class Agent(player.Player):
         super().__init__(color)
         self.config = config
         self.play_opening = play_opening
-    
+
+        #Stats
+        self.number_of_branches = []
+
     @abstractmethod
     def move(self, board, dice_values, opening_move=False):
         if opening_move:
@@ -79,29 +82,41 @@ class Agent(player.Player):
 
             if has_cache: self.cache[state] = average
             return average
-    
+
+    def total_number_of_branches(self):
+        return sum(self.number_of_branches)
+
+    def average_branching_factor(self):
+        return sum(self.number_of_branches) / len(self.number_of_branches)
+
 class RandomAgent(Agent):
     def __init__(self, color, config=None, play_opening=False):
         super().__init__(color, config, play_opening)
+        self.name = "random"
         
     def move(self, board, dice_values, opening_move=False):
         #Random player ignores opening moves
         # if opening_move: return super().move(board, dice_values, opening_move)
 
         available_moves = self.get_available_moves(board, dice_values)
+        self.number_of_branches.append(len(available_moves))
+
         if not available_moves: return None
         return [random.choice(available_moves)]
     
 class GreedyAgent(Agent):    
     def __init__(self, color, config, play_opening=False):
         super().__init__(color, config, play_opening)
-    
+        self.name = "shallow_greedy"
+
     def move(self, board, dice_values, opening_move=False):
         if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
 
         available_moves = self.get_available_moves(board, dice_values)
         available_moves = sorted(available_moves, key=lambda x: x.source_point)
         if self.color == DARK_PIECE: available_moves.reverse()
+
+        self.number_of_branches.append(len(available_moves))
         if not available_moves: return None
         best_move = max(available_moves, key=lambda x: x.evaluate(self.config))
         return [best_move]
@@ -109,6 +124,7 @@ class GreedyAgent(Agent):
 class DepthGreedyAgent(Agent):
     def __init__(self, color, config, play_opening=False):
         super().__init__(color, config, play_opening)
+        self.name = 'depth_greedy'
 
     def move(self, board, dice_values, opening_move=False):
         if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
@@ -116,7 +132,8 @@ class DepthGreedyAgent(Agent):
         available_moves = self.get_available_moves(board, dice_values)
         sort_order = -1 if self.color == DARK_PIECE else 1
         available_moves.sort(key=lambda x: sort_order * x.source_point)
-        
+        self.number_of_branches.append(len(available_moves))
+
         best = float('-inf')
         result = available_moves[0]
         for move in available_moves:
@@ -134,6 +151,7 @@ class DepthGreedyAgent(Agent):
             return evaluate_position_of_player(result_board, self.color, self.config)
 
         available_moves = self.get_available_moves(result_board, result_dice, self.config)
+        self.number_of_branches.append(len(available_moves))
         if not available_moves:
             return evaluate_position_of_player(result_board, self.color, self.config)
 
@@ -146,6 +164,7 @@ class ExpectimaxAgent(Agent):
     def __init__(self, color, config, play_opening=False, max_depth=2):
         super().__init__(color, config, play_opening)
         self.max_depth = max_depth
+        self.name = "expectimax"
 
     def move(self, board, dice_values, opening_move=False):
         if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
@@ -166,6 +185,7 @@ class ExpectimaxAgent(Agent):
     def get_all_board_states_after_move(self, board, dice_values, color=None):
         if color is None: color = self.color
         available_moves = self.get_available_moves(board, dice_values, color)
+        self.number_of_branches.append(len(available_moves))
 
         result = []
         for move in available_moves:
@@ -181,6 +201,7 @@ class ExpectimaxAgent(Agent):
             return [State(result_board, color, new_mvs)]
 
         available_moves = self.get_available_moves(result_board, result_dice, color)
+        self.number_of_branches.append(len(available_moves))
         if not available_moves:
             return [State(result_board, color, new_mvs)]
 
@@ -194,6 +215,7 @@ class CachingExpectimaxAgent(ExpectimaxAgent):
     def __init__(self, color, config, play_opening=False, max_depth=2):
         super().__init__(color, config, play_opening, max_depth)
         self.cache = {}
+        self.name = "caching_expectimax"
 
     def clear_cache(self):
         self.cache.clear() 
@@ -207,6 +229,7 @@ class BeamExpectimaxAgent(CachingExpectimaxAgent):
         super().__init__(color, config, play_opening, max_depth)
         self.beam_width = beam_width
         self.cache = {}
+        self.name = 'beam_expectimax'
 
     def clear_cache(self):
         self.cache.clear() 
@@ -231,6 +254,7 @@ class BeamExpectimaxAgent(CachingExpectimaxAgent):
 class AdaptiveBeamAgent(BeamExpectimaxAgent):
     def __init__(self, color, config, play_opening=False, max_depth=2, beam_width=5):
         super().__init__(color, config, play_opening, max_depth, beam_width)
+        self.name = 'adaptive_beam'
 
     def _beam_width_at_depth(self, k, depth):
         return max(2, k - depth)

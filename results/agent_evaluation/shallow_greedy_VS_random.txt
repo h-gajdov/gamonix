@@ -1,0 +1,210 @@
+n=100
+Light: 0 Dark: 1
+n=99
+Light: 0 Dark: 2
+n=98
+Light: 0 Dark: 3
+n=97
+Light: 0 Dark: 4
+n=96
+Light: 0 Dark: 5
+n=95
+Light: 0 Dark: 6
+n=94
+Light: 0 Dark: 7
+n=93
+Light: 0 Dark: 8
+n=92
+Light: 0 Dark: 9
+n=91
+Light: 0 Dark: 10
+n=90
+Light: 0 Dark: 11
+n=89
+Light: 0 Dark: 12
+n=88
+Light: 0 Dark: 13
+n=87
+Light: 0 Dark: 14
+n=86
+Light: 0 Dark: 15
+n=85
+Light: 0 Dark: 16
+n=84
+Light: 0 Dark: 17
+n=83
+Light: 0 Dark: 18
+n=82
+Light: 0 Dark: 19
+n=81
+Light: 0 Dark: 20
+n=80
+Light: 0 Dark: 21
+n=79
+Light: 0 Dark: 22
+n=78
+Light: 0 Dark: 23
+n=77
+Light: 0 Dark: 24
+n=76
+Light: 0 Dark: 25
+n=75
+Light: 0 Dark: 26
+n=74
+Light: 0 Dark: 27
+n=73
+Light: 0 Dark: 28
+n=72
+Light: 0 Dark: 29
+n=71
+Light: 0 Dark: 30
+n=70
+Light: 0 Dark: 31
+n=69
+Light: 0 Dark: 32
+n=68
+Light: 0 Dark: 33
+n=67
+Light: 0 Dark: 34
+n=66
+Light: 0 Dark: 35
+n=65
+Light: 1 Dark: 35
+n=64
+Light: 1 Dark: 36
+n=63
+Light: 1 Dark: 37
+n=62
+Light: 1 Dark: 38
+n=61
+Light: 1 Dark: 39
+n=60
+Light: 1 Dark: 40
+n=59
+Light: 1 Dark: 41
+n=58
+Light: 1 Dark: 42
+n=57
+Light: 1 Dark: 43
+n=56
+Light: 1 Dark: 44
+n=55
+Light: 1 Dark: 45
+n=54
+Light: 1 Dark: 46
+n=53
+Light: 1 Dark: 47
+n=52
+Light: 1 Dark: 48
+n=51
+Light: 1 Dark: 49
+n=50
+Light: 1 Dark: 50
+n=49
+Light: 1 Dark: 51
+n=48
+Light: 1 Dark: 52
+n=47
+Light: 1 Dark: 53
+n=46
+Light: 1 Dark: 54
+n=45
+Light: 1 Dark: 55
+n=44
+Light: 1 Dark: 56
+n=43
+Light: 1 Dark: 57
+n=42
+Light: 1 Dark: 58
+n=41
+Light: 1 Dark: 59
+n=40
+Light: 1 Dark: 60
+n=39
+Light: 1 Dark: 61
+n=38
+Light: 2 Dark: 61
+n=37
+Light: 2 Dark: 62
+n=36
+Light: 2 Dark: 63
+n=35
+Light: 2 Dark: 64
+n=34
+Light: 2 Dark: 65
+n=33
+Light: 2 Dark: 66
+n=32
+Light: 2 Dark: 67
+n=31
+Light: 2 Dark: 68
+n=30
+Light: 2 Dark: 69
+n=29
+Light: 2 Dark: 70
+n=28
+Light: 2 Dark: 71
+n=27
+Light: 2 Dark: 72
+n=26
+Light: 2 Dark: 73
+n=25
+Light: 2 Dark: 74
+n=24
+Light: 2 Dark: 75
+n=23
+Light: 2 Dark: 76
+n=22
+Light: 2 Dark: 77
+n=21
+Light: 2 Dark: 78
+n=20
+Light: 2 Dark: 79
+n=19
+Light: 2 Dark: 80
+n=18
+Light: 2 Dark: 81
+n=17
+Light: 2 Dark: 82
+n=16
+Light: 2 Dark: 83
+n=15
+Light: 2 Dark: 84
+n=14
+Light: 2 Dark: 85
+n=13
+Light: 2 Dark: 86
+n=12
+Light: 2 Dark: 87
+n=11
+Light: 2 Dark: 88
+n=10
+Light: 2 Dark: 89
+n=9
+Light: 2 Dark: 90
+n=8
+Light: 2 Dark: 91
+n=7
+Light: 2 Dark: 92
+n=6
+Light: 2 Dark: 93
+n=5
+Light: 2 Dark: 94
+n=4
+Light: 2 Dark: 95
+n=3
+Light: 2 Dark: 96
+n=2
+Light: 2 Dark: 97
+n=1
+Light: 2 Dark: 98
+
+0.8708441257476807 seconds
+
+Total branches shallow_greedy: 27418
+Average branches shallow_greedy: 3.79173005116858
+Winning percentage shallow_greedy: 98.0%
+
+Total branches random: 31131
+Average branches random: 4.6617250673854445
+Winning percentage random: 2.0%

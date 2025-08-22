@@ -23,7 +23,7 @@ universal.start_game()
 points = initialize_points_array()
 events.set_points(points)
 
-image = pygame.image.load("ui/assets/table_borders.png").convert_alpha()
+image = pygame.image.load("assets/table_borders.png").convert_alpha()
 
 def undo_move():
     state = universal.previous_states.pop()
