@@ -2,6 +2,7 @@ import random
 import time
 import ai.agent as agent
 import game_logic.board as brd
+
 from ui.colors import *
 from ai.config import configs
 

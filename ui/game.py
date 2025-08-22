@@ -11,6 +11,7 @@ from triangle import *
 from options import *
 
 pygame.init()
+
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 transparent_surface = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
 pygame.display.set_caption("Gamonix")
@@ -23,7 +24,7 @@ universal.start_game()
 points = initialize_points_array()
 events.set_points(points)
 
-image = pygame.image.load("assets/table_borders.png").convert_alpha()
+table_background = pygame.image.load("ui/assets/table_borders.png").convert_alpha()
 
 def undo_move():
     state = universal.previous_states.pop()
@@ -54,6 +55,7 @@ while running:
 
     if time.time() > universal.time_to_next_move and universal.ai_is_on_turn():
         console.simulate_move(False)
+        events.move_sound.play()
         points = initialize_points_array()
         events.set_points(points)
         universal.time_to_next_move = time.time() + 1
@@ -100,7 +102,7 @@ while running:
     layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
 
-    layer.game_board_layer.surface.blit(image, (0, 0))
+    layer.game_board_layer.surface.blit(table_background, (0, 0))
     layer.Layer.draw_layers(screen)
     pygame.display.flip()
 

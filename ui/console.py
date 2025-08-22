@@ -71,18 +71,18 @@ def simulate_games(n = 1):
         print("Light:", light, "Dark:", dark)
         line += f"Light: {light} Dark: {dark}\n"
 
-time = str(tp.calculate_function_time(simulate_games, n=100))
-line += '\n'
-line += str(time) + ' seconds\n'
-line += '\n'
-line += f"Total branches {universal.players[0].name}: {universal.players[0].total_number_of_branches()}\n"
-line += f"Average branches {universal.players[0].name}: {universal.players[0].average_branching_factor()}\n"
-line += f"Winning percentage {universal.players[0].name}: {dark / (light + dark) * 100}%\n"
-line += f"\n"
-line += f"Total branches {universal.players[1].name}: {universal.players[1].total_number_of_branches()}\n"
-line += f"Average branches {universal.players[1].name}: {universal.players[1].average_branching_factor()}\n"
-line += f"Winning percentage {universal.players[1].name}: {light / (light + dark) * 100}%\n"
-print(line)
-
-with open(f'../results/agent_evaluation/{universal.players[0].name}_VS_{universal.players[1].name}.txt', 'w') as f:
-    f.write(line)
+# time = str(tp.calculate_function_time(simulate_games, n=100))
+# line += '\n'
+# line += str(time) + ' seconds\n'
+# line += '\n'
+# line += f"Total branches {universal.players[0].name}: {universal.players[0].total_number_of_branches()}\n"
+# line += f"Average branches {universal.players[0].name}: {universal.players[0].average_branching_factor()}\n"
+# line += f"Winning percentage {universal.players[0].name}: {dark / (light + dark) * 100}%\n"
+# line += f"\n"
+# line += f"Total branches {universal.players[1].name}: {universal.players[1].total_number_of_branches()}\n"
+# line += f"Average branches {universal.players[1].name}: {universal.players[1].average_branching_factor()}\n"
+# line += f"Winning percentage {universal.players[1].name}: {light / (light + dark) * 100}%\n"
+# print(line)
+#
+# with open(f'results/agent_evaluation/{universal.players[0].name}_VS_{universal.players[1].name}.txt', 'w') as f:
+#     f.write(line)
