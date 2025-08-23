@@ -17,16 +17,17 @@ def roll_dice_plain():
     return (value1, value2)
 
 game_finished = False
-opening_position_id = '4HPwATDgc/ABMA'
+# opening_position_id = '4HPwATDgc/ABMA'
+opening_position_id = 'EwAAUAAAAAAAAA'
 dice_values = (0, 0)
 while dice_values[0] == dice_values[1]: dice_values = roll_dice_plain() #with gnu you can't start with duplicates
 
-agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=1)
+agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2)
 env = load_dotenv(dotenv_path='.env')
 path_to_gnubg = os.getenv('PATH_TO_GNUBG')
 
 gnubg = subprocess.Popen(
-    [path_to_gnubg, '--tty'],
+    [path_to_gnubg, '--tty', '-q'],
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,
     stderr=subprocess.STDOUT,
@@ -73,8 +74,8 @@ def read_the_board(print_board=False):
         id = re.search(r'Position ID: .*', line)
         if id: position_id = id.group().split(':')[1].strip()
         
+        file_content += line + '\n'
         if print_board: 
-            file_content += line + '\n'
             print(line) 
         if re.search(r'X: [aA-zZ]*', line): 
             break
