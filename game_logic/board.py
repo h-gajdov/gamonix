@@ -1,3 +1,5 @@
+import ui.sounds as sounds
+
 from math import fabs
 from game_logic.fen import *
 from ui.colors import *
@@ -89,14 +91,12 @@ def update_dice_values(dice_values, move, color, board):
     return tuple(dice_values)
 
 def move_piece(move, board, dice_values, player_color):
-    # most_distant = get_most_distant_piece(player_color, board)
-    # dice_values = tuple([value if value <= most_distant else most_distant for value in dice_values])
-    
     dice_values = update_dice_values(dice_values, move, player_color, board)
     if player_color == DARK_PIECE:
         if board[move.destination_point] * board[move.source_point] < 0:
             board[26] += 1
             board[move.destination_point] = 0
+            sounds.capture_sound.play()
         
         board[move.source_point] += 1
         board[move.destination_point] -= 1
@@ -104,6 +104,7 @@ def move_piece(move, board, dice_values, player_color):
         if board[move.destination_point] * board[move.source_point] < 0:
             board[27] -= 1
             board[move.destination_point] = 0
+            sounds.capture_sound.play()
         
         board[move.source_point] -= 1
         board[move.destination_point] += 1
