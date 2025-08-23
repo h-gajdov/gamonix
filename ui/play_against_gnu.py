@@ -9,8 +9,6 @@ from ai.agent import AdaptiveBeamAgent
 from ai.config import configs
 from colors import *
 
-results_folder = os.path.join(os.path.dirname(__file__), '..', 'results')
-num_files = len([f for f in os.listdir(results_folder) if os.path.isfile(os.path.join(results_folder, f))])
 file_content = ''
 
 def roll_dice_plain():
@@ -24,7 +22,7 @@ dice_values = (0, 0)
 while dice_values[0] == dice_values[1]: dice_values = roll_dice_plain() #with gnu you can't start with duplicates
 
 agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2)
-env = load_dotenv(dotenv_path='../.env')
+env = load_dotenv(dotenv_path='.env')
 path_to_gnubg = os.getenv('PATH_TO_GNUBG')
 
 gnubg = subprocess.Popen(
@@ -123,5 +121,11 @@ while not game_finished:
     dice_values = roll_dice_plain()
     gnu_first = False
 
+results_folder = os.path.join(os.path.dirname(__file__), '..', 'results')
+results_folder = os.path.join(results_folder, f'{agent.name}_VS_gnubg')
+if not os.path.exists(results_folder):
+    os.makedirs(os.path.join(results_folder, f'{agent.name}_VS_gnubg'))
+
+num_files = len([f for f in os.listdir(results_folder) if os.path.isfile(os.path.join(results_folder, f))])
 with open(os.path.join(results_folder, f'g{num_files + 1}.txt'), 'w') as f:
     f.write(file_content)
