@@ -16,7 +16,8 @@ class Agent(player.Player):
         self.play_opening = play_opening
 
         #Stats
-        self.number_of_branches = []
+        self.sum_of_branches = 0
+        self.number_of_levels = 0
         self.sum_of_move_times = 0
         self.number_of_moves = 0
 
@@ -85,15 +86,19 @@ class Agent(player.Player):
             if has_cache: self.cache[state] = average
             return average
 
+    def track_branches(self, n):
+        self.sum_of_branches += n
+        self.number_of_levels += 1
+
     def add_move_time(self, time):
         self.sum_of_move_times += time
         self.number_of_moves += 1
 
     def total_number_of_branches(self):
-        return sum(self.number_of_branches)
+        return self.sum_of_branches
 
     def average_branching_factor(self):
-        return sum(self.number_of_branches) / len(self.number_of_branches)
+        return self.sum_of_branches / self.number_of_levels
 
     def average_time_per_move(self):
         return self.sum_of_move_times / self.number_of_moves
@@ -108,7 +113,7 @@ class RandomAgent(Agent):
         # if opening_move: return super().move(board, dice_values, opening_move)
 
         available_moves = self.get_available_moves(board, dice_values)
-        self.number_of_branches.append(len(available_moves))
+        self.track_branches(len(available_moves))
 
         if not available_moves: return None
         return [random.choice(available_moves)]
@@ -125,7 +130,7 @@ class GreedyAgent(Agent):
         available_moves = sorted(available_moves, key=lambda x: x.source_point)
         if self.color == DARK_PIECE: available_moves.reverse()
 
-        self.number_of_branches.append(len(available_moves))
+        self.track_branches(len(available_moves))
         if not available_moves: return None
         best_move = max(available_moves, key=lambda x: x.evaluate(self.config))
         return [best_move]
@@ -141,7 +146,7 @@ class DepthGreedyAgent(Agent):
         available_moves = self.get_available_moves(board, dice_values)
         sort_order = -1 if self.color == DARK_PIECE else 1
         available_moves.sort(key=lambda x: sort_order * x.source_point)
-        self.number_of_branches.append(len(available_moves))
+        self.track_branches(len(available_moves))
 
         best = float('-inf')
         result = available_moves[0]
@@ -160,7 +165,7 @@ class DepthGreedyAgent(Agent):
             return evaluate_position_of_player(result_board, self.color, self.config)
 
         available_moves = self.get_available_moves(result_board, result_dice, self.config)
-        self.number_of_branches.append(len(available_moves))
+        self.track_branches(len(available_moves))
         if not available_moves:
             return evaluate_position_of_player(result_board, self.color, self.config)
 
@@ -194,7 +199,7 @@ class ExpectimaxAgent(Agent):
     def get_all_board_states_after_move(self, board, dice_values, color=None):
         if color is None: color = self.color
         available_moves = self.get_available_moves(board, dice_values, color)
-        self.number_of_branches.append(len(available_moves))
+        self.track_branches(len(available_moves))
 
         result = []
         for move in available_moves:
@@ -210,7 +215,7 @@ class ExpectimaxAgent(Agent):
             return [State(result_board, color, new_mvs)]
 
         available_moves = self.get_available_moves(result_board, result_dice, color)
-        self.number_of_branches.append(len(available_moves))
+        self.track_branches(len(available_moves))
         if not available_moves:
             return [State(result_board, color, new_mvs)]
 

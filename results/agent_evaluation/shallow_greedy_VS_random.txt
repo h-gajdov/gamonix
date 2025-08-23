@@ -1,14 +1,14 @@
-Time passed: 1.5873377323150635 seconds
+Time passed: 1.495682954788208 seconds
 
-Total branches shallow_greedy: 27966
-Average branches shallow_greedy: 3.7188829787234043
-Average time per move shallow_greedy: 0.00011058344709392313 seconds
-Winning percentage shallow_greedy: 98.0%
+Total branches shallow_greedy: 27032
+Average branches shallow_greedy: 3.722390526025888
+Average time per move shallow_greedy: 0.00010776093559558898 seconds
+Winning percentage shallow_greedy: 97.0%
 
-Total branches random: 32395
-Average branches random: 4.696969696969697
-Average time per move random: 8.845242662600282e-05 seconds
-Winning percentage random: 2.0%
+Total branches random: 31897
+Average branches random: 4.681784823132247
+Average time per move random: 8.481081208814054e-05 seconds
+Winning percentage random: 3.0%
 
 n=100
 Light: 0 Dark: 1
@@ -61,27 +61,27 @@ Light: 0 Dark: 24
 n=76
 Light: 0 Dark: 25
 n=75
-Light: 1 Dark: 25
+Light: 0 Dark: 26
 n=74
-Light: 1 Dark: 26
+Light: 0 Dark: 27
 n=73
-Light: 1 Dark: 27
+Light: 0 Dark: 28
 n=72
-Light: 1 Dark: 28
+Light: 0 Dark: 29
 n=71
-Light: 1 Dark: 29
+Light: 0 Dark: 30
 n=70
-Light: 1 Dark: 30
+Light: 0 Dark: 31
 n=69
-Light: 1 Dark: 31
+Light: 0 Dark: 32
 n=68
-Light: 1 Dark: 32
+Light: 0 Dark: 33
 n=67
-Light: 1 Dark: 33
+Light: 0 Dark: 34
 n=66
-Light: 1 Dark: 34
+Light: 0 Dark: 35
 n=65
-Light: 1 Dark: 35
+Light: 0 Dark: 36
 n=64
 Light: 1 Dark: 36
 n=63
@@ -139,74 +139,74 @@ Light: 1 Dark: 62
 n=37
 Light: 1 Dark: 63
 n=36
-Light: 1 Dark: 64
+Light: 2 Dark: 63
 n=35
-Light: 1 Dark: 65
+Light: 2 Dark: 64
 n=34
-Light: 1 Dark: 66
+Light: 2 Dark: 65
 n=33
-Light: 1 Dark: 67
+Light: 2 Dark: 66
 n=32
-Light: 1 Dark: 68
+Light: 2 Dark: 67
 n=31
-Light: 1 Dark: 69
+Light: 2 Dark: 68
 n=30
-Light: 1 Dark: 70
+Light: 2 Dark: 69
 n=29
-Light: 1 Dark: 71
+Light: 2 Dark: 70
 n=28
-Light: 1 Dark: 72
+Light: 2 Dark: 71
 n=27
-Light: 1 Dark: 73
+Light: 2 Dark: 72
 n=26
-Light: 1 Dark: 74
+Light: 2 Dark: 73
 n=25
-Light: 1 Dark: 75
+Light: 2 Dark: 74
 n=24
-Light: 1 Dark: 76
+Light: 2 Dark: 75
 n=23
-Light: 1 Dark: 77
+Light: 2 Dark: 76
 n=22
-Light: 1 Dark: 78
+Light: 2 Dark: 77
 n=21
-Light: 1 Dark: 79
+Light: 2 Dark: 78
 n=20
-Light: 1 Dark: 80
+Light: 2 Dark: 79
 n=19
-Light: 1 Dark: 81
+Light: 2 Dark: 80
 n=18
-Light: 1 Dark: 82
+Light: 2 Dark: 81
 n=17
-Light: 1 Dark: 83
+Light: 3 Dark: 81
 n=16
-Light: 1 Dark: 84
+Light: 3 Dark: 82
 n=15
-Light: 1 Dark: 85
+Light: 3 Dark: 83
 n=14
-Light: 1 Dark: 86
+Light: 3 Dark: 84
 n=13
-Light: 1 Dark: 87
+Light: 3 Dark: 85
 n=12
-Light: 1 Dark: 88
+Light: 3 Dark: 86
 n=11
-Light: 1 Dark: 89
+Light: 3 Dark: 87
 n=10
-Light: 1 Dark: 90
+Light: 3 Dark: 88
 n=9
-Light: 1 Dark: 91
+Light: 3 Dark: 89
 n=8
-Light: 1 Dark: 92
+Light: 3 Dark: 90
 n=7
-Light: 1 Dark: 93
+Light: 3 Dark: 91
 n=6
-Light: 1 Dark: 94
+Light: 3 Dark: 92
 n=5
-Light: 1 Dark: 95
+Light: 3 Dark: 93
 n=4
-Light: 1 Dark: 96
+Light: 3 Dark: 94
 n=3
-Light: 1 Dark: 97
+Light: 3 Dark: 95
 n=2
-Light: 2 Dark: 97
+Light: 3 Dark: 96
 n=1
-Light: 2 Dark: 98
+Light: 3 Dark: 97
