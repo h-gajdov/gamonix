@@ -21,7 +21,7 @@ opening_position_id = '4HPwATDgc/ABMA'
 dice_values = (0, 0)
 while dice_values[0] == dice_values[1]: dice_values = roll_dice_plain() #with gnu you can't start with duplicates
 
-agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2)
+agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=1)
 env = load_dotenv(dotenv_path='.env')
 path_to_gnubg = os.getenv('PATH_TO_GNUBG')
 
@@ -124,7 +124,7 @@ while not game_finished:
 results_folder = os.path.join(os.path.dirname(__file__), '..', 'results')
 results_folder = os.path.join(results_folder, f'{agent.name}_VS_gnubg')
 if not os.path.exists(results_folder):
-    os.makedirs(os.path.join(results_folder, f'{agent.name}_VS_gnubg'))
+    os.makedirs(results_folder)
 
 num_files = len([f for f in os.listdir(results_folder) if os.path.isfile(os.path.join(results_folder, f))])
 with open(os.path.join(results_folder, f'g{num_files + 1}.txt'), 'w') as f:

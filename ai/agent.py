@@ -178,7 +178,7 @@ class ExpectimaxAgent(Agent):
     def __init__(self, color, config, play_opening=False, max_depth=2):
         super().__init__(color, config, play_opening)
         self.max_depth = max_depth
-        self.name = "expectimax"
+        self.name = f"expectimax_{max_depth}d"
 
     def move(self, board, dice_values, opening_move=False):
         if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
@@ -229,7 +229,7 @@ class CachingExpectimaxAgent(ExpectimaxAgent):
     def __init__(self, color, config, play_opening=False, max_depth=2):
         super().__init__(color, config, play_opening, max_depth)
         self.cache = {}
-        self.name = "caching_expectimax"
+        self.name = f"caching_expectimax_{max_depth}d"
 
     def clear_cache(self):
         self.cache.clear() 
@@ -243,7 +243,7 @@ class BeamExpectimaxAgent(CachingExpectimaxAgent):
         super().__init__(color, config, play_opening, max_depth)
         self.beam_width = beam_width
         self.cache = {}
-        self.name = 'beam_expectimax'
+        self.name = f'beam_expectimax_{max_depth}d_{beam_width}b'
 
     def clear_cache(self):
         self.cache.clear() 
@@ -268,7 +268,7 @@ class BeamExpectimaxAgent(CachingExpectimaxAgent):
 class AdaptiveBeamAgent(BeamExpectimaxAgent):
     def __init__(self, color, config, play_opening=False, max_depth=2, beam_width=5):
         super().__init__(color, config, play_opening, max_depth, beam_width)
-        self.name = 'adaptive_beam'
+        self.name = f'adaptive_beam_{max_depth}d_{beam_width}b'
 
     def _beam_width_at_depth(self, k, depth):
         return max(2, k - depth)
