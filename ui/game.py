@@ -45,6 +45,7 @@ def highlight_previous_moves(player):
             highlighted.append(move.destination_point)
 
 running = True
+sounds.play_sounds = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
@@ -56,7 +57,7 @@ while running:
 
     if time.time() > universal.time_to_next_move and universal.ai_is_on_turn():
         console.simulate_move(False)
-        sounds.move_sound.play()
+        sounds.play_sound(sounds.move_sound)
         points = initialize_points_array()
         events.set_points(points)
         universal.time_to_next_move = time.time() + 1

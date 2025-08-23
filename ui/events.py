@@ -80,7 +80,7 @@ def move_pieces(event):
         
         taken_piece = False
         if math.fabs(brd.board[target_position]) == 1 and brd.board[current_position] * brd.board[target_position] < 0:
-            sounds.capture_sound.play()
+            sounds.play_sound(sounds.capture_sound)
             clicked_point.take(points.index(clicked_point), points)
             if selected_point == points[26] or selected_point == points[27]:
                 selected_point.move_piece_to(clicked_point, 0)
@@ -94,7 +94,7 @@ def move_pieces(event):
         universal.current_player.add_move_this_turn(Move(current_position, target_position, brd.board, universal.dice_values, universal.current_player.color))
         
         if not taken_piece: 
-            sounds.move_sound.play()
+            sounds.play_sound(sounds.move_sound)
         print(universal.dice_values)
 
         if not universal.dice_values or not universal.player_has_moves(): universal.change_player()

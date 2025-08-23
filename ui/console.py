@@ -1,3 +1,5 @@
+import time
+import sounds
 import universal
 import game_logic.board as brd
 import debug.time_passed as tp
@@ -46,7 +48,13 @@ def simulate_game(players=universal.players):
     count = 0
     universal.start_game()
     while brd.board[0] != -15 and brd.board[25] != 15:
-        moves.append(simulate_move(debug_print=False))
+        start = time.time()
+        move = simulate_move(debug_print=False)
+        end = time.time()
+        move_time = end - start
+        universal.current_player.add_move_time(move_time)
+        
+        moves.append(move)
         count += 1
         if count > 1000: 
             print(f"Game blocked")
@@ -71,18 +79,24 @@ def simulate_games(n = 1):
         print("Light:", light, "Dark:", dark)
         line += f"Light: {light} Dark: {dark}\n"
 
-# time = str(tp.calculate_function_time(simulate_games, n=100))
-# line += '\n'
-# line += str(time) + ' seconds\n'
-# line += '\n'
-# line += f"Total branches {universal.players[0].name}: {universal.players[0].total_number_of_branches()}\n"
-# line += f"Average branches {universal.players[0].name}: {universal.players[0].average_branching_factor()}\n"
-# line += f"Winning percentage {universal.players[0].name}: {dark / (light + dark) * 100}%\n"
-# line += f"\n"
-# line += f"Total branches {universal.players[1].name}: {universal.players[1].total_number_of_branches()}\n"
-# line += f"Average branches {universal.players[1].name}: {universal.players[1].average_branching_factor()}\n"
-# line += f"Winning percentage {universal.players[1].name}: {light / (light + dark) * 100}%\n"
-# print(line)
-#
-# with open(f'results/agent_evaluation/{universal.players[0].name}_VS_{universal.players[1].name}.txt', 'w') as f:
-#     f.write(line)
+if __name__ == '__main__':
+    sounds.play_sounds = False
+    t = str(tp.calculate_function_time(simulate_games, n=100))
+    stats = ''
+    stats += f"Time passed: {t} seconds\n"
+    stats += '\n'
+    stats += f"Total branches {universal.players[0].name}: {universal.players[0].total_number_of_branches()}\n"
+    stats += f"Average branches {universal.players[0].name}: {universal.players[0].average_branching_factor()}\n"
+    stats += f"Average time per move {universal.players[0].name}: {universal.players[0].average_time_per_move()} seconds\n"
+    stats += f"Winning percentage {universal.players[0].name}: {dark / (light + dark) * 100}%\n"
+    stats += f"\n"
+    stats += f"Total branches {universal.players[1].name}: {universal.players[1].total_number_of_branches()}\n"
+    stats += f"Average branches {universal.players[1].name}: {universal.players[1].average_branching_factor()}\n"
+    stats += f"Average time per move {universal.players[1].name}: {universal.players[1].average_time_per_move()} seconds\n"
+    stats += f"Winning percentage {universal.players[1].name}: {light / (light + dark) * 100}%\n"
+    file_content = stats + '\n' + line
+
+    print(stats)
+
+    with open(f'results/agent_evaluation/{universal.players[0].name}_VS_{universal.players[1].name}.txt', 'w') as f:
+        f.write(file_content)

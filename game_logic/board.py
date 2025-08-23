@@ -96,7 +96,7 @@ def move_piece(move, board, dice_values, player_color):
         if board[move.destination_point] * board[move.source_point] < 0:
             board[26] += 1
             board[move.destination_point] = 0
-            sounds.capture_sound.play()
+            sounds.play_sound(sounds.capture_sound)
         
         board[move.source_point] += 1
         board[move.destination_point] -= 1
@@ -104,7 +104,7 @@ def move_piece(move, board, dice_values, player_color):
         if board[move.destination_point] * board[move.source_point] < 0:
             board[27] -= 1
             board[move.destination_point] = 0
-            sounds.capture_sound.play()
+            sounds.play_sound(sounds.capture_sound)
         
         board[move.source_point] -= 1
         board[move.destination_point] += 1

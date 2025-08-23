@@ -17,6 +17,8 @@ class Agent(player.Player):
 
         #Stats
         self.number_of_branches = []
+        self.sum_of_move_times = 0
+        self.number_of_moves = 0
 
     @abstractmethod
     def move(self, board, dice_values, opening_move=False):
@@ -83,11 +85,18 @@ class Agent(player.Player):
             if has_cache: self.cache[state] = average
             return average
 
+    def add_move_time(self, time):
+        self.sum_of_move_times += time
+        self.number_of_moves += 1
+
     def total_number_of_branches(self):
         return sum(self.number_of_branches)
 
     def average_branching_factor(self):
         return sum(self.number_of_branches) / len(self.number_of_branches)
+
+    def average_time_per_move(self):
+        return self.sum_of_move_times / self.number_of_moves
 
 class RandomAgent(Agent):
     def __init__(self, color, config=None, play_opening=False):
