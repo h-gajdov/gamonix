@@ -1,5 +1,5 @@
 import math
-import pygame
+import sounds
 import universal
 import game_logic.board as brd
 
@@ -10,9 +10,6 @@ from game_logic.move import Move
 points = []
 can_move_to_points = []
 selected_point = None
-
-pygame.mixer.init()
-move_sound = pygame.mixer.Sound('ui/assets/move-self.mp3')
 
 def set_points(ref):
     global points
@@ -93,7 +90,7 @@ def move_pieces(event):
         
         handle_dice_values_after_move(current_position, target_position)
         universal.current_player.add_move_this_turn(Move(current_position, target_position, brd.board, universal.dice_values, universal.current_player.color))
-        move_sound.play()
+        sounds.move_sound.play()
         print(universal.dice_values)
 
         if not universal.dice_values or not universal.player_has_moves(): universal.change_player()

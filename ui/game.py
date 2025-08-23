@@ -4,6 +4,7 @@ import time
 import layer
 import universal
 import console
+import sounds
 import debug.time_passed as tp
 
 from colors import *
@@ -55,7 +56,7 @@ while running:
 
     if time.time() > universal.time_to_next_move and universal.ai_is_on_turn():
         console.simulate_move(False)
-        events.move_sound.play()
+        sounds.move_sound.play()
         points = initialize_points_array()
         events.set_points(points)
         universal.time_to_next_move = time.time() + 1
