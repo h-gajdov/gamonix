@@ -8,8 +8,9 @@ from ai.config import configs
 
 dice_values = (1, 1)
 dice_values_ui = (1, 1)
-players = [agent.GreedyAgent(color=DARK_PIECE, config=configs['41gensnodoubles']),
-            agent.RandomAgent(color=LIGHT_PIECE, config=configs['41gensnodoubles'])]
+AI_AGENT = agent.AdaptiveBeamAgent(color=LIGHT_PIECE, config=configs['41gensnodoubles'], max_depth=2, play_opening=True)
+PLAYER_AGENT = agent.GreedyAgent(color=DARK_PIECE, config=configs['41gensnodoubles'])
+players = [AI_AGENT, PLAYER_AGENT]
 
 time_to_next_move = time.time()
 AI_PLAYER_INDEX = 0
