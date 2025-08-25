@@ -63,7 +63,7 @@ def evaluate_position_of_player(board, player_color, config):
                 if my_color: in_block = False
                 if my_color and abs(board[i]) == 1 and point_no < bt:
                     coef = bfp if all_passed else bf
-                    score -= point_no / coef
+                    score -= 1 / (coef * point_no)
                     
         #end of loop
         if in_block:

@@ -71,7 +71,9 @@ def move_pieces(event):
     global selected_point, can_move_to_points
     clicked_point = get_clicked_point(event.pos)
     
-    if not clicked_point: return
+    if not clicked_point: 
+        deselect_all()
+        return
     
     if selected_point and clicked_point in can_move_to_points: 
         current_position = points.index(selected_point)
