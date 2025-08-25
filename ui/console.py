@@ -60,7 +60,7 @@ def simulate_game(players=universal.players):
             print(f"Game blocked")
             return None
     
-    winner = players[0] if brd.board[0] == -15 else players[1]
+    winner = players[1] if brd.board[0] == -15 else players[0]
     return GameInfo(players, winner, moves)
 
 def simulate_games(n = 1):
@@ -88,12 +88,12 @@ if __name__ == '__main__':
     stats += f"Total branches {universal.players[0].name}: {universal.players[0].total_number_of_branches()}\n"
     stats += f"Average branches {universal.players[0].name}: {universal.players[0].average_branching_factor()}\n"
     stats += f"Average time per move {universal.players[0].name}: {universal.players[0].average_time_per_move()} seconds\n"
-    stats += f"Winning percentage {universal.players[0].name}: {dark / (light + dark) * 100}%\n"
+    stats += f"Winning percentage {universal.players[0].name}: {light / (light + dark) * 100}%\n"
     stats += f"\n"
     stats += f"Total branches {universal.players[1].name}: {universal.players[1].total_number_of_branches()}\n"
     stats += f"Average branches {universal.players[1].name}: {universal.players[1].average_branching_factor()}\n"
     stats += f"Average time per move {universal.players[1].name}: {universal.players[1].average_time_per_move()} seconds\n"
-    stats += f"Winning percentage {universal.players[1].name}: {light / (light + dark) * 100}%\n"
+    stats += f"Winning percentage {universal.players[1].name}: {dark / (light + dark) * 100}%\n"
     file_content = stats + '\n' + line
 
     print(stats)

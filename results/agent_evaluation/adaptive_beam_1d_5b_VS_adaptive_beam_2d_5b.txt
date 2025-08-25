@@ -1,0 +1,212 @@
+Time passed: 1158.7090108394623 seconds
+
+Total branches adaptive_beam_1d_5b: 277908
+Average branches adaptive_beam_1d_5b: 5.126413458523178
+Average time per move adaptive_beam_1d_5b: 0.005483522316689097 seconds
+Winning percentage adaptive_beam_1d_5b: 46.0%
+
+Total branches adaptive_beam_2d_5b: 25090555
+Average branches adaptive_beam_2d_5b: 5.219502367134463
+Average time per move adaptive_beam_2d_5b: 0.16301396017302178 seconds
+Winning percentage adaptive_beam_2d_5b: 54.0%
+
+n=100
+Light: 1 Dark: 0
+n=99
+Light: 2 Dark: 0
+n=98
+Light: 2 Dark: 1
+n=97
+Light: 2 Dark: 2
+n=96
+Light: 2 Dark: 3
+n=95
+Light: 3 Dark: 3
+n=94
+Light: 3 Dark: 4
+n=93
+Light: 4 Dark: 4
+n=92
+Light: 4 Dark: 5
+n=91
+Light: 4 Dark: 6
+n=90
+Light: 4 Dark: 7
+n=89
+Light: 5 Dark: 7
+n=88
+Light: 5 Dark: 8
+n=87
+Light: 6 Dark: 8
+n=86
+Light: 7 Dark: 8
+n=85
+Light: 7 Dark: 9
+n=84
+Light: 7 Dark: 10
+n=83
+Light: 7 Dark: 11
+n=82
+Light: 7 Dark: 12
+n=81
+Light: 8 Dark: 12
+n=80
+Light: 9 Dark: 12
+n=79
+Light: 10 Dark: 12
+n=78
+Light: 10 Dark: 13
+n=77
+Light: 10 Dark: 14
+n=76
+Light: 10 Dark: 15
+n=75
+Light: 11 Dark: 15
+n=74
+Light: 12 Dark: 15
+n=73
+Light: 13 Dark: 15
+n=72
+Light: 13 Dark: 16
+n=71
+Light: 13 Dark: 17
+n=70
+Light: 13 Dark: 18
+n=69
+Light: 13 Dark: 19
+n=68
+Light: 14 Dark: 19
+n=67
+Light: 14 Dark: 20
+n=66
+Light: 14 Dark: 21
+n=65
+Light: 14 Dark: 22
+n=64
+Light: 14 Dark: 23
+n=63
+Light: 15 Dark: 23
+n=62
+Light: 15 Dark: 24
+n=61
+Light: 15 Dark: 25
+n=60
+Light: 16 Dark: 25
+n=59
+Light: 16 Dark: 26
+n=58
+Light: 17 Dark: 26
+n=57
+Light: 18 Dark: 26
+n=56
+Light: 18 Dark: 27
+n=55
+Light: 18 Dark: 28
+n=54
+Light: 18 Dark: 29
+n=53
+Light: 19 Dark: 29
+n=52
+Light: 20 Dark: 29
+n=51
+Light: 21 Dark: 29
+n=50
+Light: 22 Dark: 29
+n=49
+Light: 23 Dark: 29
+n=48
+Light: 23 Dark: 30
+n=47
+Light: 23 Dark: 31
+n=46
+Light: 24 Dark: 31
+n=45
+Light: 25 Dark: 31
+n=44
+Light: 25 Dark: 32
+n=43
+Light: 26 Dark: 32
+n=42
+Light: 27 Dark: 32
+n=41
+Light: 28 Dark: 32
+n=40
+Light: 29 Dark: 32
+n=39
+Light: 30 Dark: 32
+n=38
+Light: 30 Dark: 33
+n=37
+Light: 30 Dark: 34
+n=36
+Light: 30 Dark: 35
+n=35
+Light: 30 Dark: 36
+n=34
+Light: 31 Dark: 36
+n=33
+Light: 32 Dark: 36
+n=32
+Light: 33 Dark: 36
+n=31
+Light: 33 Dark: 37
+n=30
+Light: 33 Dark: 38
+n=29
+Light: 33 Dark: 39
+n=28
+Light: 33 Dark: 40
+n=27
+Light: 34 Dark: 40
+n=26
+Light: 34 Dark: 41
+n=25
+Light: 34 Dark: 42
+n=24
+Light: 34 Dark: 43
+n=23
+Light: 35 Dark: 43
+n=22
+Light: 35 Dark: 44
+n=21
+Light: 35 Dark: 45
+n=20
+Light: 36 Dark: 45
+n=19
+Light: 37 Dark: 45
+n=18
+Light: 37 Dark: 46
+n=17
+Light: 38 Dark: 46
+n=16
+Light: 39 Dark: 46
+n=15
+Light: 39 Dark: 47
+n=14
+Light: 40 Dark: 47
+n=13
+Light: 41 Dark: 47
+n=12
+Light: 41 Dark: 48
+n=11
+Light: 41 Dark: 49
+n=10
+Light: 41 Dark: 50
+n=9
+Light: 42 Dark: 50
+n=8
+Light: 42 Dark: 51
+n=7
+Light: 43 Dark: 51
+n=6
+Light: 43 Dark: 52
+n=5
+Light: 44 Dark: 52
+n=4
+Light: 45 Dark: 52
+n=3
+Light: 45 Dark: 53
+n=2
+Light: 46 Dark: 53
+n=1
+Light: 46 Dark: 54
