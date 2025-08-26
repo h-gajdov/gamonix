@@ -1,6 +1,7 @@
 import subprocess
 import re
 import os
+import sys
 import random
 import game_logic.extract_gnu as gnu
 from game_logic.move import Move
@@ -10,6 +11,7 @@ from ai.config import configs
 from colors import *
 
 file_content = ''
+save_contents = '-s' in sys.argv
 
 def roll_dice_plain():
     value1 = random.randint(1, 6)
@@ -65,7 +67,7 @@ def read_the_board(print_board=False):
     global game_finished, file_content
     position_id = ''
     while not game_finished:
-        line = gnubg.stdout.readline().strip()
+        line = read_line()
         if line == 'Session complete': 
             game_finished = True
         elif 'resign' in line:
@@ -86,6 +88,7 @@ def read_the_board(print_board=False):
 read_the_board(True)
 gnu_first = False #If gnubg is first it prints the board 3 times not 2
 if get_player_on_turn() == 'gnubg':
+    read_the_board()
     dice_values = roll_dice_plain()
     gnu_first = True
 
@@ -98,7 +101,6 @@ while not game_finished:
     position_id = get_position_id()
     is_opening = position_id == opening_position_id
 
-    if gnu_first: read_the_board(True)
     player_on_turn = get_player_on_turn()
     if not position_id: continue
     board = gnu.decode_position(position_id, player_on_turn == 'gamonix')
@@ -109,9 +111,12 @@ while not game_finished:
     elif player_on_turn == 'gamonix':
         agent.color = DARK_PIECE
         if dice_values[0] == dice_values[1]: dice_values = tuple([dice_values[0]] * 4)
-        moves = Move.parse_moves_to_gnu_format(agent.move(board, dice_values, is_opening))
-        send_command(f"move {moves.strip()}")
+        mv = agent.move(board, dice_values, is_opening)
+        if mv is not None:
+            moves = Move.parse_moves_to_gnu_format(mv)
+            send_command(f"move {moves.strip()}")
     else:
+        print('WHY ROLL')
         dice_values = roll_dice_plain()
         gnu_first = False
         continue
@@ -122,11 +127,12 @@ while not game_finished:
     dice_values = roll_dice_plain()
     gnu_first = False
 
-results_folder = os.path.join(os.path.dirname(__file__), '..', 'results')
-results_folder = os.path.join(results_folder, f'{agent.name}_VS_gnubg')
-if not os.path.exists(results_folder):
-    os.makedirs(results_folder)
+if save_contents:
+    results_folder = os.path.join(os.path.dirname(__file__), '..', 'results')
+    results_folder = os.path.join(results_folder, f'{agent.name}_VS_gnubg')
+    if not os.path.exists(results_folder):
+        os.makedirs(results_folder)
 
-num_files = len([f for f in os.listdir(results_folder) if os.path.isfile(os.path.join(results_folder, f))])
-with open(os.path.join(results_folder, f'g{num_files + 1}.txt'), 'w') as f:
-    f.write(file_content)
+    num_files = len([f for f in os.listdir(results_folder) if os.path.isfile(os.path.join(results_folder, f))])
+    with open(os.path.join(results_folder, f'g{num_files + 1}.txt'), 'w') as f:
+        f.write(file_content)

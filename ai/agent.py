@@ -263,6 +263,7 @@ class BeamExpectimaxAgent(CachingExpectimaxAgent):
                 best_score = score
                 best_state = state
 
+        if best_state is None: return None
         return best_state.move_history
         
 class AdaptiveBeamAgent(BeamExpectimaxAgent):
@@ -291,5 +292,6 @@ class AdaptiveBeamAgent(BeamExpectimaxAgent):
             if best_score < score:
                 best_score = score
                 best_state = state
-
+        
+        if best_state is None: return None
         return best_state.move_history
