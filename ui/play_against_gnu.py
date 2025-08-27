@@ -4,14 +4,24 @@ import os
 import sys
 import random
 import game_logic.extract_gnu as gnu
+
 from game_logic.move import Move
 from dotenv import load_dotenv
-from ai.agent import AdaptiveBeamAgent
+from ai.agent import Agent, AdaptiveBeamAgent
 from ai.config import configs
 from colors import *
 
 file_content = ''
 save_contents = '-s' in sys.argv
+if '--name' in sys.argv:
+    agent_name = sys.argv[sys.argv.index("--name") + 1]
+    agent = Agent.get_agent_from_name(agent_name, DARK_PIECE, configs['41gensnodoubles'], True)
+else:
+    agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2)
+
+print("Agent is:", agent.name)
+print()
+file_content += f"Agent is: {agent.name}\n"
 
 def roll_dice_plain():
     value1 = random.randint(1, 6)
@@ -24,7 +34,6 @@ opening_position_id = 'EwAAUAAAAAAAAA'
 dice_values = (0, 0)
 while dice_values[0] == dice_values[1]: dice_values = roll_dice_plain() #with gnu you can't start with duplicates
 
-agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2)
 env = load_dotenv(dotenv_path='.env')
 path_to_gnubg = os.getenv('PATH_TO_GNUBG')
 

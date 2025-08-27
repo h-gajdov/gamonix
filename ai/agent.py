@@ -102,7 +102,33 @@ class Agent(player.Player):
 
     def average_time_per_move(self):
         return self.sum_of_move_times / self.number_of_moves
-
+    
+    @staticmethod
+    def get_agent_from_name(name, color, config, play_opening):
+        try:
+            if name == "random": 
+                return RandomAgent(color, config, play_opening)
+            elif name == "shallow_greedy":
+                return GreedyAgent(color, config, play_opening)
+            elif name == "depth_greedy":
+                return DepthGreedyAgent(color, config, play_opening)
+            elif name.startswith("expectimax"):
+                depth = int(name.split("_")[1][:-1])
+                return ExpectimaxAgent(color, config, play_opening, depth)
+            elif name.startswith("caching_expectimax"):
+                depth = int(name.split("_")[2][:-1])
+                return CachingExpectimaxAgent(color, config, play_opening, depth)
+            elif name.startswith("beam_expectimax"):
+                depth = int(name.split("_")[2][:-1])
+                beam = int(name.split('_')[3][:-1])
+                return BeamExpectimaxAgent(color, config, play_opening, depth, beam)
+            elif name.startswith('adaptive_beam'):
+                depth = int(name.split("_")[2][:-1])
+                beam = int(name.split('_')[3][:-1])
+                return AdaptiveBeamAgent(color, config, play_opening, depth, beam)
+        except BaseException: 
+            raise ValueError("That agent doesn't exist")
+            
 class RandomAgent(Agent):
     def __init__(self, color, config=None, play_opening=False):
         super().__init__(color, config, play_opening)
@@ -111,12 +137,19 @@ class RandomAgent(Agent):
     def move(self, board, dice_values, opening_move=False):
         #Random player ignores opening moves
         # if opening_move: return super().move(board, dice_values, opening_move)
-
-        available_moves = self.get_available_moves(board, dice_values)
-        self.track_branches(len(available_moves))
-
-        if not available_moves: return None
-        return [random.choice(available_moves)]
+        
+        moves = []
+        while dice_values:
+            available_moves = self.get_available_moves(board, dice_values)
+            self.track_branches(len(available_moves))
+            if not available_moves: 
+                return moves if len(moves) != 0 else None
+            
+            move = random.choice(available_moves)
+            board, dice_values = brd.move_piece(move, board[:], dice_values, self.color)
+            moves.append(move)
+            
+        return moves
     
 class GreedyAgent(Agent):    
     def __init__(self, color, config, play_opening=False):
@@ -126,14 +159,19 @@ class GreedyAgent(Agent):
     def move(self, board, dice_values, opening_move=False):
         if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
 
-        available_moves = self.get_available_moves(board, dice_values)
-        available_moves = sorted(available_moves, key=lambda x: x.source_point)
-        if self.color == DARK_PIECE: available_moves.reverse()
+        moves = []
+        while dice_values:
+            available_moves = self.get_available_moves(board, dice_values)
+            available_moves = sorted(available_moves, key=lambda x: x.source_point)
+            if self.color == DARK_PIECE: available_moves.reverse()
 
-        self.track_branches(len(available_moves))
-        if not available_moves: return None
-        best_move = max(available_moves, key=lambda x: x.evaluate(self.config))
-        return [best_move]
+            self.track_branches(len(available_moves))
+            if not available_moves: 
+                return moves if len(moves) != 0 else None
+            best_move = max(available_moves, key=lambda x: x.evaluate(self.config))
+            board, dice_values = brd.move_piece(best_move, board[:], dice_values, self.color)
+            moves.append(best_move)
+        return moves
 
 class DepthGreedyAgent(Agent):
     def __init__(self, color, config, play_opening=False):
@@ -143,20 +181,28 @@ class DepthGreedyAgent(Agent):
     def move(self, board, dice_values, opening_move=False):
         if opening_move and self.play_opening: return super().move(board, dice_values, opening_move)
 
-        available_moves = self.get_available_moves(board, dice_values)
-        sort_order = -1 if self.color == DARK_PIECE else 1
-        available_moves.sort(key=lambda x: sort_order * x.source_point)
-        self.track_branches(len(available_moves))
+        moves = []
+        while dice_values:
+            available_moves = self.get_available_moves(board, dice_values)
+            if not available_moves: 
+                return moves if len(moves) != 0 else None
+            
+            sort_order = -1 if self.color == DARK_PIECE else 1
+            available_moves.sort(key=lambda x: sort_order * x.source_point)
+            self.track_branches(len(available_moves))
 
-        best = float('-inf')
-        result = available_moves[0]
-        for move in available_moves:
-            score = self.recursive_search(move, board, dice_values, 1)
-            if best < score:
-                best = score
-                result = move
+            best = float('-inf')
+            result = available_moves[0]
+            for move in available_moves:
+                score = self.recursive_search(move, board, dice_values, 1)
+                if best < score:
+                    best = score
+                    result = move
 
-        return [result]
+            board, dice_values = brd.move_piece(result, board, dice_values, self.color)
+            moves.append(result)
+            
+        return moves
     
     def recursive_search(self, move, board, dice_values, depth) :
         result_board, result_dice = brd.move_piece(move, board[:], dice_values, self.color)
