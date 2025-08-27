@@ -97,7 +97,6 @@ def move_pieces(event):
         
         if not taken_piece: 
             sounds.play_sound(sounds.move_sound)
-        print(universal.dice_values)
 
         if not universal.dice_values or not universal.player_has_moves(): universal.change_player()
         deselect_all()
