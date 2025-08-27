@@ -1,3 +1,4 @@
+import sys
 import pygame
 import events
 import time
@@ -10,6 +11,8 @@ import debug.time_passed as tp
 from colors import *
 from triangle import *
 from options import *
+from ai.agent import Agent
+from ai.config import configs
 
 pygame.init()
 
@@ -20,6 +23,13 @@ pygame.display.set_caption("Gamonix")
 layer.intialize_layers()
 dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
+
+if "--agent" in sys.argv:
+    agent_name = sys.argv[sys.argv.index("--agent") + 1]
+    agent = Agent.get_agent_from_name(agent_name, LIGHT_PIECE, configs['41gensnodoubles'], True)
+    universal.players[universal.AI_PLAYER_INDEX] = agent
+
+print("Playing against:", universal.players[universal.AI_PLAYER_INDEX].name)
 
 universal.start_game()
 points = initialize_points_array()
