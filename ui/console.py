@@ -1,3 +1,4 @@
+import sys
 import time
 import sounds
 import universal
@@ -5,6 +6,8 @@ import game_logic.board as brd
 import debug.time_passed as tp
 
 from ui.colors import *
+from ai.agent import Agent
+from ai.config import configs
 
 class GameInfo:
     def __init__(self, players, winner, move_history):
@@ -18,6 +21,19 @@ class GameInfo:
 line = ''
 dark = 0
 light = 0
+save_to_file = '-s' in sys.argv
+
+if '--agents' in sys.argv:
+    i = sys.argv.index('--agents')
+    print(sys.argv, i)
+    agent_1 = Agent.get_agent_from_name(sys.argv[i + 1], LIGHT_PIECE, configs['41gensnodoubles'], True)
+    agent_2 = Agent.get_agent_from_name(sys.argv[i + 2], DARK_PIECE, configs['41gensnodoubles'], True)
+    universal.players = [agent_1, agent_2]
+
+num_games = 100
+if '--games' in sys.argv:
+    i = sys.argv.index("--games")
+    num_games = int(sys.argv[i + 1])
 
 def simulate_move(debug_print=True):
     if not universal.next_moves:
@@ -81,7 +97,7 @@ def simulate_games(n = 1):
 
 if __name__ == '__main__':
     sounds.play_sounds = False
-    t = str(tp.calculate_function_time(simulate_games, n=100))
+    t = str(tp.calculate_function_time(simulate_games, n=num_games))
     stats = ''
     stats += f"Time passed: {t} seconds\n"
     stats += '\n'
@@ -98,5 +114,6 @@ if __name__ == '__main__':
 
     print(stats)
 
-    with open(f'results/agent_evaluation/{universal.players[0].name}_VS_{universal.players[1].name}.txt', 'w') as f:
-        f.write(file_content)
+    if save_to_file:
+        with open(f'results/agent_evaluation/{universal.players[0].name}_VS_{universal.players[1].name}.txt', 'w') as f:
+            f.write(file_content)
