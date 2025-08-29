@@ -1,0 +1,32 @@
+Time passed: 2350.1253254413605 seconds
+
+Total branches adaptive_beam_3d_5b: 173876883
+Average branches adaptive_beam_3d_5b: 4.875659289954666
+Average time per move adaptive_beam_3d_5b: 2.550691494675351 seconds
+Winning percentage adaptive_beam_3d_5b: 80.0%
+
+Total branches adaptive_beam_1d_5b: 32813
+Average branches adaptive_beam_1d_5b: 5.3311129163281885
+Average time per move adaptive_beam_1d_5b: 0.02428698675507565 seconds
+Winning percentage adaptive_beam_1d_5b: 20.0%
+
+n=10
+Light: 1 Dark: 0
+n=9
+Light: 2 Dark: 0
+n=8
+Light: 2 Dark: 1
+n=7
+Light: 2 Dark: 2
+n=6
+Light: 3 Dark: 2
+n=5
+Light: 4 Dark: 2
+n=4
+Light: 5 Dark: 2
+n=3
+Light: 6 Dark: 2
+n=2
+Light: 7 Dark: 2
+n=1
+Light: 8 Dark: 2
