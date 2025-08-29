@@ -20,7 +20,6 @@ def evaluate_points(board, color):
     return light - dark if color == DARK_PIECE else dark - light
     
 def evaluate_position_of_player(board, player_color, config):
-    # config = configs['trained']
     score = 0
     in_block = False
     block_count = 0
@@ -30,7 +29,6 @@ def evaluate_position_of_player(board, player_color, config):
     bfp = config.blots_factor_passed
     cbf = config.connected_blocks_factor
     bps = config.blocked_point_score
-    # tpf = config.taking_pieces_factor
     
     other_color = LIGHT_PIECE if player_color == DARK_PIECE else DARK_PIECE
     
@@ -38,11 +36,6 @@ def evaluate_position_of_player(board, player_color, config):
     opponent_most_distant = 25 - brd.get_most_distant_piece(other_color, board) #transformed to current player POV
 
     all_passed = True
-    # Check this. It might overfit the solution
-    # if player_color == DARK_PIECE:
-    #     score -= abs(board[27]) * tpf 
-    # elif player_color == LIGHT_PIECE:
-    #     score -= abs(board[26]) * tpf
 
     if my_most_distant > opponent_most_distant:
         for i in range(1, 25): 

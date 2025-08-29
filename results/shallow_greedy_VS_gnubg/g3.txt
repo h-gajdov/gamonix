@@ -1,0 +1,3609 @@
+Agent is: shallow_greedy
+GNU Backgammon 1.08.003-mingw 32-Bit 20240428
+
+Copyright (C) 1999-2004 Gary Wong.
+Copyright (C) 2004-2024 the AUTHORS; for details type `show version'.
+
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show warranty'.
+This is free software, and you are welcome to redistribute it under certain conditions; type `show copying' for details.
+
+Player 0 is now known as `gnubg
+'.
+Player 1 is now known as `gamonix
+'.
+Enter dice: gnubg
+rolls 5, gamonix
+rolls 4.
+GNU Backgammon  Position ID: 4HPwATDgc/ABMA
+Match ID   : MIESAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X           O    |   | O              X |     0 points
+| X           O    |   | O              X |     Rolled 54
+| X           O    |   | O                |
+| X                |   | O                |
+| X                |   | O                |
+^|                  |BAR|                  |     (Cube: 1)
+| O                |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O           X    |   | X              O |
+| O           X    |   | X              O |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+moves 24/15.
+GNU Backgammon  Position ID: 4HPwCSDgc/ABMA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X           O    |   | O              X |     0 points
+| X           O    |   | O              X |
+| X           O    |   | O                |
+| X                |   | O                |
+| X                |   | O                |
+v|                  |BAR|                  |     (Cube: 1)
+| O                |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O           X    |   | X                |     On roll
+| O     O     X    |   | X              O |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 4HPwCSDgc/ABMA
+Match ID   : cAkTAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X           O    |   | O              X |     0 points
+| X           O    |   | O              X |
+| X           O    |   | O                |
+| X                |   | O                |
+| X                |   | O                |
+v|                  |BAR|                  |     (Cube: 1)
+| O                |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O           X    |   | X                |     Rolled 64
+| O     O     X    |   | X              O |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 4HPwCSDgc/ABMA
+Match ID   : cAkTAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X           O    |   | O              X |     0 points
+| X           O    |   | O              X |
+| X           O    |   | O                |
+| X                |   | O                |
+| X                |   | O                |
+v|                  |BAR|                  |     (Cube: 1)
+| O                |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O           X    |   | X                |     Rolled 64
+| O     O     X    |   | X              O |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: 4OvCATDgc/AJIA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X           O    |   | O              X |     0 points
+| X           O    |   | O              X |     On roll
+| X           O    |   | O                |
+|                  |   | O                |
+|                  |   | O                |
+^|                  |BAR|                  |     (Cube: 1)
+| O                |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O           X    |   | X                |
+| O     O  X  X  X |   | X              O |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 4OvCATDgc/AJIA
+Match ID   : MIEFAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X           O    |   | O              X |     0 points
+| X           O    |   | O              X |     Rolled 13
+| X           O    |   | O                |
+|                  |   | O                |
+|                  |   | O                |
+^|                  |BAR|                  |     (Cube: 1)
+| O                |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O           X    |   | X                |
+| O     O  X  X  X |   | X              O |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 15/14 13/10.
+GNU Backgammon  Position ID: 4HPiBSDg68IBMA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O     O    |   | O              X |     0 points
+| X           O    |   | O              X |
+| X           O    |   | O                |
+|                  |   | O                |
+|                  |   | O                |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O           X    |   | X                |     On roll
+| O  O     X  X  X |   | X              O |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 4HPiBSDg68IBMA
+Match ID   : cAkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O     O    |   | O              X |     0 points
+| X           O    |   | O              X |
+| X           O    |   | O                |
+|                  |   | O                |
+|                  |   | O                |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O           X    |   | X                |     Rolled 43
+| O  O     X  X  X |   | X              O |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 4HPiBSDg68IBMA
+Match ID   : cAkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O     O    |   | O              X |     0 points
+| X           O    |   | O              X |
+| X           O    |   | O                |
+|                  |   | O                |
+|                  |   | O                |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O           X    |   | X                |     Rolled 43
+| O  O     X  X  X |   | X              O |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: yOeGATDgc+IFIA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X     O     O    |   | O              X |     0 points
+| X           O    |   | O              X |     On roll
+|             O    |   | O                |
+|                  |   | O                |
+|                  |   | O                |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O        X  X    |   | X                |
+| O  O     X  X    |   | X     X        O |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: yOeGATDgc+IFIA
+Match ID   : MAESAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X     O     O    |   | O              X |     0 points
+| X           O    |   | O              X |     Rolled 44
+|             O    |   | O                |
+|                  |   | O                |
+|                  |   | O                |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O        X  X    |   | X                |
+| O  O     X  X    |   | X     X        O |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 8/4(2) 6/2(2).
+GNU Backgammon  Position ID: Zk7iBSDI54YBMA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O     O    |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O        X  X    |   | X                |     On roll
+| O  O     X  X    |   | X     X        O |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: Zk7iBSDI54YBMA
+Match ID   : cAkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O     O    |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O        X  X    |   | X                |     Rolled 44
+| O  O     X  X    |   | X     X        O |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: Zk7iBSDI54YBMA
+Match ID   : cAkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O     O    |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   | X                |
+| O                |   | X                |
+| O           X    |   | X                |
+| O        X  X    |   | X                |     Rolled 44
+| O  O     X  X    |   | X     X        O |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: zsyGATBmTuIFIA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X     O     O    |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |     On roll
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+| O                |   |                  |
+| O                |   |             X    |
+| O        X  X    |   | X     X     X    |
+| O  O     X  X    |   | X     X     X  O |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: zsyGATBmTuIFIA
+Match ID   : MAETAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X     O     O    |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |     Rolled 64
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+| O                |   |                  |
+| O                |   |             X    |
+| O        X  X    |   | X     X     X    |
+| O  O     X  X    |   | X     X     X  O |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 24/14.
+GNU Backgammon  Position ID: Zk7iDQDOzIYBMA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O     O    |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+| O                |   |                  |
+| O                |   |             X    |
+| O  O     X  X    |   | X     X     X    |     On roll
+| O  O     X  X    |   | X     X     X    |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: Zk7iDQDOzIYBMA
+Match ID   : cIkEAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O     O    |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+| O                |   |                  |
+| O                |   |             X    |
+| O  O     X  X    |   | X     X     X    |     Rolled 11
+| O  O     X  X    |   | X     X     X    |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: Zk7iDQDOzIYBMA
+Match ID   : cIkEAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O     O    |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+| O                |   |                  |
+| O                |   |             X    |
+| O  O     X  X    |   | X     X     X    |     Rolled 11
+| O  O     X  X    |   | X     X     X    |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: x8qGATBmTuINAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X     O     O    |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |     On roll
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+| O                |   |                  |
+| O                |   |                X |
+| O  O     X  X    |   |       X        X |
+| O  O     X  X    |   | X  X  X        X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: x8qGATBmTuINAA
+Match ID   : MAETAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X     O     O    |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |     Rolled 64
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+| O                |   |                  |
+| O                |   |                X |
+| O  O     X  X    |   |       X        X |
+| O  O     X  X    |   | X  X  X        X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 13/9 13/7.
+GNU Backgammon  Position ID: Zq6KDQDHyoYBMA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O  O  O  O |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                X |
+| O  O     X  X    |   |       X        X |     On roll
+| O  O     X  X    |   | X  X  X        X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: Zq6KDQDHyoYBMA
+Match ID   : cAkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O  O  O  O |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                X |
+| O  O     X  X    |   |       X        X |     Rolled 42
+| O  O     X  X    |   | X  X  X        X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: Zq6KDQDHyoYBMA
+Match ID   : cAkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X     O  O  O  O |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                X |
+| O  O     X  X    |   |       X        X |     Rolled 42
+| O  O     X  X    |   | X  X  X        X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: j8OGATBmrooNAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X     O  O  O  O |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |     On roll
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                X |
+|                  |   |       X        X |
+| O  O     X  X    |   |       X        X |
+| O  O     X  X    |   |       X        X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: j8OGATBmrooNAA
+Match ID   : MAEFAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X     O  O  O  O |   | O     O     O  X |     0 points
+| X                |   | O     O     O  X |     Rolled 12
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                X |
+|                  |   |       X        X |
+| O  O     X  X    |   |       X        X |
+| O  O     X  X    |   |       X        X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 13/11 8/7.
+GNU Backgammon  Position ID: Zm4qDQCPw4YBMA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X  O  O  O     O |   | O     O     O  X |     0 points
+| X              O |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                X |
+|                  |   |       X        X |
+|    O     X  X    |   |       X        X |     On roll
+| O  O     X  X    |   |       X        X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: Zm4qDQCPw4YBMA
+Match ID   : cIkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X  O  O  O     O |   | O     O     O  X |     0 points
+| X              O |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                X |
+|                  |   |       X        X |
+|    O     X  X    |   |       X        X |     Rolled 54
+| O  O     X  X    |   |       X        X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: Zm4qDQCPw4YBMA
+Match ID   : cIkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X  O  O  O     O |   | O     O     O  X |     0 points
+| X              O |   | O     O     O  X |
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                X |
+|                  |   |       X        X |
+|    O     X  X    |   |       X        X |     Rolled 54
+| O  O     X  X    |   |       X        X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: j8MdADBmbioNAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O  O  O     O |   | O     O     O  X |     0 points
+|                O |   | O     O     O  X |     On roll
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                X |
+|          X  X    |   |       X        X |
+|    O     X  X    |   |       X        X |
+| O  O     X  X    |   |       X        X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: j8MdADBmbioNAA
+Match ID   : MIEFAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O  O  O     O |   | O     O     O  X |     0 points
+|                O |   | O     O     O  X |     Rolled 13
+|                  |   | O                |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                X |
+|          X  X    |   |       X        X |
+|    O     X  X    |   |       X        X |
+| O  O     X  X    |   |       X        X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 14/11 6/5.
+GNU Backgammon  Position ID: Zm1qCgCPwx0AMA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O  O  O     O |   | O  O  O     O  X |     0 points
+|    O           O |   | O     O     O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                X |
+|          X  X    |   |       X        X |
+|          X  X    |   |       X        X |     On roll
+| O  O     X  X    |   |       X        X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: Zm1qCgCPwx0AMA
+Match ID   : cIkNAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O  O  O     O |   | O  O  O     O  X |     0 points
+|    O           O |   | O     O     O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                X |
+|          X  X    |   |       X        X |
+|          X  X    |   |       X        X |     Rolled 33
+| O  O     X  X    |   |       X        X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: Zm1qCgCPwx0AMA
+Match ID   : cIkNAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O  O  O     O |   | O  O  O     O  X |     0 points
+|    O           O |   | O     O     O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                  |
+|                  |   |                X |
+|          X  X    |   |       X        X |
+|          X  X    |   |       X        X |     Rolled 33
+| O  O     X  X    |   |       X        X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: nxYbADBmbWoKAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O  O  O     O |   | O  O  O     O  X |     0 points
+|    O           O |   | O     O     O  X |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|          X  X    |   |       X        X |
+| O  O     X  X    |   |    X  X  X     X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: nxYbADBmbWoKAA
+Match ID   : MAEHAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O  O  O     O |   | O  O  O     O  X |     0 points
+|    O           O |   | O     O     O  X |     Rolled 16
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|          X  X    |   |       X        X |
+| O  O     X  X    |   |    X  X  X     X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 10/3.
+GNU Backgammon  Position ID: 1tpkCgCfFhsAMA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     O     O |   | O  O  O  O  O  X |     0 points
+|    O           O |   | O     O     O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|          X  X    |   |       X        X |     On roll
+| O  O     X  X    |   |    X  X  X     X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 1tpkCgCfFhsAMA
+Match ID   : cAkTAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     O     O |   | O  O  O  O  O  X |     0 points
+|    O           O |   | O     O     O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|          X  X    |   |       X        X |     Rolled 64
+| O  O     X  X    |   |    X  X  X     X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 1tpkCgCfFhsAMA
+Match ID   : cAkTAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     O     O |   | O  O  O  O  O  X |     0 points
+|    O           O |   | O     O     O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|          X  X    |   |       X        X |     Rolled 64
+| O  O     X  X    |   |    X  X  X     X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: ny0WACHWbDIFQA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O     O     O | O | O  X  O  O  O  X |     0 points
+|    O           O |   | O     O     O    |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|             X    |   |       X  X     X |
+| O  O     X  X    |   |    X  X  X     X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: ny0WACHWbDIFQA
+Match ID   : MIEFAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O     O     O | O | O  X  O  O  O  X |     0 points
+|    O           O |   | O     O     O    |     Rolled 31
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|             X    |   |       X  X     X |
+| O  O     X  X    |   |    X  X  X     X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+cannot move.
+GNU Backgammon  Position ID: 1mwyBUCfLRYAIQ
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     O     O | O | O  X  O  O  O  X |     0 points
+|    O           O |   | O     O     O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|             X    |   |       X  X     X |     On roll
+| O  O     X  X    |   |    X  X  X     X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 1mwyBUCfLRYAIQ
+Match ID   : cAkTAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     O     O | O | O  X  O  O  O  X |     0 points
+|    O           O |   | O     O     O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|             X    |   |       X  X     X |     Rolled 64
+| O  O     X  X    |   |    X  X  X     X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 1mwyBUCfLRYAIQ
+Match ID   : cAkTAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     O     O | O | O  X  O  O  O  X |     0 points
+|    O           O |   | O     O     O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|             X    |   |       X  X     X |     Rolled 64
+| O  O     X  X    |   |    X  X  X     X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: X9sIACHWbDIFQA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O     O     O | O | O  X  O  O  O  X |     0 points
+|    O           O |   | O     O     O    |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X     X |
+| O  O        X    |   |    X  X  X  X  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: X9sIACHWbDIFQA
+Match ID   : MAEKAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O     O     O | O | O  X  O  O  O  X |     0 points
+|    O           O |   | O     O     O    |     Rolled 24
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X     X |
+| O  O        X    |   |    X  X  X  X  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves bar/23* 7/3.
+GNU Backgammon  Position ID: tlkyBRCfbQSAUA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     O     O |   | O  X  O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X     X |     On roll
+| O  O        X    | X |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: tlkyBRCfbQSAUA
+Match ID   : cAkGAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     O     O |   | O  X  O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X     X |     Rolled 41
+| O  O        X    | X |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: tlkyBRCfbQSAUA
+Match ID   : cAkGAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     O     O |   | O  X  O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X     X |     Rolled 41
+| O  O        X    | X |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: n20ECDC2WZgCSA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O     X     O | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O  X |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X     X |
+| O  O        X    |   |    X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: n20ECDC2WZgCSA
+Match ID   : MIEWAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O     X     O | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O  X |     Rolled 55
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X     X |
+| O  O        X    |   |    X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+cannot move.
+GNU Backgammon  Position ID: tlmYAkifbQQIMA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     X     O | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X     X |     On roll
+| O  O        X    |   |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: tlmYAkifbQQIMA
+Match ID   : cIkWAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     X     O | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X     X |     Rolled 55
+| O  O        X    |   |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: tlmYAkifbQQIMA
+Match ID   : cIkWAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O     X     O | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X     X |     Rolled 55
+| O  O        X    |   |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: P7cBADC2WZgAZA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O           O | O | O     O  O  O  X |     0 points
+|    O             | O | O     O  O  O  X |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X     X |
+| O                |   |    X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: P7cBADC2WZgAZA
+Match ID   : MAELAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O           O | O | O     O  O  O  X |     0 points
+|    O             | O | O     O  O  O  X |     Rolled 26
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X     X |
+| O                |   |    X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves bar/23 bar/19.
+GNU Backgammon  Position ID: tlmYQBg/twEAMA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O           O |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |     On roll
+| O                |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: tlmYQBg/twEAMA
+Match ID   : cAkHAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O           O |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |     Rolled 61
+| O                |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: tlmYQBg/twEAMA
+Match ID   : cAkHAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O           O |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O  X |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |     Rolled 61
+| O                |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: P7cBICC2GUwgTA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O        X    | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |
+| O                |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: P7cBICC2GUwgTA
+Match ID   : MIEGAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O        X    | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |     Rolled 15
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |
+| O                |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+cannot move.
+GNU Backgammon  Position ID: thlMIEw/twEgIA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O        X    | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |     On roll
+| O                |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: thlMIEw/twEgIA
+Match ID   : cIkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O        X    | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |     Rolled 52
+| O                |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: thlMIEw/twEgIA
+Match ID   : cIkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O        X    | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |     Rolled 52
+| O                |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: P7dBACC2GUwgTA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O             | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |
+| O     X          |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: P7dBACC2GUwgTA
+Match ID   : MAEPAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O             | O | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |     Rolled 36
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |
+| O     X          |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves bar/19 13/10.
+GNU Backgammon  Position ID: thkaYBg/t0EAIA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O  O          |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   | O  X  X  X  O  X |     On roll
+|       X          |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: thkaYBg/t0EAIA
+Match ID   : cIkJAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O  O          |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   | O  X  X  X  O  X |     Rolled 32
+|       X          |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: thkaYBg/t0EAIA
+Match ID   : cIkJAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O  O          |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   | O  X  X  X  O  X |     Rolled 32
+|       X          |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: P7cDACC2GRpgGA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O  O          |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   | O  X  X  X  O  X |
+|                  |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: P7cDACC2GRpgGA
+Match ID   : MIEKAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O  O          |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |     Rolled 25
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   | O  X  X  X  O  X |
+|                  |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 19/12.
+GNU Backgammon  Position ID: thlaQBg/twMAIA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O  O  O          |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     On roll
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: thlaQBg/twMAIA
+Match ID   : cAkLAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O  O  O          |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     Rolled 62
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: thlaQBg/twMAIA
+Match ID   : cAkLAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O  O  O          |   | O     O  O  O  X |     0 points
+|    O             |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     Rolled 62
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: P7cDIAC2GVpAGA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O  O  O  X       |   | O     O  O  O    |     0 points
+|    O             |   | O     O  O  O    |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |
+|                  |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: P7cDIAC2GVpAGA
+Match ID   : MAEKAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O  O  O  X       |   | O     O  O  O    |     0 points
+|    O             |   | O     O  O  O    |     Rolled 24
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |
+|                  |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 11/9* 11/7.
+GNU Backgammon  Position ID: tllKQBg/twMAQA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O     O  O     O |   | O     O  O  O    |     0 points
+|                  |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     On roll
+|                  | X | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: tllKQBg/twMAQA
+Match ID   : cAkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O     O  O     O |   | O     O  O  O    |     0 points
+|                  |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     Rolled 44
+|                  | X | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: P7cDAEC2WUpAGA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O     O  O     O |   | O     O  O  O    |     0 points
+|                  |   | O     O  O  O    |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |
+|                  | X | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: P7cDAEC2WUpAGA
+Match ID   : MAEFAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O     O  O     O |   | O     O  O  O    |     0 points
+|                  |   | O     O  O  O    |     Rolled 12
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |
+|                  | X | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 12/11 9/7.
+GNU Backgammon  Position ID: ttkoQBg/twMAQA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O  O        O |   | O     O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     On roll
+|                  | X | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: ttkoQBg/twMAQA
+Match ID   : cIkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O  O        O |   | O     O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     Rolled 53
+|                  | X | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: ttkoQBg/twMAQA
+Match ID   : cIkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    O  O        O |   | O     O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     Rolled 53
+|                  | X | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: P7cDQAC22ShAGA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O  O     X  O |   | O     O  O  O    |     0 points
+|                O |   | O     O  O  O    |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |
+|                  |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: P7cDQAC22ShAGA
+Match ID   : MIENAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    O  O     X  O |   | O     O  O  O    |     0 points
+|                O |   | O     O  O  O    |     Rolled 33
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |
+|                  |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 19/13 11/8*/5.
+GNU Backgammon  Position ID: trURARg/twMAQA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|       O        O |   | O  O  O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     On roll
+| O                | X |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: trURARg/twMAQA
+Match ID   : cAkPAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|       O        O |   | O  O  O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     Rolled 63
+| O                | X |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: P7cDAEC2tREBGA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|       O        O |   | O  O  O  O  O    |     0 points
+|                O |   | O     O  O  O    |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |
+| O                | X |    X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: P7cDAEC2tREBGA
+Match ID   : MAEKAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|       O        O |   | O  O  O  O  O    |     0 points
+|                O |   | O     O  O  O    |     Rolled 42
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |
+| O                | X |    X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 13/9 10/8.
+GNU Backgammon  Position ID: trUVABg/twMAQA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O  O  O |   | O  O  O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     On roll
+|                  | X |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: trUVABg/twMAQA
+Match ID   : cIkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O  O  O |   | O  O  O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     Rolled 54
+|                  | X |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: trUVABg/twMAQA
+Match ID   : cIkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O  O  O |   | O  O  O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 |
+|                  |   |                X |
+|                  |   |    X     X     X |
+|                  |   |    X  X  X  O  X |     Rolled 54
+|                  | X |    X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: f24DAAK22QoATA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|          O  O  O | O | O  X  O  O  O    |     0 points
+|                O |   | O     O  O  O    |     On roll
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |
+|                  |   |    X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: f24DAAK22QoATA
+Match ID   : MAEXAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|          O  O  O | O | O  X  O  O  O    |     0 points
+|                O |   | O     O  O  O    |     Rolled 56
+|                  |   |                  |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |
+|                  |   |    X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves bar/19 8/3.
+GNU Backgammon  Position ID: drMJQBh/bgMAAg
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O     O |   | O  X  O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |     On roll
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: drMJQBh/bgMAAg
+Match ID   : cIkFAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O     O |   | O  X  O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |     Rolled 31
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: drMJQBh/bgMAAg
+Match ID   : cIkFAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O     O |   | O  X  O  O  O    |     0 points
+|                O |   | O     O  O  O    |
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |     Rolled 31
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: f24DIAB2swEgTA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|          X     O | O | O     O  O  O    |     0 points
+|                O |   | O     O  O  O    |     On roll
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |
+|                  |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: f24DIAB2swEgTA
+Match ID   : MAETAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|          X     O | O | O     O  O  O    |     0 points
+|                O |   | O     O  O  O    |     Rolled 46
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |    X  X  X  O  X |
+|                  |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves bar/19 6/2.
+GNU Backgammon  Position ID: 7qYBYBh/bgMgAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          X     O |   | O     O  O  O    |     0 points
+|                O |   |       O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   | O  X  X  X  O  X |     On roll
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 7qYBYBh/bgMgAA
+Match ID   : cIkJAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          X     O |   | O     O  O  O    |     0 points
+|                O |   |       O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   | O  X  X  X  O  X |     Rolled 32
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 7qYBYBh/bgMgAA
+Match ID   : cIkJAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          X     O |   | O     O  O  O    |     0 points
+|                O |   |       O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   | O  X  X  X  O  X |     Rolled 32
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: /2wDBADupgFgGA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X              O |   | O     O  O  O    |     0 points
+|                O |   |       O  O  O    |     On roll
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X  X  X  O  X |
+|                  |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: /2wDBADupgFgGA
+Match ID   : MAEKAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X              O |   | O     O  O  O    |     0 points
+|                O |   |       O  O  O    |     Rolled 42
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X  X  X  O  X |
+|                  |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 7/1.
+GNU Backgammon  Position ID: 3U0BYBj/bAMEAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X              O |   | O     O  O  O  O |     0 points
+|                  |   |       O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X  X  X  O  X |     On roll
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 3U0BYBj/bAMEAA
+Match ID   : cAkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X              O |   | O     O  O  O  O |     0 points
+|                  |   |       O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X  X  X  O  X |     Rolled 43
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 3U0BYBj/bAMEAA
+Match ID   : cAkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X              O |   | O     O  O  O  O |     0 points
+|                  |   |       O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X  X  X  O  X |     Rolled 43
+|                  |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: /1lDAADdTQFgGA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                O |   | O     O  O  O  O |     0 points
+|                  |   |       O  O  O    |     On roll
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                9 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X     X  O  X |
+|          X       |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: /1lDAADdTQFgGA
+Match ID   : MAEFAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                O |   | O     O  O  O  O |     0 points
+|                  |   |       O  O  O    |     Rolled 21
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                9 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X     X  O  X |
+|          X       |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 23/21* 7/6.
+GNU Backgammon  Position ID: 3c0AYBL/mSEAQA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                9 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X     X     X |     On roll
+|          X       | X | O  X  O  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 3c0AYBL/mSEAQA
+Match ID   : cIkWAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                9 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X     X     X |     Rolled 55
+|          X       | X | O  X  O  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 3c0AYBL/mSEAQA
+Match ID   : cIkWAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                9 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X     X     X |     Rolled 55
+|          X       | X | O  X  O  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: /1mDAADdzQBgSA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  | O | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O    |     On roll
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                9 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X     X     X |
+|       X          |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: /1mDAADdzQBgSA
+Match ID   : MIEKAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  | O | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O    |     Rolled 25
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                9 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   | O  X     X     X |
+|       X          |   | O  X  X  X  O  X |     0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves bar/23 19/14.
+GNU Backgammon  Position ID: 3c0AQRj/WYMAAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                9 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X     X  O  X |     On roll
+|    O  X          |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 3c0AQRj/WYMAAA
+Match ID   : cAkHAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                9 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X     X  O  X |     Rolled 61
+|    O  X          |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 3c0AQRj/WYMAAA
+Match ID   : cAkHAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O    |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                9 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X     X  O  X |     Rolled 61
+|    O  X          |   | O  X  X  X  O  X |     0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: /2wDAIDuZoAgDA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O    |     On roll
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X  O  X |
+|    O             |   | O  X  X  X  O  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: /2wDAIDuZoAgDA
+Match ID   : MIEGAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O    |     Rolled 15
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X  O  X |
+|    O             |   | O  X  X  X  O  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 14/9 2/1.
+GNU Backgammon  Position ID: 280IQBj/bAMAAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O       |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X  O  X |     On roll
+|                  |   | O  X  X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 280IQBj/bAMAAA
+Match ID   : cAkFAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O       |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X  O  X |     Rolled 21
+|                  |   | O  X  X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 280IQBj/bAMAAA
+Match ID   : cAkFAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O       |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |    X  X  X  O  X |     Rolled 21
+|                  |   | O  X  X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: f24BAMB2MwIQBg
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|          O       |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     On roll
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X  O  X | X
+|                  |   | O  X  X  X  O  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: f24BAMB2MwIQBg
+Match ID   : MAEOAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|          O       |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     Rolled 34
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X  O  X | X
+|                  |   | O  X  X  X  O  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 23/20* 9/5.
+GNU Backgammon  Position ID: 260BQBF/bgAAEA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O  O  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X     X | X   On roll
+|                  | X | O  O  X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 260BQBF/bgAAEA
+Match ID   : cAkTAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O  O  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X     X | X   Rolled 64
+|                  | X | O  O  X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: f24AANB2awBQBA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   | O  O  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     On roll
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X     X | X
+|                  | X | O  O  X  X  O  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: f24AANB2awBQBA
+Match ID   : MIEFAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   | O  O  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     Rolled 31
+|                  |   |          O       |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X     X | X
+|                  | X | O  O  X  X  O  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 20/17 3/2.
+GNU Backgammon  Position ID: u60BkBB/bgAAEA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O  O  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X     X | X   On roll
+|             O    | X | O     X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u60BkBB/bgAAEA
+Match ID   : cIkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O  O  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X     X | X   Rolled 53
+|             O    | X | O     X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: u60BkBB/bgAAEA
+Match ID   : cIkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O  O  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X     X | X   Rolled 53
+|             O    | X | O     X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: f24AEMBuMwASEg
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|             X    | O | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     On roll
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X     X | X
+|             O    |   | O     X  X  O  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: f24AEMBuMwASEg
+Match ID   : MIEOAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|             X    | O | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     Rolled 53
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|                  |   |       X  X     X | X
+|             O    |   | O     X  X  O  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves bar/17.
+GNU Backgammon  Position ID: u80AmBB/bgAQAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|             X    |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|             O    |   |       X  X     X | X   On roll
+|             O    |   | O     X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u80AmBB/bgAQAA
+Match ID   : cIkGAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|             X    |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|             O    |   |       X  X     X | X   Rolled 51
+|             O    |   | O     X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: u80AmBB/bgAQAA
+Match ID   : cIkGAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|             X    |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |          X     X |
+|             O    |   |       X  X     X | X   Rolled 51
+|             O    |   | O     X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: f22AAMBuMwAmEA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  | O | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     On roll
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|             O    |   |       X  X     X | X
+| X           O    |   | O     X  X  X  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: f22AAMBuMwAmEA
+Match ID   : MIEKAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  | O | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     Rolled 25
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|             O    |   |       X  X     X | X
+| X           O    |   | O     X  X  X  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves bar/23*/18.
+GNU Backgammon  Position ID: u80AWAF/NkAAEA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|             O    |   |       X  X     X | X   On roll
+| X           O  O | X | O     X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u80AWAF/NkAAEA
+Match ID   : cIkFAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|             O    |   |       X  X     X | X   Rolled 31
+| X           O  O | X | O     X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: fzZAANBuMwBWAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     On roll
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|             O    |   |       X  X     X | X
+| X           O  O | X | O     X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzZAANBuMwBWAA
+Match ID   : MAEXAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     Rolled 65
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|             O    |   |       X  X     X | X
+| X           O  O | X | O     X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 19/14 18/12.
+GNU Backgammon  Position ID: u81AYgB/NkAAEA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O                |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|             O    |   |       X  X     X | X   On roll
+| X  O        O    | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u81AYgB/NkAAEA
+Match ID   : cAkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O                |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|             O    |   |       X  X     X | X   Rolled 42
+| X  O        O    | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: fzZAANBuM5AYAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O                |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     On roll
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|             O    |   |       X  X     X | X
+| X  O        O    | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzZAANBuM5AYAA
+Match ID   : MAEOAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O                |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     Rolled 43
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|             O    |   |       X  X     X | X
+| X  O        O    | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 17/14 17/13*.
+GNU Backgammon  Position ID: u81ADQB/NgAAGA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O                |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|    O             | X |       X  X     X | X   On roll
+| O  O             | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u81ADQB/NgAAGA
+Match ID   : cIkNAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O                |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|    O             | X |       X  X     X | X   Rolled 33
+| O  O             | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: fzYAANhuM1ADAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O                |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     On roll
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|    O             | X |       X  X     X | X
+| O  O             | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYAANhuM1ADAA
+Match ID   : MAEGAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O                |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     Rolled 41
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|    O             | X |       X  X     X | X
+| O  O             | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 14/13 14/10.
+GNU Backgammon  Position ID: u82QBgB/NgAAGA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O     O          |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+| O                | X |       X  X     X | X   On roll
+| O                | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u82QBgB/NgAAGA
+Match ID   : cAkTAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O     O          |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+| O                | X |       X  X     X | X   Rolled 64
+| O                | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: fzYAANhuM6QBAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O     O          |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     On roll
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+| O                | X |       X  X     X | X
+| O                | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYAANhuM6QBAA
+Match ID   : MAETAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O     O          |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     Rolled 46
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+| O                | X |       X  X     X | X
+| O                | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 13/9 13/7.
+GNU Backgammon  Position ID: u81SAgB/NgAAGA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O     O  O     O |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X   On roll
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u81SAgB/NgAAGA
+Match ID   : cAkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O     O  O     O |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X   Rolled 42
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: fzYAANhus5QAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O     O  O     O |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     On roll
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X
+|                  | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYAANhus5QAAA
+Match ID   : MAEKAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O     O  O     O |   | O     O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     Rolled 42
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X
+|                  | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 12/8 10/8.
+GNU Backgammon  Position ID: u81aAAB/NgAAGA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O  O  O |   | O     O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X   On roll
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u81aAAB/NgAAGA
+Match ID   : cAkLAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|          O  O  O |   | O     O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X   Rolled 62
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: fzYAANhusxYAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|          O  O  O |   | O     O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |     On roll
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X
+|                  | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYAANhusxYAAA
+Match ID   : MAEOAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|          O  O  O |   | O     O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |     Rolled 43
+|                  |   |             O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X
+|                  | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 9/5 6/3.
+GNU Backgammon  Position ID: u1s1AAB/NgAAGA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|             O  O |   | O  O  O  O  O  O |     0 points
+|             O    |   |       O  O  O  O |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X   On roll
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u1s1AAB/NgAAGA
+Match ID   : cIkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|             O  O |   | O  O  O  O  O  O |     0 points
+|             O    |   |       O  O  O  O |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X   Rolled 52
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: u1s1AAB/NgAAGA
+Match ID   : cIkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|             O  O |   | O  O  O  O  O  O |     0 points
+|             O    |   |       O  O  O  O |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  | X |       X  X     X | X   Rolled 52
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: fzYAQNDupgYAEA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|             O  O | O | O  X  O  O  O  O |     0 points
+|             O    |   |       O  O  O  O |     On roll
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYAQNDupgYAEA
+Match ID   : MAEFAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|             O  O | O | O  X  O  O  O  O |     0 points
+|             O    |   |       O  O  O  O |     Rolled 21
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves bar/23 7/6.
+GNU Backgammon  Position ID: u5sZABB/NgBAEA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|             O    |   | O  X  O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   On roll
+|                  | X |       X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u5sZABB/NgBAEA
+Match ID   : cAkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|             O    |   | O  X  O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 42
+|                  | X |       X  X  O  X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: fzYAQNDuZgYABA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|             O    |   | O  X  O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |     On roll
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  | X |       X  X  O  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYAQNDuZgYABA
+Match ID   : MAEXAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|             O    |   | O  X  O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |     Rolled 65
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  | X |       X  X  O  X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 23/12.
+GNU Backgammon  Position ID: u5sZAgB/NgBAEA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O           O    |   | O  X  O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   On roll
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u5sZAgB/NgBAEA
+Match ID   : cIkJAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| O           O    |   | O  X  O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 32
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: fzYAQNDuZoYAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O           O    |   | O  X  O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |     On roll
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYAQNDuZoYAAA
+Match ID   : MAESAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| O           O    |   | O  X  O  O  O  O |     0 points
+|             O    |   | O     O  O  O  O |     Rolled 44
+|                  |   |          O  O    |
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 12/4 8/4(2).
+GNU Backgammon  Position ID: u/sMAAB/NgBAEA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O  X  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |       O  O  O    |
+|                  |   |       O          |
+|                  |   |       O          |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   On roll
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u/sMAAB/NgBAEA
+Match ID   : cAkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O  X  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |
+|                  |   |       O  O  O    |
+|                  |   |       O          |
+|                  |   |       O          |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 43
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+gamonix
+cannot move.
+GNU Backgammon  Position ID: fzYAQNDuPgMAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   | O  X  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     On roll
+|                  |   |       O  O  O    |
+|                  |   |       O          |
+|                  |   |       O          |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYAQNDuPgMAAA
+Match ID   : MAETAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   | O  X  O  O  O  O |     0 points
+|                  |   | O     O  O  O  O |     Rolled 64
+|                  |   |       O  O  O    |
+|                  |   |       O          |
+|                  |   |       O          |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  | X |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 6/off 4/off.
+GNU Backgammon  Position ID: u3sCAMCfDQAQBA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O  X  O  O  O  O | O   0 points
+|                  |   |       O  O  O  O | O
+|                  |   |       O  O  O    |
+|                  |   |       O          |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   On roll
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: u3sCAMCfDQAQBA
+Match ID   : cIkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O  X  O  O  O  O | O   0 points
+|                  |   |       O  O  O  O | O
+|                  |   |       O  O  O    |
+|                  |   |       O          |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 52
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: u3sCAMCfDQAQBA
+Match ID   : cIkKAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   | O  X  O  O  O  O | O   0 points
+|                  |   |       O  O  O  O | O
+|                  |   |       O  O  O    |
+|                  |   |       O          |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 52
+|                  | X |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: fzYAkMDungAAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                X |   | O  X  O  O  O  O | O   0 points
+|                  |   |       O  O  O  O | O   On roll
+|                  |   |       O  O  O    |
+|                  |   |       O          |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  |   |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYAkMDungAAAA
+Match ID   : MIESAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                X |   | O  X  O  O  O  O | O   0 points
+|                  |   |       O  O  O  O | O   Rolled 54
+|                  |   |       O  O  O    |
+|                  |   |       O          |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  |   |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 6/1 4/off.
+GNU Backgammon  Position ID: d3cAAODPBgASAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                X |   |    X  O  O  O  O | O   0 points
+|                  |   |       O  O  O  O | O
+|                  |   |       O  O  O  O | O
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   On roll
+|                  |   |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: d3cAAODPBgASAA
+Match ID   : cIkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                X |   |    X  O  O  O  O | O   0 points
+|                  |   |       O  O  O  O | O
+|                  |   |       O  O  O  O | O
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 54
+|                  |   |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: d3cAAODPBgASAA
+Match ID   : cIkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                X |   |    X  O  O  O  O | O   0 points
+|                  |   |       O  O  O  O | O
+|                  |   |       O  O  O  O | O
+|                  |   |                  |
+|                  |   |                  |
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 54
+|                  |   |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: fzYABcDdHQAAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    X  X          |   |       O  O  O  O | O   0 points
+|                  |   |       O  O  O  O | O   On roll
+|                  |   |       O  O  O  O | O
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  |   |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYABcDdHQAAAA
+Match ID   : MIEEAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|    X  X          |   |       O  O  O  O | O   0 points
+|                  |   |       O  O  O  O | O   Rolled 11
+|                  |   |       O  O  O  O | O
+|                  |   |                  |
+|                  |   |                  |
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|                  |   |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 4/3 1/off(3).
+GNU Backgammon  Position ID: 7g0AAPzZABQAAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    X  X          |   |       O  O  O    | OO  0 points
+|                  |   |       O  O  O    | O
+|                  |   |          O  O    | O
+|                  |   |          O       | O
+|                  |   |                  | O
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   On roll
+|                  |   |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 7g0AAPzZABQAAA
+Match ID   : cAkHAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    X  X          |   |       O  O  O    | OO  0 points
+|                  |   |       O  O  O    | O
+|                  |   |          O  O    | O
+|                  |   |          O       | O
+|                  |   |                  | O
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 61
+|                  |   |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 7g0AAPzZABQAAA
+Match ID   : cAkHAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|    X  X          |   |       O  O  O    | OO  0 points
+|                  |   |       O  O  O    | O
+|                  |   |          O  O    | O
+|                  |   |          O       | O
+|                  |   |                  | O
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 61
+|                  |   |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: fzYIAYB7AwAAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X                |   |       O  O  O    | OO  0 points
+|                  |   |       O  O  O    | O   On roll
+|                  |   |          O  O    | O
+|                  |   |          O       | O
+|                  |   |                  | O
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|          X       |   |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fzYIAYB7AwAAAA
+Match ID   : MIEKAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+| X                |   |       O  O  O    | OO  0 points
+|                  |   |       O  O  O    | O   Rolled 52
+|                  |   |          O  O    | O
+|                  |   |          O       | O
+|                  |   |                  | O
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|          X       |   |       X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 4/off 2/off.
+GNU Backgammon  Position ID: 9gIAAH82CAEAAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X                |   |       O  O  O    | OO  0 points
+|                  |   |          O  O    | OO
+|                  |   |          O       | OO
+|                  |   |          O       | O
+|                  |   |                  | O
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   On roll
+|          X       |   |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: 9gIAAH82CAEAAA
+Match ID   : cAkJAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X                |   |       O  O  O    | OO  0 points
+|                  |   |          O  O    | OO
+|                  |   |          O       | OO
+|                  |   |          O       | O
+|                  |   |                  | O
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 22
+|          X       |   |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: 9gIAAH82CAEAAA
+Match ID   : cAkJAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+| X                |   |       O  O  O    | OO  0 points
+|                  |   |          O  O    | OO
+|                  |   |          O       | OO
+|                  |   |          O       | O
+|                  |   |                  | O
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 22
+|          X       |   |       X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: f7YQAIC9AAAAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   |       O  O  O    | OO  0 points
+|                  |   |          O  O    | OO  On roll
+|                  |   |          O       | OO
+|                  |   |          O       | O
+|                  |   |                  | O
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|          X       |   |    X  X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: f7YQAIC9AAAAAA
+Match ID   : MAEFAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   |       O  O  O    | OO  0 points
+|                  |   |          O  O    | OO  Rolled 12
+|                  |   |          O       | OO
+|                  |   |          O       | O
+|                  |   |                  | O
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X
+|          X       |   |    X  X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 4/3 2/off.
+GNU Backgammon  Position ID: +gAAgD9bCAAAAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |          O  O    | OO  0 points
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |          O       | O
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   On roll
+|          X       |   |    X  X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: +gAAgD9bCAAAAA
+Match ID   : cIkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |          O  O    | OO  0 points
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |          O       | O
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 54
+|          X       |   |    X  X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: +gAAgD9bCAAAAA
+Match ID   : cIkSAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |          O  O    | OO  0 points
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |          O       | O
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X |
+|                  |   |       X  X     X | X   Rolled 54
+|          X       |   |    X  X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: f7YAAEAfAAAAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   |          O  O    | OO  0 points
+|                  |   |          O       | OO  On roll
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |          O       | O
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X | X
+|                  |   |       X  X     X | X
+|                  |   |    X  X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: f7YAAEAfAAAAAA
+Match ID   : MAETAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   |          O  O    | OO  0 points
+|                  |   |          O       | OO  Rolled 46
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |          O       | O
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X | X
+|                  |   |       X  X     X | X
+|                  |   |    X  X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 3/off(2).
+GNU Backgammon  Position ID: OgAA4M8WAAAAAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |          O  O    | OOO 0 points
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |                  | OO
+|                  |   |                  | OO
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X | X
+|                  |   |       X  X     X | X   On roll
+|                  |   |    X  X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: OgAA4M8WAAAAAA
+Match ID   : cAkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |          O  O    | OOO 0 points
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |                  | OO
+|                  |   |                  | OO
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X | X
+|                  |   |       X  X     X | X   Rolled 43
+|                  |   |    X  X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: OgAA4M8WAAAAAA
+Match ID   : cAkOAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |          O  O    | OOO 0 points
+|                  |   |          O       | OO
+|                  |   |          O       | OO
+|                  |   |                  | OO
+|                  |   |                  | OO
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 |
+|                  |   |                X |
+|                  |   |                X | X
+|                  |   |       X  X     X | X   Rolled 43
+|                  |   |    X  X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: fyoAANABAAAAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   |          O  O    | OOO 0 points
+|                  |   |          O       | OO  On roll
+|                  |   |          O       | OO
+|                  |   |                  | OO
+|                  |   |                  | OO
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |    X  X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: fyoAANABAAAAAA
+Match ID   : MIEGAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   |          O  O    | OOO 0 points
+|                  |   |          O       | OO  Rolled 15
+|                  |   |          O       | OO
+|                  |   |                  | OO
+|                  |   |                  | OO
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |    X  X  X     X | X   0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 3/2 3/off.
+GNU Backgammon  Position ID: FgAA8KcCAAAAAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |          O  O    | OOO 0 points
+|                  |   |             O    | OOO
+|                  |   |                  | OO
+|                  |   |                  | OO
+|                  |   |                  | OO
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |                X | X   On roll
+|                  |   |    X  X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: FgAA8KcCAAAAAA
+Match ID   : cIkNAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |          O  O    | OOO 0 points
+|                  |   |             O    | OOO
+|                  |   |                  | OO
+|                  |   |                  | OO
+|                  |   |                  | OO
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |                X | X   Rolled 33
+|                  |   |    X  X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: FgAA8KcCAAAAAA
+Match ID   : cIkNAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |          O  O    | OOO 0 points
+|                  |   |             O    | OOO
+|                  |   |                  | OO
+|                  |   |                  | OO
+|                  |   |                  | OO
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                7 | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |                X | X   Rolled 33
+|                  |   |    X  X  X     X | X   0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: /wAAACwAAAAAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   |          O  O    | OOO 0 points
+|                  |   |             O    | OOO On roll
+|                  |   |                  | OO
+|                  |   |                  | OO
+|                  |   |                  | OO
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |                X | XX
+|                  |   |                X | XX  0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: /wAAACwAAAAAAA
+Match ID   : MIEFAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   |          O  O    | OOO 0 points
+|                  |   |             O    | OOO Rolled 31
+|                  |   |                  | OO
+|                  |   |                  | OO
+|                  |   |                  | OO
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |                X | XX
+|                  |   |                X | XX  0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 3/off 2/1.
+GNU Backgammon  Position ID: BQAA+AcAAAAAAA
+Match ID   : cAkAAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |             O  O | OOO 0 points
+|                  |   |                  | OOO
+|                  |   |                  | OOO
+|                  |   |                  | OO
+|                  |   |                  | OO
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |                X | XX  On roll
+|                  |   |                X | XX  0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: BQAA+AcAAAAAAA
+Match ID   : cIkFAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |             O  O | OOO 0 points
+|                  |   |                  | OOO
+|                  |   |                  | OOO
+|                  |   |                  | OO
+|                  |   |                  | OO
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |                X | XX  Rolled 31
+|                  |   |                X | XX  0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+GNU Backgammon  Position ID: BQAA+AcAAAAAAA
+Match ID   : cIkFAAAAAAAA
++13-14-15-16-17-18------19-20-21-22-23-24-+     O: gnubg
+|                  |   |             O  O | OOO 0 points
+|                  |   |                  | OOO
+|                  |   |                  | OOO
+|                  |   |                  | OO
+|                  |   |                  | OO
+v|                  |BAR|                  |     (Cube: 1)
+|                  |   |                8 | X
+|                  |   |                X | X
+|                  |   |                X | X
+|                  |   |                X | XX  Rolled 31
+|                  |   |                X | XX  0 points
++12-11-10--9--8--7-------6--5--4--3--2--1-+     X: gamonix
+in on move.
+GNU Backgammon  Position ID: PwAAgAIAAAAAAA
+Match ID   : MAEAAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   |             O  O | OOO 0 points
+|                  |   |                  | OOO On roll
+|                  |   |                  | OOO
+|                  |   |                  | OO
+|                  |   |                  | OO
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 | X
+|                  |   |                X | XX
+|                  |   |                X | XX
+|                  |   |                X | XX
+|                  |   |                X | XX  0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+Enter dice: You must enter two numbers between 1 and 6.
+Enter dice:  GNU Backgammon  Position ID: PwAAgAIAAAAAAA
+Match ID   : MIEJAAAAAAAA
++12-11-10--9--8--7-------6--5--4--3--2--1-+     O: gnubg
+|                  |   |             O  O | OOO 0 points
+|                  |   |                  | OOO Rolled 32
+|                  |   |                  | OOO
+|                  |   |                  | OO
+|                  |   |                  | OO
+^|                  |BAR|                  |     (Cube: 1)
+|                  |   |                6 | X
+|                  |   |                X | XX
+|                  |   |                X | XX
+|                  |   |                X | XX
+|                  |   |                X | XX  0 points
++13-14-15-16-17-18------19-20-21-22-23-24-+     X: gamonix
+gnubg
+moves 2/off 1/off.
+gnubg
+wins a single game and 1 point.
+The score (after 1 game) is: gnubg
+1, gamonix
+0 (money session, with Jacoby rule).
+
+Session complete
