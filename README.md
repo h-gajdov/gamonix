@@ -93,7 +93,7 @@ Download the gnubg CLI version from this [link](https://www.gnu.org/software/gnu
 
 Open the GNU Backgammon app and in Settings -> Options you need to disable "use doubling cube" in the Cube tab, set dice to "manual dice" in the Dice tab and before running the script in the New panel you should press "Modify player settings..." and set Player 0 to be GNU Backgammon and set its difficulty.
 
-Next in the main directory of this project you should create a `.env` file where you define:
+Next in the root directory of this project you should create a `.env` file where you define:
 
 ```env
 PATH_TO_GNUBG=D:\<path-to-gnubg>\gnubg\gnubg-cli
