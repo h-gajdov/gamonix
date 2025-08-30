@@ -44,9 +44,12 @@ def player_has_moves():
 def get_player_not_on_turn():
     return players[(current_player_index + 1) % len(players)]
 
+def change_player_delay(delay=2):
+    import threading
+    threading.Timer(delay, change_player).start() # 2 seconds delay before the player is changed
+
 def change_player():
     global current_player_index, current_player, players, dice_values, opening, next_moves, time_to_next_move, moves_this_turn, can_clear_moves_this_turn, previous_states
-
     time_to_next_move = time.time() + 1
     opening = False
     if isinstance(current_player, agent.CachingExpectimaxAgent): 
@@ -61,7 +64,7 @@ def change_player():
 
     dice_values = roll_dice()
     if not player_has_moves():
-        change_player()
+        change_player_delay()
     
 def start_game():
     global dice_values, dice_values_ui, current_player_index, current_player, opening, next_moves, time_to_next_move, moves_this_turn, can_clear_moves_this_turn, previous_states
@@ -82,4 +85,4 @@ def start_game():
 
     time_to_next_move = time.time() + 1
     if not player_has_moves():
-        change_player()
+        change_player_delay()

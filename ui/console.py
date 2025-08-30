@@ -38,6 +38,7 @@ if '--games' in sys.argv:
 def simulate_move(debug_print=True):
     if not universal.next_moves:
         universal.next_moves = universal.current_player.move(brd.board, universal.dice_values, universal.opening)
+        if not universal.next_moves: return None
 
     move = universal.next_moves.pop(0)
     brd.board, universal.dice_values = brd.move_piece(move, brd.board[:], universal.dice_values, universal.current_player.color)
