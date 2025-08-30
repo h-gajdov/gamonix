@@ -19,6 +19,7 @@ current_player = players[current_player_index]
 opening = True
 next_moves = []
 previous_states = [] #state: (board, dice_values)
+game_ended = False
 
 STARTING_BOARD = [0, 2, 0, 0, 0, 0, -5, 0, -3, 0, 0, 0, 5, -5, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, -2, 0, 0, 0]
 

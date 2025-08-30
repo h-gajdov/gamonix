@@ -23,6 +23,7 @@ pygame.display.set_caption("Gamonix")
 layer.intialize_layers()
 dice1_text = pygame.font.Font(None, 36)
 dice2_text = pygame.font.Font(None, 36)
+winning_text = pygame.font.Font(None, 72)
 
 if "--agent" in sys.argv:
     agent_name = sys.argv[sys.argv.index("--agent") + 1]
@@ -36,6 +37,16 @@ points = initialize_points_array()
 events.set_points(points)
 
 table_background = pygame.image.load("ui/assets/table_borders.png").convert_alpha()
+
+def render_winning_text(text):
+    layer.ui_layer.surface.fill((0, 0, 0, 127))
+    winning_text_surface = winning_text.render(text, False, WHITE)
+    winning_rect = winning_text_surface.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2))
+    restart_text = dice1_text.render("Press R to play again!", True, WHITE)
+    restart_rect = restart_text.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + 50))
+    layer.ui_layer.surface.blit(winning_text_surface, winning_rect)
+    layer.ui_layer.surface.blit(restart_text, restart_rect)
+    universal.game_ended = True
 
 def undo_move():
     state = universal.previous_states.pop()
@@ -58,14 +69,22 @@ running = True
 sounds.play_sounds = True
 while running:
     for event in pygame.event.get():
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_u and len(universal.previous_states) > 0:
-                undo_move()
-            
-        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            events.move_pieces(event)
+        if universal.game_ended:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
+                    universal.start_game()
+                    points = initialize_points_array()
+                    events.set_points(points)
+                    universal.game_ended = False
+        else:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_u and len(universal.previous_states) > 0:
+                    undo_move()
+                
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                events.move_pieces(event)
 
-    if time.time() > universal.time_to_next_move and universal.ai_is_on_turn():
+    if time.time() > universal.time_to_next_move and universal.ai_is_on_turn() and not universal.game_ended:
         console.simulate_move(False)
         sounds.play_sound(sounds.move_sound)
         points = initialize_points_array()
@@ -113,6 +132,9 @@ while running:
     text_rect_2 = text_surface_2.get_rect(center=box2.center)
     layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
     layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
+    
+    if brd.board[0] == -15: render_winning_text("You win!")
+    elif brd.board[25] == 15: render_winning_text("You lose!")
 
     layer.game_board_layer.surface.blit(table_background, (0, 0))
     layer.Layer.draw_layers(screen)
