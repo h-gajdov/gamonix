@@ -4,20 +4,22 @@ from options import *
 background_board_layer = None
 game_board_layer = None
 points_highlight_layer = None
+shadows_layer = None
 pieces_layer = None
 highlight_pieces_layer = None
 ui_layer = None
 
 def intialize_layers():
     global background_board_layer, game_board_layer
-    global points_highlight_layer, pieces_layer, highlight_pieces_layer, ui_layer
+    global points_highlight_layer, pieces_layer, highlight_pieces_layer, ui_layer, shadows_layer
     
     background_board_layer = Layer.add_layer(0, False)
     game_board_layer = Layer.add_layer(1, True)
-    points_highlight_layer = Layer.add_layer(2, True)
-    pieces_layer = Layer.add_layer(3, True)
-    highlight_pieces_layer = Layer.add_layer(4, True)
-    ui_layer = Layer.add_layer(5, True)
+    shadows_layer = Layer.add_layer(2, True)
+    points_highlight_layer = Layer.add_layer(3, True)
+    pieces_layer = Layer.add_layer(4, True)
+    highlight_pieces_layer = Layer.add_layer(5, True)
+    ui_layer = Layer.add_layer(6, True)
 
 class Layer:
     LAYERS = []

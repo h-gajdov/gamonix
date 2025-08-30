@@ -112,14 +112,32 @@ while running:
     # draw_rect(layer.background_board_layer, BOARD_BORDER, SCREEN_WIDTH - BOARD_WIDTH, 0, BOARD_WIDTH, SCREEN_HEIGHT)
     
     #Middle Border
-    # draw_rect(layer.background_board_layer, BOARD_BORDER, SCREEN_WIDTH / 2 - BOARD_WIDTH / 2, 0, BOARD_WIDTH, SCREEN_HEIGHT)
+    draw_rect(layer.background_board_layer, BOARD_BORDER, SCREEN_WIDTH / 2 - BOARD_WIDTH / 2, 0, BOARD_WIDTH, SCREEN_HEIGHT)
     
     #Off sections
     down_off_section_y = SCREEN_HEIGHT * 0.6 - OFF_SECTION_ADDED_HEIGHT - BOARD_HEIGHT
     right_off_section_x = SCREEN_WIDTH - BOARD_HEIGHT - OFF_SECTION_WIDTH
     draw_rect(layer.background_board_layer, OFF_SECTION, BOARD_HEIGHT, BOARD_HEIGHT, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
     draw_rect(layer.background_board_layer, OFF_SECTION, BOARD_HEIGHT, down_off_section_y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
-    
+
+    #Shadows
+    shadow_width = 4
+    shadow_transparency = 25
+    draw_rect(layer.game_board_layer, (0, 0, 0, shadow_transparency), BOARD_HEIGHT, BOARD_HEIGHT, OFF_PIECE_WIDTH, shadow_width)
+    draw_rect(layer.game_board_layer, (0, 0, 0, shadow_transparency), BOARD_HEIGHT, BOARD_HEIGHT, shadow_width, OFF_SECTION_HEIGHT)
+    draw_rect(layer.game_board_layer, (0, 0, 0, shadow_transparency), BOARD_HEIGHT + OFF_PIECE_WIDTH - shadow_width, BOARD_HEIGHT, shadow_width, OFF_SECTION_HEIGHT)
+    draw_rect(layer.game_board_layer, (0, 0, 0, shadow_transparency), BOARD_HEIGHT, BOARD_HEIGHT + OFF_SECTION_HEIGHT - shadow_width, OFF_PIECE_WIDTH, shadow_width)
+
+    draw_rect(layer.game_board_layer, (0, 0, 0, shadow_transparency), BOARD_HEIGHT, down_off_section_y, OFF_PIECE_WIDTH, shadow_width)
+    draw_rect(layer.game_board_layer, (0, 0, 0, shadow_transparency), BOARD_HEIGHT, down_off_section_y, shadow_width, OFF_SECTION_HEIGHT)
+    draw_rect(layer.game_board_layer, (0, 0, 0, shadow_transparency), BOARD_HEIGHT + OFF_PIECE_WIDTH - shadow_width, down_off_section_y, shadow_width, OFF_SECTION_HEIGHT)
+    draw_rect(layer.game_board_layer, (0, 0, 0, shadow_transparency), BOARD_HEIGHT, down_off_section_y + OFF_SECTION_HEIGHT - shadow_width, OFF_PIECE_WIDTH, shadow_width)
+
+    draw_rect(layer.shadows_layer, (0, 0, 0, shadow_transparency), BOARD_WIDTH, BOARD_HEIGHT, SCREEN_WIDTH / 2 - 3 * BOARD_WIDTH / 2 + 7, 10)
+    draw_rect(layer.shadows_layer, (0, 0, 0, shadow_transparency), SCREEN_WIDTH / 2 + BOARD_WIDTH / 2, BOARD_HEIGHT, SCREEN_WIDTH / 2 - 3 * BOARD_WIDTH / 2 + 7, 10)
+    draw_rect(layer.shadows_layer, (0, 0, 0, shadow_transparency), BOARD_WIDTH, SCREEN_HEIGHT - BOARD_HEIGHT - 10, SCREEN_WIDTH / 2 - 3 * BOARD_WIDTH / 2 + 7, 10)
+    draw_rect(layer.shadows_layer, (0, 0, 0, shadow_transparency), SCREEN_WIDTH / 2 + BOARD_WIDTH / 2, SCREEN_HEIGHT - BOARD_HEIGHT - 10, SCREEN_WIDTH / 2 - 3 * BOARD_WIDTH / 2 + 7, 10)
+
     #Draw dice UI
     dice_size = 56
     tmp_width = SCREEN_WIDTH - 2 * BOARD_WIDTH 

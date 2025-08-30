@@ -99,6 +99,14 @@ class OffSection(Point):
         
     def draw(self, transparent_pieces=False):
         self.rect = draw_rect(layer.game_board_layer, OFF_SECTION, self.x, self.y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
+
+        #Shadows
+        draw_rect(layer.ui_layer, (0, 0, 0, 25), self.x, self.y, OFF_SECTION_WIDTH, 4)
+        draw_rect(layer.ui_layer, (0, 0, 0, 25), self.x, self.y, 4, OFF_SECTION_HEIGHT)
+        draw_rect(layer.ui_layer, (0, 0, 0, 25), self.x, self.y + OFF_SECTION_HEIGHT - 4, OFF_SECTION_WIDTH, 4)
+        draw_rect(layer.ui_layer, (0, 0, 0, 25), self.x + OFF_SECTION_WIDTH - 4, self.y, 4, OFF_SECTION_HEIGHT)
+        
+        
         if self.is_highlighted:
             draw_rect(layer.points_highlight_layer, GREEN_HIGHLIGHT, self.x, self.y, OFF_SECTION_WIDTH, OFF_SECTION_HEIGHT)
             
