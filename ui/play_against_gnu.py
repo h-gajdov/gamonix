@@ -13,8 +13,8 @@ from colors import *
 
 file_content = ''
 save_contents = '-s' in sys.argv
-if '--name' in sys.argv:
-    agent_name = sys.argv[sys.argv.index("--name") + 1]
+if '--agent' in sys.argv:
+    agent_name = sys.argv[sys.argv.index("--agent") + 1]
     agent = Agent.get_agent_from_name(agent_name, DARK_PIECE, configs['41gensnodoubles'], True)
 else:
     agent = AdaptiveBeamAgent(color=DARK_PIECE, config=configs['41gensnodoubles'], play_opening=True, max_depth=2)
