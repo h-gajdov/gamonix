@@ -36,7 +36,11 @@ universal.start_game()
 points = initialize_points_array()
 events.set_points(points)
 
-table_background = pygame.image.load("ui/assets/table_borders.png").convert_alpha()
+def load_image(path):
+    return pygame.image.load(path).convert_alpha()
+
+def resize_image(img, new_size):
+    return pygame.transform.scale(img, new_size)
 
 def render_winning_text(text):
     layer.ui_layer.surface.fill((0, 0, 0, 127))
@@ -64,6 +68,17 @@ def highlight_previous_moves(player):
         if move.destination_point not in highlighted:
             points[move.destination_point].highlight_made_move()
             highlighted.append(move.destination_point)
+
+table_background = load_image("ui/assets/table_borders.png")
+dice_images = [
+    load_image("ui/assets/dice/dice_1.png"),
+    load_image("ui/assets/dice/dice_2.png"),
+    load_image("ui/assets/dice/dice_3.png"),
+    load_image("ui/assets/dice/dice_4.png"),
+    load_image("ui/assets/dice/dice_5.png"),
+    load_image("ui/assets/dice/dice_6.png")
+]
+dice_images = [resize_image(img, (56, 56)) for img in dice_images]
 
 running = True
 sounds.play_sounds = True
@@ -141,15 +156,15 @@ while running:
     #Draw dice UI
     dice_size = 56
     tmp_width = SCREEN_WIDTH - 2 * BOARD_WIDTH 
-    box1 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 - dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
-    box2 = draw_rect(layer.ui_layer, WHITE, BOARD_WIDTH + 3 * tmp_width / 4 + dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
+    box1 = draw_rect(layer.ui_layer, NO_COLOR, BOARD_WIDTH + 3 * tmp_width / 4 - dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
+    box2 = draw_rect(layer.ui_layer, NO_COLOR, BOARD_WIDTH + 3 * tmp_width / 4 + dice_size, SCREEN_HEIGHT / 2 - dice_size / 2, dice_size, dice_size, 1, 5)
 
     text_surface_1 = dice1_text.render(str(universal.dice_values_ui[0]), False, BLACK)
     text_surface_2 = dice1_text.render(str(universal.dice_values_ui[1]), True, BLACK) 
     text_rect_1 = text_surface_1.get_rect(center=box1.center)
     text_rect_2 = text_surface_2.get_rect(center=box2.center)
-    layer.ui_layer.surface.blit(text_surface_1, text_rect_1)
-    layer.ui_layer.surface.blit(text_surface_2, text_rect_2)
+    layer.ui_layer.surface.blit(dice_images[universal.dice_values_ui[0] - 1], (text_rect_1[0] - 23, text_rect_1[1] - 17))
+    layer.ui_layer.surface.blit(dice_images[universal.dice_values_ui[1] - 1], (text_rect_2[0] - 23, text_rect_2[1] - 17))
     
     if brd.board[0] == -15: render_winning_text("You win!")
     elif brd.board[25] == 15: render_winning_text("You lose!")
