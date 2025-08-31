@@ -1,7 +1,9 @@
 import random
+import threading
 import time
 import ai.agent as agent
 import game_logic.board as brd
+import sounds
 
 from ui.colors import *
 from ai.config import configs
@@ -28,6 +30,7 @@ def ai_is_on_turn():
 
 def roll_dice():
     global dice_values_ui
+    sounds.play_sound(sounds.throw_dice)
     value1 = random.randint(1, 6)
     value2 = random.randint(1, 6)
     if value1 != value2: result = [value1, value2]
@@ -45,7 +48,6 @@ def get_player_not_on_turn():
     return players[(current_player_index + 1) % len(players)]
 
 def change_player_delay(delay=2):
-    import threading
     threading.Timer(delay, change_player).start() # 2 seconds delay before the player is changed
 
 def change_player():
@@ -73,6 +75,7 @@ def start_game():
     opening = brd.board == STARTING_BOARD
     
     if 0 in brd.dice_fen: 
+        threading.Timer(0.1, sounds.play_sound, args=[sounds.throw_dice]).start() # play with delay because when the game starts the audio in the function doesn't get played
         dice_values = roll_dice()
     else:
         dice_values = dice_values_ui = brd.dice_fen
